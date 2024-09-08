@@ -150,7 +150,7 @@ public class JXEditorPane extends JEditorPane implements /*Searchable, */Targeta
     private UndoableEditListener undoHandler;
     private UndoManager undoManager;
     private CaretListener caretHandler;
-    private JComboBox selector;
+    private JComboBox<HTML.Tag> selector;
 
     // The ids of supported actions. Perhaps this should be public.
     private final static String ACTION_FIND = "find";
@@ -431,7 +431,7 @@ public class JXEditorPane extends JEditorPane implements /*Searchable, */Targeta
      * <p>
      * Note: This is only valid for the HTMLEditorKit
      */
-    public JComboBox getParagraphSelector() {
+    public JComboBox<HTML.Tag> getParagraphSelector() {
         if (selector == null) {
             selector = new ParagraphSelector();
         }
@@ -442,7 +442,7 @@ public class JXEditorPane extends JEditorPane implements /*Searchable, */Targeta
      * A control which should be placed in the toolbar to enable
      * paragraph selection.
      */
-    private class ParagraphSelector extends JComboBox implements ItemListener {
+    private class ParagraphSelector extends JComboBox<HTML.Tag> implements ItemListener {
 
         private Map<HTML.Tag, String> itemMap;
 
@@ -470,7 +470,7 @@ public class JXEditorPane extends JEditorPane implements /*Searchable, */Targeta
             items.addElement(HTML.Tag.H6);
             items.addElement(HTML.Tag.PRE);
 
-            setModel(new DefaultComboBoxModel(items));
+            setModel(new DefaultComboBoxModel<>(items));
             setRenderer(new ParagraphRenderer());
             addItemListener(this);
             setFocusable(false);
@@ -490,7 +490,7 @@ public class JXEditorPane extends JEditorPane implements /*Searchable, */Targeta
             }
 
             @Override
-            public Component getListCellRendererComponent(JList list,
+            public Component getListCellRendererComponent(JList<?> list,
                                                           Object value,
                                                           int index,
                                                           boolean isSelected,

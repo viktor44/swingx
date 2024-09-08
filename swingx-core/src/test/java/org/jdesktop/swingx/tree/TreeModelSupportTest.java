@@ -32,6 +32,7 @@ import org.jdesktop.swingx.treetable.TreeTableModel;
 import org.jdesktop.test.TreeModelReport;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -71,6 +72,7 @@ public class TreeModelSupportTest extends TestCase {
      * path elements must not be null (core issue - should be checked
      *   by TreePath but isn't)
      */
+    @Ignore //vk:  new TreePath(new Object[] {null}); fails with error now
     @Test
     public void testPathChangedNotNullPathElements() {
         TreePath path = new TreePath(new Object[] {null});
@@ -123,6 +125,7 @@ public class TreeModelSupportTest extends TestCase {
      *
      *
      */
+    @Ignore //vk:  new TreePath(new Object[] {null}); fails with error now
     @Test
     public void testTreeStructureChangedNotNullPathElements() {
         TreePath path = new TreePath(new Object[] {null});

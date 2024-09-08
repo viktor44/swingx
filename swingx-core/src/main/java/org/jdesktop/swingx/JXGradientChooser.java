@@ -93,7 +93,7 @@ public class JXGradientChooser extends JXPanel {
     private JSpinner alphaSpinner;
     private JSlider alphaSlider;
     
-    private JComboBox styleCombo;
+    private JComboBox<String> styleCombo;
     private GradientPreviewPanel gradientPreview;
     
     private JRadioButton noCycleRadio;
@@ -272,7 +272,7 @@ public class JXGradientChooser extends JXPanel {
         previewPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        styleCombo = new javax.swing.JComboBox();
+        styleCombo = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         noCycleRadio = new javax.swing.JRadioButton();
         reflectedRadio = new javax.swing.JRadioButton();
@@ -417,7 +417,7 @@ public class JXGradientChooser extends JXPanel {
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         jPanel3.add(jLabel8, gridBagConstraints);
         
-        styleCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Linear", "Radial" }));
+        styleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Linear", "Radial" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;

@@ -48,7 +48,6 @@ import org.jdesktop.beans.JavaBean;
 import org.jdesktop.swingx.painter.AbstractPainter;
 import org.jdesktop.swingx.painter.Painter;
 import org.jdesktop.swingx.util.Contract;
-import org.jdesktop.swingx.util.JVM;
 
 /**
  * <p>
@@ -257,11 +256,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
                 oldOpaque = isOpaque();
                 super.setOpaque(false);
             }
-            
-            installRepaintManager();
         } else {
-            uninstallRepaintManager();
-            
             //restore the oldOpaque if it was true (since opaque is false now)
             if (oldOpaque) {
                 super.setOpaque(true);
@@ -292,11 +287,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
                 oldOpaque = isOpaque();
 //                super.setOpaque(false);
             }
-            
-            installRepaintManager();
         } else {
-            uninstallRepaintManager();
-            
             //restore the oldOpaque if it was true (since opaque is false now)
             if (oldOpaque) {
 //                super.setOpaque(true);
@@ -305,18 +296,6 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
         
         firePropertyChange("alpha", oldValue, getAlpha());
         repaint();
-    }
-    
-    void installRepaintManager() {
-        if (!JVM.current().isOrLater(JVM.JDK1_7)) {
-            RepaintManager manager = RepaintManager.currentManager(this);
-            RepaintManager trm = SwingXUtilities.getTranslucentRepaintManager(manager);
-            RepaintManager.setCurrentManager(trm);
-        }
-    }
-    
-    void uninstallRepaintManager() {
-        //TODO uninstall TranslucentRepaintManager when no more non-opaque JXPanel's exist
     }
     
     /**

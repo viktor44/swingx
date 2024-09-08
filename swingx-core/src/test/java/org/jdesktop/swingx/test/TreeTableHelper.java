@@ -103,8 +103,8 @@ public class TreeTableHelper {
     }
     public static class PostorderEnumeration implements Enumeration<TreeNode> {
         protected TreeNode root;
-        protected Enumeration<TreeNode> children;
-        protected Enumeration<TreeNode> subtree;
+        protected Enumeration<? extends TreeNode> children;
+        protected Enumeration<? extends TreeNode> subtree;
 
         @SuppressWarnings("unchecked")
         public PostorderEnumeration(TreeNode rootNode) {
@@ -114,10 +114,12 @@ public class TreeTableHelper {
             subtree = DefaultMutableTreeNode.EMPTY_ENUMERATION;
         }
 
+        @Override
         public boolean hasMoreElements() {
             return root != null;
         }
 
+        @Override
         public TreeNode nextElement() {
             TreeNode retval;
 
@@ -227,12 +229,9 @@ public class TreeTableHelper {
         public void setValueAt(Object value, Object node, int column) {
                 ((MutableTreeTableNode)node).setValueAt(value, column);
         }
-        
-        
-}
+    }
 
-    public static class Node extends DefaultMutableTreeNode implements
-            MutableTreeTableNode {
+    public static class Node extends DefaultMutableTreeNode implements MutableTreeTableNode {
 
         Node(Object[] d) {
             super(d);
@@ -285,6 +284,11 @@ public class TreeTableHelper {
         @Override
         public Node getChildAt(int index) {
             return (Node) super.getChildAt(index);
+        }
+        
+        @Override
+        public Enumeration children() {
+        	return super.children();
         }
 
     }

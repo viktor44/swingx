@@ -69,7 +69,7 @@ import org.jdesktop.swingx.util.Contract;
  * @author Jeanette Winzenburg
  */
 @SuppressWarnings({"nls", "serial"})
-public class JXComboBox extends JComboBox {
+public class JXComboBox<E> extends JComboBox<E> {
     /**
      * A decorator for the original ListCellRenderer. Needed to hook highlighters
      * after messaging the delegate.<p>
@@ -444,7 +444,7 @@ public class JXComboBox extends JComboBox {
      *            the <code>ComboBoxModel</code> that provides the displayed list of items
      * @see DefaultComboBoxModel
      */
-    public JXComboBox(ComboBoxModel model) {
+    public JXComboBox(ComboBoxModel<E> model) {
         super(model);
         init();
     }
@@ -457,7 +457,7 @@ public class JXComboBox extends JComboBox {
      *            an array of objects to insert into the combo box
      * @see DefaultComboBoxModel
      */
-    public JXComboBox(Object[] items) {
+    public JXComboBox(E[] items) {
         super(items);
         init();
     }
@@ -470,7 +470,7 @@ public class JXComboBox extends JComboBox {
      *            an array of vectors to insert into the combo box
      * @see DefaultComboBoxModel
      */
-    public JXComboBox(Vector<?> items) {
+    public JXComboBox(Vector<E> items) {
         super(items);
         init();
     }
@@ -483,7 +483,7 @@ public class JXComboBox extends JComboBox {
         }
     }
     
-    protected static JList getPopupListFor(JComboBox comboBox) {
+    protected static JList<?> getPopupListFor(JComboBox<?> comboBox) {
         int count = comboBox.getUI().getAccessibleChildrenCount(comboBox);
 
         for (int i = 0; i < count; i++) {
@@ -631,7 +631,7 @@ public class JXComboBox extends JComboBox {
      * 
      * @return the default cell renderer to use with this list.
      */
-    protected ListCellRenderer createDefaultCellRenderer() {
+    protected ListCellRenderer<? super E> createDefaultCellRenderer() {
         return new DefaultListRenderer();
     }
 
@@ -646,7 +646,7 @@ public class JXComboBox extends JComboBox {
      * @see DelegatingRenderer
      */
     @Override
-    public ListCellRenderer getRenderer() {
+    public ListCellRenderer<? super E> getRenderer() {
         // PENDING JW: something wrong here - why exactly can't we return super? 
         // not even if we force the initial setting in init?
 //        return super.getCellRenderer();
@@ -660,7 +660,7 @@ public class JXComboBox extends JComboBox {
      * @return the wrapped renderer.
      * @see #setRenderer(ListCellRenderer)
      */
-    public ListCellRenderer getWrappedRenderer() {
+    public ListCellRenderer<? super E> getWrappedRenderer() {
         return getDelegatingRenderer().getDelegateRenderer();
     }
 
@@ -678,10 +678,10 @@ public class JXComboBox extends JComboBox {
      * @see #getRenderer()
      */
     @Override
-    public void setRenderer(ListCellRenderer renderer) {
+    public void setRenderer(ListCellRenderer<? super E> renderer) {
         // PENDING: do something against recursive setting
         // == multiple delegation...
-        ListCellRenderer oldValue = super.getRenderer();
+        ListCellRenderer<? super E> oldValue = super.getRenderer();
         getDelegatingRenderer().setDelegateRenderer(renderer);
         getStringValueRegistry().setStringValue(
                 renderer instanceof StringValue ? (StringValue) renderer : null, 0);
@@ -879,7 +879,7 @@ public class JXComboBox extends JComboBox {
                 ((UIDependent) keySelectionManager).updateUI();
             }
             
-            ListCellRenderer renderer = getRenderer();
+            ListCellRenderer<? super E> renderer = getRenderer();
             
             if (renderer instanceof UIDependent) {
                 ((UIDependent) renderer).updateUI();

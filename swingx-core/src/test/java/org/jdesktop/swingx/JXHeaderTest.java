@@ -284,9 +284,9 @@ public class JXHeaderTest extends TestCase {
      */
     @Test
     public void testUpdateUITitleForegroundA() {
+        JXHeader header = new JXHeader();
         Color color = UIManager.getColor("JXHeader.titleForeground");
         assertNotNull("sanity: title foreground available", color);
-        JXHeader header = new JXHeader();
         assertEquals(color, header.getTitleForeground());
     }
 
@@ -296,9 +296,9 @@ public class JXHeaderTest extends TestCase {
      */
     @Test
     public void testUpdateUITitleLabelForegroundB() {
+        JXHeader header = new JXHeader();
         Color color = UIManager.getColor("JXHeader.titleForeground");
         assertNotNull("sanity: title foreground available", color);
-        JXHeader header = new JXHeader();
         assertEquals(color, getTitleLabel(header).getForeground());
     }
     
