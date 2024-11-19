@@ -275,7 +275,6 @@ public class JXListSortRevamp extends InteractiveTestCase {
      * 2. filter changes
      * 3. shared selectionModel (starts with shared)
      */
-    @SuppressWarnings("unchecked")
     public void interactiveXRowSorterSharedXTable() {
         final DefaultTableModel tableModel = new DefaultTableModel(list.getElementCount(), 1) {
             
@@ -365,7 +364,6 @@ public class JXListSortRevamp extends InteractiveTestCase {
      * 2. filter changes
      * 3. shared selectionModel (starts with shared)
      */
-    @SuppressWarnings("unchecked")
     public void interactiveXRowSorterShared() {
         final DefaultTableModel tableModel = new DefaultTableModel(list.getElementCount(), 1) {
             
@@ -448,7 +446,6 @@ public class JXListSortRevamp extends InteractiveTestCase {
      * 2. filter changes
      * 3. shared selectionModel (starts with not shared)
      */
-    @SuppressWarnings("unchecked")
     public void interactiveRowSorterShared() {
         final DefaultTableModel tableModel = new DefaultTableModel(list.getElementCount(), 1) {
             

@@ -7,6 +7,12 @@
 
 package org.jdesktop.swingx;
 
+import static org.jdesktop.swingx.JXTableUnitTest.assertNoStoppedEventOnEmptyValue;
+import static org.jdesktop.swingx.JXTableUnitTest.assertStoppedEventOnValidValue;
+import static org.jdesktop.swingx.JXTableUnitTest.create1535TableModel;
+import static org.jdesktop.swingx.JXTableUnitTest.takeEmpty;
+import static org.jdesktop.swingx.JXTableUnitTest.throwOnEmpty;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -32,7 +38,6 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Box;
 import javax.swing.DefaultCellEditor;
-import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.DefaultRowSorter;
 import javax.swing.Icon;
@@ -79,10 +84,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import static org.junit.Assert.*;
-
-import static org.jdesktop.swingx.JXTableUnitTest.*;
 
 /**
  * @author Jeanette Winzenburg
@@ -281,7 +282,6 @@ public class JTableIssues extends InteractiveTestCase {
             super(rows, columns);
         }
 
-        @SuppressWarnings({ "unchecked", "rawtypes" })
         public void insertRowsAt(int row, Object[]... rows) {
             List toInsert = new ArrayList();
             for (Object[] data : rows) {
@@ -799,7 +799,6 @@ public class JTableIssues extends InteractiveTestCase {
               /**
                * Overridden to reach fire rowUpdated (instead of cellUpdated)
                */
-              @SuppressWarnings("unchecked")
               @Override
               public void setValueAt(Object aValue, int row, int column) {
                   Vector<Object> rowVector = (Vector<Object>)dataVector.elementAt(row);

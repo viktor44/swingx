@@ -65,7 +65,6 @@ public class JXLabelVisualCheck extends InteractiveTestCase {
     /**
      * Example of how-to apply filters to the label's foreground.
      */
-    @SuppressWarnings("unchecked")
     public void interactiveFancyFilter() {
         JXLabel label = new JXLabel("that's the real text");
         label.setFont(new Font("SansSerif", Font.BOLD, 80));

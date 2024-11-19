@@ -19,8 +19,8 @@ import org.jdesktop.swingx.plaf.basic.BasicMonthViewUI;
  * @author Jeanette Winzenburg
  */
 public class CustomMonthViewUI extends BasicMonthViewUI {
-    @SuppressWarnings({"UnusedDeclaration"})
-    public static ComponentUI createUI(JComponent c) {
+
+	public static ComponentUI createUI(JComponent c) {
         return new CustomMonthViewUI();
     }
 

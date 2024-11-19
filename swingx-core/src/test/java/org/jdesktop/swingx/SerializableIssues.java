@@ -190,7 +190,6 @@ public class SerializableIssues extends InteractiveTestCase {
      * First blow: DefaultMultiThumbModel.
      * 
      */
-    @SuppressWarnings("unchecked")
     public void testMultiThumbSlider() {
         JXMultiThumbSlider component = new JXMultiThumbSlider();
         try {

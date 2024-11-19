@@ -53,8 +53,7 @@ import javax.swing.Icon;
  */
 public class ServerAction extends AbstractAction {
     // Server action support
-    private static final Logger LOG = Logger.getLogger(ServerAction.class
-            .getName());
+    private static final Logger LOG = Logger.getLogger(ServerAction.class.getName());
     private static final String PARAMS = "action-params";
     private static final String HEADERS = "action-headers";
     private static final String URL = "action-url";

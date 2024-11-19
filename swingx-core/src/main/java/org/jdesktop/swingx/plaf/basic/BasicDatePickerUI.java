@@ -129,8 +129,6 @@ public class BasicDatePickerUI extends DatePickerUI {
 
     private PopupMenuListener popupMenuListener;
 
-
-    @SuppressWarnings({"UnusedDeclaration"})
     public static ComponentUI createUI(JComponent c) {
         return new BasicDatePickerUI();
     }

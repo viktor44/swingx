@@ -547,7 +547,7 @@ public class JXTableIssues extends InteractiveTestCase {
         };
         int filledColumn = fillLast ? columnCount - 1 : 0;
         for (int i = 0; i < model.getRowCount(); i++) {
-            model.setValueAt(new Integer(startRow++), i, filledColumn);
+            model.setValueAt(startRow++, i, filledColumn);
         }
         return model;
     }
@@ -557,7 +557,7 @@ public class JXTableIssues extends InteractiveTestCase {
     private DefaultTableModel createAscendingModel(int startRow, int count) {
         DefaultTableModel model = new DefaultTableModel(count, 5);
         for (int i = 0; i < model.getRowCount(); i++) {
-            model.setValueAt(new Integer(startRow++), i, 0);
+            model.setValueAt(startRow++, i, 0);
         }
         return model;
     }

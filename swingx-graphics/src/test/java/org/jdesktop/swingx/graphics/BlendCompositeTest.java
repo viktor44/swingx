@@ -6,7 +6,7 @@ import static org.jdesktop.swingx.util.GraphicsUtilities.createCompatibleImage;
 import static org.jdesktop.swingx.util.GraphicsUtilities.getPixels;
 import static org.jdesktop.swingx.util.GraphicsUtilities.loadCompatibleImage;
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeThat;
 
 import java.awt.AlphaComposite;
@@ -38,8 +38,8 @@ public class BlendCompositeTest {
         VERTICAL_IMAGE = loadCompatibleImage(BlendCompositeTest.class.getResourceAsStream("vertical.gif"));
         HORIZONTAL_IMAGE = loadCompatibleImage(BlendCompositeTest.class.getResourceAsStream("horizontal.gif"));
         
-        assertThat(VERTICAL_IMAGE.getWidth(), is(HORIZONTAL_IMAGE.getWidth()));
-        assertThat(VERTICAL_IMAGE.getHeight(), is(HORIZONTAL_IMAGE.getHeight()));
+        assertEquals(VERTICAL_IMAGE.getWidth(), HORIZONTAL_IMAGE.getWidth());
+        assertEquals(VERTICAL_IMAGE.getHeight(), HORIZONTAL_IMAGE.getHeight());
         
         assumeThat(VERTICAL_IMAGE.getColorModel(), is(instanceOf(DirectColorModel.class)));
         assumeThat(HORIZONTAL_IMAGE.getColorModel(), is(instanceOf(DirectColorModel.class)));

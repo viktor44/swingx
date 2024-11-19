@@ -151,30 +151,29 @@ public class AncientSwingTeam extends AbstractTableModel {
         NamedColor yellow      = new NamedColor(Color.yellow, "Yellow");
 
         protected final Object[][] data = {
-            { "Mark", "Andrews", red, new Integer(2), new Boolean(true) },
-            { "Tom", "Ball", blue, new Integer(99), new Boolean(false) },
-            { "Alan", "Chung", green, new Integer(838), new Boolean(false) },
-            { "Jeff", "Dinkins", turquoise, new Integer(8), new Boolean(true) },
-            { "Amy", "Fowler", yellow, new Integer(3), new Boolean(false) },
-            { "Brian", "Gerhold", green, new Integer(0), new Boolean(false) },
-            { "James", "Gosling", suspectpink, new Integer(21), new Boolean(false) },
-            { "David", "Karlton", red, new Integer(1), new Boolean(false) },
-            { "Dave", "Kloba", yellow, new Integer(14), new Boolean(false) },
-            { "Peter", "Korn", purple, new Integer(12), new Boolean(false) },
-            { "Phil", "Milne", purple, new Integer(3), new Boolean(false) },
-            { "Dave", "Moore", green, new Integer(88), new Boolean(false) },
-            { "Hans", "Muller", rustred, new Integer(5), new Boolean(false) },
+            { "Mark", "Andrews", red, 2, true },
+            { "Tom", "Ball", blue, 99, false },
+            { "Alan", "Chung", green, 838, false },
+            { "Jeff", "Dinkins", turquoise, 8, true },
+            { "Amy", "Fowler", yellow, 3, false },
+            { "Brian", "Gerhold", green, 0, false },
+            { "James", "Gosling", suspectpink, 21, false },
+            { "David", "Karlton", red, 1, false },
+            { "Dave", "Kloba", yellow, 14, false },
+            { "Peter", "Korn", purple, 12, false },
+            { "Phil", "Milne", purple, 3, false },
+            { "Dave", "Moore", green, 88, false },
+            { "Hans", "Muller", rustred, 5, false },
 
-            { "Rick", "Levenson", blue, new Integer(2), new Boolean(false) },
-            { "Tim", "Prinzing", blue, new Integer(22), new Boolean(false) },
-            { "Chester", "Rose", black, new Integer(0), new Boolean(false) },
-            { "Ray", "Ryan", gray, new Integer(77), new Boolean(false) },
-            { "Georges", "Saab", red, new Integer(4), new Boolean(false) },
-            { "Willie", "Walker", jfcblue, new Integer(4),
-                    new Boolean(false) },
+            { "Rick", "Levenson", blue, 2, false },
+            { "Tim", "Prinzing", blue, 22, false },
+            { "Chester", "Rose", black, 0, false },
+            { "Ray", "Ryan", gray, 77, false },
+            { "Georges", "Saab", red, 4, false },
+            { "Willie", "Walker", jfcblue, 4, false },
 
-            { "Kathy", "Walrath", blue, new Integer(8), new Boolean(false) },
-            { "Arnaud", "Weber", green, new Integer(44), new Boolean(false) } };
+            { "Kathy", "Walrath", blue, 8, false },
+            { "Arnaud", "Weber", green, 44, false } };
 
     protected int rowCount = data.length;
 

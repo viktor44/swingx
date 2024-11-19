@@ -347,7 +347,7 @@ public class Utilities {
 
                     try {
                         int numb = fields[i].getInt(null);
-                        Integer value = new Integer(numb);
+                        Integer value = numb;
                         names.put(name, value);
                         values.put(value, name);
                     } catch (IllegalArgumentException ex) {
@@ -359,11 +359,11 @@ public class Utilities {
 
         if (names.get("CONTEXT_MENU") == null) { // NOI18N
 
-            Integer n = new Integer(0x20C);
+            Integer n = 0x20C;
             names.put("CONTEXT_MENU", n); // NOI18N
             values.put(n, "CONTEXT_MENU"); // NOI18N
 
-            n = new Integer(0x20D);
+            n = 0x20D;
             names.put("WINDOWS", n); // NOI18N
             values.put(n, "WINDOWS"); // NOI18N
         }
@@ -390,7 +390,7 @@ public class Utilities {
 
         HashMap[] namesAndValues = initNameAndValues();
 
-        String c = (String) namesAndValues[1].get(new Integer(stroke.getKeyCode()));
+        String c = (String) namesAndValues[1].get(stroke.getKeyCode());
 
         if (c == null) {
             sb.append(stroke.getKeyChar());
@@ -766,8 +766,9 @@ public class Utilities {
             int k = ((int[]) array).length;
             Integer[] r = new Integer[k];
 
-            for (i = 0; i < k; i++)
-                r[i] = new Integer(((int[]) array)[i]);
+            for (i = 0; i < k; i++) {
+                r[i] = ((int[]) array)[i];
+            }
 
             return r;
         }
@@ -789,7 +790,7 @@ public class Utilities {
             Byte[] r = new Byte[k];
 
             for (i = 0; i < k; i++)
-                r[i] = new Byte(((byte[]) array)[i]);
+                r[i] = ((byte[]) array)[i];
 
             return r;
         }
@@ -799,8 +800,9 @@ public class Utilities {
             int k = ((char[]) array).length;
             Character[] r = new Character[k];
 
-            for (i = 0; i < k; i++)
-                r[i] = new Character(((char[]) array)[i]);
+            for (i = 0; i < k; i++) {
+                r[i] = ((char[]) array)[i];
+            }
 
             return r;
         }
@@ -810,8 +812,9 @@ public class Utilities {
             int k = ((double[]) array).length;
             Double[] r = new Double[k];
 
-            for (i = 0; i < k; i++)
-                r[i] = new Double(((double[]) array)[i]);
+            for (i = 0; i < k; i++) {
+                r[i] = ((double[]) array)[i];
+            }
 
             return r;
         }
@@ -821,8 +824,9 @@ public class Utilities {
             int k = ((float[]) array).length;
             Float[] r = new Float[k];
 
-            for (i = 0; i < k; i++)
-                r[i] = new Float(((float[]) array)[i]);
+            for (i = 0; i < k; i++) {
+                r[i] = ((float[]) array)[i];
+            }
 
             return r;
         }
@@ -832,8 +836,9 @@ public class Utilities {
             int k = ((long[]) array).length;
             Long[] r = new Long[k];
 
-            for (i = 0; i < k; i++)
-                r[i] = new Long(((long[]) array)[i]);
+            for (i = 0; i < k; i++) {
+                r[i] = ((long[]) array)[i];
+            }
 
             return r;
         }
@@ -843,8 +848,9 @@ public class Utilities {
             int k = ((short[]) array).length;
             Short[] r = new Short[k];
 
-            for (i = 0; i < k; i++)
-                r[i] = new Short(((short[]) array)[i]);
+            for (i = 0; i < k; i++) {
+                r[i] = ((short[]) array)[i];
+            }
 
             return r;
         }

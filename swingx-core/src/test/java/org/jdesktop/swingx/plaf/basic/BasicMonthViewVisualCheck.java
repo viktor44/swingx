@@ -80,7 +80,6 @@ public class BasicMonthViewVisualCheck extends InteractiveTestCase {
 
     public static class MyMonthViewUI extends BasicMonthViewUI {
 
-        @SuppressWarnings({"UnusedDeclaration"})
         public static ComponentUI createUI(JComponent c) {
             return new MyMonthViewUI();
         }
