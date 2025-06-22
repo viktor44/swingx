@@ -95,6 +95,7 @@ public abstract class UIAction implements Action {
      * override this. Be aware that <code>sender</code> may be null.
      *
      * @param sender Widget enabled state is being asked for, may be null.
+     * @return true if the action should be enabled, false otherwise.
      */
     public boolean isEnabled(Object sender) {
         return true;

@@ -43,8 +43,10 @@ import java.util.List;
  * panel.add(new JLabel("On top"),    StackLayout.TOP);
  * panel.add(new JLabel("At bottom"), StackLayout.BOTTOM);
  * </pre>
+ * <p>
  * If you don't specify the constraint, the component will be added at the top
- * of the components stack.</p>
+ * of the components stack.
+ * </p>
  * <p>All the components managed by this layout will be given the same size as
  * the container itself. The minimum, maximum and preferred size of the 
  * container are based upon the largest minimum, maximum and preferred size of
@@ -52,7 +54,7 @@ import java.util.List;
  * <p><code>StackLayout</code> works only with JSE 1.5 and Java SE 6 and
  * greater.</p>
  * 
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  */
 
 public class StackLayout implements LayoutManager2 {

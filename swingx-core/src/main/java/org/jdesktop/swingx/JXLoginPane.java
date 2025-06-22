@@ -116,9 +116,9 @@ import org.jdesktop.swingx.util.WindowUtils;
  *  is not saved. Similarly, if a <strong>PasswordStore</strong> is
  *  supplied and the password is null, then the <strong>PasswordStore</strong>
  *  will be queried for the password using the <code>get</code> method.
- *
+ *  <p>
  *  Example:
- *  <code><pre>
+ *  <pre><code>
  *         final JXLoginPane panel = new JXLoginPane(new LoginService() {
  *                      public boolean authenticate(String name, char[] password,
  *                                      String server) throws Exception {
@@ -126,7 +126,7 @@ import org.jdesktop.swingx.util.WindowUtils;
  *                              return false;
  *                      }});
  *      final JFrame frame = JXLoginPane.showLoginFrame(panel);
- * </pre></code>
+ * </code></pre>
  *
  * @author Bino George
  * @author Shai Almog
@@ -483,9 +483,10 @@ public class JXLoginPane extends JXPanel {
     }
 
     /**
-     * Sets the look and feel (L&F) object that renders this component.
+     * Sets the look and feel (L&amp;F) object that renders this component.
      *
-     * @param ui the LoginPaneUI L&F object
+     * @param ui the LoginPaneUI L&amp;F object
+     * 
      * @see javax.swing.UIDefaults#getUI
      */
     public void setUI(LoginPaneUI ui) {
@@ -501,7 +502,7 @@ public class JXLoginPane extends JXPanel {
     }
 
     /**
-     * Notification from the <code>UIManager</code> that the L&F has changed.
+     * Notification from the <code>UIManager</code> that the L&amp;F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
      *
@@ -513,9 +514,10 @@ public class JXLoginPane extends JXPanel {
     }
 
     /**
-     * Returns the name of the L&F class that renders this component.
+     * Returns the name of the L&amp;F class that renders this component.
      *
      * @return the string {@link #uiClassID}
+     * 
      * @see javax.swing.JComponent#getUIClassID
      * @see javax.swing.UIDefaults#getUI
      */
@@ -797,6 +799,8 @@ public class JXLoginPane extends JXPanel {
     /**
      * Create and return an image to use for the Banner. This may be overridden
      * to return any image you like
+     * 
+     * @return an Image to use for the banner, or null if no banner should be used
      */
     protected Image createLoginBanner() {
         return getUI() == null ? null : getUI().getBanner();
@@ -804,6 +808,8 @@ public class JXLoginPane extends JXPanel {
 
     /**
      * Create and return an Action for logging in
+     * 
+     * @return an Action that will perform the login operation
      */
     protected Action createLoginAction() {
         return new LoginAction(this);
@@ -811,6 +817,8 @@ public class JXLoginPane extends JXPanel {
 
     /**
      * Create and return an Action for canceling login
+     * 
+     * @return an Action that will cancel the login operation
      */
     protected Action createCancelAction() {
         return new CancelAction(this);
@@ -976,7 +984,7 @@ public class JXLoginPane extends JXPanel {
     /**
      * Enables or disables <strong>User name</strong> for this panel.
      *
-     * @param enabled 
+     * @param enabled - true to enable user name field, false to disable it.
      */
     public void setUserNameEnabled(boolean enabled) {
         boolean old = isUserNameEnabled();
@@ -990,6 +998,7 @@ public class JXLoginPane extends JXPanel {
     
     /**
      * Gets current state of the user name field. Field can be either disabled (false) for editing or enabled (true).
+     * 
      * @return True when user name field is enabled and editable, false otherwise.
      */
     public boolean isUserNameEnabled() {
@@ -998,6 +1007,7 @@ public class JXLoginPane extends JXPanel {
 
     /**
      * Gets the <strong>User name</strong> for this panel.
+     * 
      * @return the user name
      */
     public String getUserName() {

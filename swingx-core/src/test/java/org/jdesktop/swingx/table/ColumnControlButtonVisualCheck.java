@@ -112,14 +112,14 @@ public class ColumnControlButtonVisualCheck extends InteractiveTestCase {
         ColumnControlButton control = new ColumnControlButton(table) {
 
             /**
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             protected ColumnControlPopup createColumnControlPopup() {
                 ColumnControlPopup controlPopup = new DefaultColumnControlPopup() {
 
                     /**
-                     * @inherited <p>
+                     * {@inheritDoc}
                      */
                     @Override
                     public void addAdditionalActionItems(
@@ -168,7 +168,7 @@ public class ColumnControlButtonVisualCheck extends InteractiveTestCase {
         ColumnFactory factory = new ColumnFactory() {
             
             /**
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public void configureTableColumn(TableModel model,

@@ -37,10 +37,10 @@ import javax.swing.text.StyledDocument;
 public class AutoCompleteStyledDocument extends AutoCompleteDocument implements
         StyledDocument {
     /**
-     * @param adaptor
-     * @param strictMatching
-     * @param stringConverter
-     * @param delegate
+     * @param adaptor - AbstractAutoCompleteAdaptor to use for auto-completion
+     * @param strictMatching - whether to use strict matching or not 
+     * @param stringConverter - the converter to use for converting objects to strings
+     * @param delegate - the delegate document to use for auto-completion
      */
     public AutoCompleteStyledDocument(AbstractAutoCompleteAdaptor adaptor,
             boolean strictMatching, ObjectToStringConverter stringConverter,
@@ -49,9 +49,9 @@ public class AutoCompleteStyledDocument extends AutoCompleteDocument implements
     }
 
     /**
-     * @param adaptor
-     * @param strictMatching
-     * @param stringConverter
+     * @param adaptor - the adaptor to use for auto-completion
+     * @param strictMatching - whether to use strict matching or not
+     * @param stringConverter - the converter to use for converting objects to strings
      */
     public AutoCompleteStyledDocument(AbstractAutoCompleteAdaptor adaptor,
             boolean strictMatching, ObjectToStringConverter stringConverter) {
@@ -59,8 +59,8 @@ public class AutoCompleteStyledDocument extends AutoCompleteDocument implements
     }
 
     /**
-     * @param adaptor
-     * @param strictMatching
+     * @param adaptor - the adaptor to use for auto-completion
+     * @param strictMatching - whether to use strict matching or not
      */
     public AutoCompleteStyledDocument(AbstractAutoCompleteAdaptor adaptor,
             boolean strictMatching) {

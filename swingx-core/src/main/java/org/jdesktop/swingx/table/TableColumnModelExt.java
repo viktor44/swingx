@@ -211,11 +211,11 @@ public interface TableColumnModelExt extends TableColumnModel {
      * The returned column is visible.
      * 
      * @param columnIndex the index of the column desired
-     * @return the <code>TableColumnExt</code> object that matches the column
-     *         index
+     * 
+     * @return the <code>TableColumnExt</code> object that matches the column index
+     * 
      * @throws ArrayIndexOutOfBoundsException if columnIndex out of allowed
-     *         range, that is if
-     *         <code> (columnIndex < 0) || (columnIndex >= getColumnCount())</code>.
+     *         range, that is if <code> (columnIndex &lt; 0) || (columnIndex &gt;= getColumnCount())</code>.
      */
     public TableColumnExt getColumnExt(int columnIndex);
     

@@ -25,6 +25,7 @@ import java.awt.Shape;
 
 /**
  * An effect which works on AbstractPathPainters or any thing else which can provide a shape to be drawn.
+ * 
  * @author joshy
  */
 public interface AreaEffect {
@@ -33,10 +34,10 @@ public interface AreaEffect {
      */
     /**
      * Draws an effect on the specified graphics and path using the specified width and height.
-     * @param g 
-     * @param clipShape 
-     * @param width 
-     * @param height 
+     * @param g - the graphics context to draw on 
+     * @param clipShape - the shape to use as a clip for the effect
+     * @param width - the width of the area to draw the effect in
+     * @param height - the height of the area to draw the effect in
      */
     public abstract void apply(Graphics2D g, Shape clipShape, int width, int height);
 }

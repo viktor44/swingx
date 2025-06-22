@@ -113,8 +113,10 @@ public class BusyPainter extends AbstractPainter<Object> {
 
     /**
      * Initializes painter to provided shapes and default colors.
-     * @param point Point shape.
-     * @param trajectory Trajectory shape.
+     * @param point - Point shape.
+     * @param trajectory - Trajectory shape.
+     * @param baseColor - Base color of the spinner.
+     * @param highlightColor - Highlight color of the spinner.
      */
     protected void init(Shape point, Shape trajectory, Color baseColor, Color highlightColor) {
         this.baseColor = baseColor;
@@ -123,9 +125,6 @@ public class BusyPainter extends AbstractPainter<Object> {
         this.trajectory = trajectory;
     }
 
-    /**
-     * @inheritDoc
-     */
     @Override
     protected void doPaint(Graphics2D g, Object t, int width, int height) {
         Rectangle r = getTrajectory().getBounds();
@@ -234,6 +233,7 @@ public class BusyPainter extends AbstractPainter<Object> {
 
     /**
      * Centers shape in the area covered by the painter.
+     * 
      * @param paintCentered Centering hint.
      */
     public void setPaintCentered(boolean paintCentered) {
@@ -427,6 +427,7 @@ public class BusyPainter extends AbstractPainter<Object> {
     /**
      * Calculates relative position of the point on the quad curve in time t&lt;0,1&gt;.
      * @param t distance on the curve
+     * @param begin Start point in rel coords
      * @param ctrl Control point in rel coords
      * @param end End point in rel coords
      * @return Solution of the quad equation for time T in non complex space in rel coords.

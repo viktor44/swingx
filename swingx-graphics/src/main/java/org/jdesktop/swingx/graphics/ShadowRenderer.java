@@ -46,34 +46,34 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * You can set these properties using the provided mutators or the appropriate
  * constructor. Here are two ways of creating a green shadow of size 10 and
  * with an opacity of 50%:
- * <pre>
+ * <pre><code>
  * ShadowRenderer renderer = new ShadowRenderer(10, 0.5f, Color.GREEN);
  * // ..
  * renderer = new ShadowRenderer();
  * renderer.setSize(10);
  * renderer.setOpacity(0.5f);
  * renderer.setColor(Color.GREEN);
- * </pre>
+ * </code></pre>
  * The default constructor provides the following default values:
  * <ul>
  *   <li><i>size</i>: 5 pixels</li>
  *   <li><i>opacity</i>: 50%</li>
  *   <li><i>color</i>: Black</li>
- * </ul></p>
+ * </ul>
  * <h2>Generating a Shadow</h2>
  * <p>A shadow is generated as a <code>BufferedImage</code> from another
  * <code>BufferedImage</code>. Once the renderer is set up, you must call
  * {@link #createShadow} to actually generate the shadow:
- * <pre>
+ * <pre><code>
  * ShadowRenderer renderer = new ShadowRenderer();
  * // renderer setup
  * BufferedImage shadow = renderer.createShadow(bufferedImage);
- * </pre></p>
+ * </code></pre>
  * <p>The generated image dimensions are computed as following:</p>
- * <pre>
+ * <pre><code>
  * width  = imageWidth  + 2 * shadowSize
  * height = imageHeight + 2 * shadowSize
- * </pre>
+ * </code></pre>
  * <h2>Properties Changes</h2>
  * <p>This renderer allows to register property change listeners with
  * {@link #addPropertyChangeListener}. Listening to properties changes is very
@@ -83,7 +83,7 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * <h2>Threading Issues</h2>
  * <p><code>ShadowRenderer</code> is not guaranteed to be thread-safe.</p>
  * 
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  * @author Sebastien Petrucci
  */
 public class ShadowRenderer {
@@ -119,13 +119,15 @@ public class ShadowRenderer {
     private PropertyChangeSupport changeSupport;
 
     /**
-     * <p>Creates a default good looking shadow generator.
+     * <p>
+     * Creates a default good looking shadow generator.
      * The default shadow renderer provides the following default values:
+     * </p>
      * <ul>
      *   <li><i>size</i>: 5 pixels</li>
      *   <li><i>opacity</i>: 50%</li>
      *   <li><i>color</i>: Black</li>
-     * </ul></p>
+     * </ul>
      * <p>These properties provide a regular, good looking shadow.</p>
      */
     public ShadowRenderer() {

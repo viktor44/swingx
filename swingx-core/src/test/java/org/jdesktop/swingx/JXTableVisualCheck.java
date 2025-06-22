@@ -262,7 +262,7 @@ public class JXTableVisualCheck extends JXTableUnitTest {
         JScrollPane scrollPane = new JScrollPane(table) {
 
             /** 
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public void updateUI() {
@@ -315,7 +315,7 @@ public class JXTableVisualCheck extends JXTableUnitTest {
         DefaultTableModel model = new DefaultTableModel(0, 3) {
 
             /** 
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public Class<?> getColumnClass(int columnIndex) {
@@ -339,7 +339,7 @@ public class JXTableVisualCheck extends JXTableUnitTest {
         ColumnFactory factory = new ColumnFactory() {
 
             /** 
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public TableColumnExt createTableColumn(int modelIndex) {
@@ -399,7 +399,7 @@ public class JXTableVisualCheck extends JXTableUnitTest {
         public final static String SORT_ORDER_KEY = "columnExt.SortOrder";
 
         /**
-         * @inherited <p>
+         * {@inheritDoc}
          */
         @Override
         public Object getHeaderValue() {

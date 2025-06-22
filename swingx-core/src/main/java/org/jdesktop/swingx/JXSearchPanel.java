@@ -136,8 +136,7 @@ public class JXSearchPanel extends AbstractPatternPanel {
     }
 
     /**
-     * returns the label of the search combo.
-     * 
+     * @return the label of the search combo.
      */
     public String getFieldName() {
         return searchLabel.getText();
@@ -153,7 +152,7 @@ public class JXSearchPanel extends AbstractPatternPanel {
     }
 
     /**
-     * @param matcher
+     * @param matcher - the matcher to update the field name for.
      */
     protected void updateFieldName(PatternMatcher matcher) {
         

@@ -37,6 +37,10 @@ public class LookAndFeelUtils {
     /**
      * Returns the ui that is of type <code>klass</code>, or null if
      * one can not be found.
+     * 
+     * @param ui - the ComponentUI to check
+     * @param klass - the class to check against
+     * @return - the ComponentUI of type klass, or null if not found.
      */
     public static Object getUIOfType(ComponentUI ui, Class<?> klass) {
         if (klass.isInstance(ui)) {

@@ -166,10 +166,11 @@ public class AbstractAreaEffect implements AreaEffect {
      */
     /**
      * Paints the border glow
-     * @param g2
-     * @param clipShape
-     * @param width
-     * @param height
+     * 
+     * @param g2 - the graphics to paint to
+     * @param clipShape - the shape to paint the glow around
+     * @param width - the width of the shape
+     * @param height - the height of the shape
      */
     protected void paintBorderGlow(Graphics2D g2,
             Shape clipShape, int width, int height) {

@@ -70,29 +70,25 @@ import org.jdesktop.swingx.util.Contract;
  * <p>
  * A transparency example, this following code will show the black background of the parent:
  * 
- * <pre>
+ * <pre><code>
  * JXPanel panel = new JXPanel();
  * panel.add(new JButton(&quot;Push Me&quot;));
  * panel.setAlpha(.5f);
  * 
  * container.setBackground(Color.BLACK);
  * container.add(panel);
- * </pre>
- * 
- * </p>
+ * </code></pre>
  * <h3>Painter Support</h3>
  * <p>
  * {@code JXPanel} has support for {@linkplain Painter}s.
  * </p>
  * <p>
  * A painter example, this following code will show how to add a simple painter:
- * 
- * <pre>
+ * </p>
+ * <pre><code>
  * JXPanel panel = new JXPanel();
  * panel.setBackgroundPainter(new PinstripePainter());
- * </pre>
- * 
- * </p>
+ * </code></pre>
  * 
  * @author rbair
  * @see Scrollable
@@ -675,7 +671,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
      * Returns whether or not the container hierarchy below is 
      * transparent.
      * 
-     * @return
+     * @return true if the container hierarchy below is transparent, false otherwise
      */
     protected boolean isAlpha() {
         // PENDING JW: use effective alpha?
@@ -685,7 +681,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
     /**
      * Returns whether or not the background is transparent.
      * 
-     * @return
+     * @return true if the background is transparent, false otherwise
      */
     protected boolean isTransparentBackground() {
         return getBackground().getAlpha() < 255;
@@ -694,7 +690,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
     /**
      * Returns whether or not the background should be painted.
      * 
-     * @return
+     * @return true if the background should be painted, false otherwise
      */
     protected boolean isPaintingBackground() {
         return super.isOpaque();

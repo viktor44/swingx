@@ -514,9 +514,8 @@ public interface HighlightPredicate {
         /**
          * Instantiates a predicate with the given grouping.
          * 
-         * @param linesPerGroup number of lines constituting a group, must
-         *    be > 0
-         * @throws IllegalArgumentException if linesPerGroup < 1   
+         * @param linesPerGroup number of lines constituting a group, must be &gt; 0
+         * @throws IllegalArgumentException if linesPerGroup &lt; 1   
          */
         public RowGroupHighlightPredicate(int linesPerGroup) {
             if (linesPerGroup < 1) 
@@ -526,6 +525,7 @@ public interface HighlightPredicate {
         
         /**
          * {@inheritDoc}
+         * 
          * Implemented to return true if the adapter's row falls into a 
          * odd group number.
          */
@@ -816,8 +816,9 @@ public interface HighlightPredicate {
         }
         
         /**
-         * @inheritDoc
+         * {@inheritDoc}
          * 
+         * <p>
          * Implemented to return true if the adapter value is an instance
          * of this predicate's class type.
          */

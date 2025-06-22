@@ -102,7 +102,7 @@ import org.jdesktop.swingx.plaf.basic.core.DragRecognitionSupport.BeforeDrag;
  * <li> rename key for shared actionMap to keep core list actions separate 
  *    (just in case somebody wants both) - they point to the wrong delegate
  * <li> replaced references to SwingUtilities2 in sun packages by references to 
- *     c&p'ed methods in SwingXUtilities
+ *     c&amp;p'ed methods in SwingXUtilities
  * <li> replaced storage of shared Input/ActionMap in defaultLookup by direct
  *     storage in UIManager.         
  * </ul>
@@ -331,8 +331,8 @@ public class BasicXListUI  extends BasicListUI
      * @param width
      * @param height
      * 
-     * @throws IllegalArgumentException if width or height < 0
-     * @throws NPE if c == null
+     * @throws IllegalArgumentException if width or height &lt; 0
+     * @throws NullPointerException if c == null
      */
     protected void checkBaselinePrecondition(JComponent c, int width, int height) {
         if (c == null) {
@@ -784,7 +784,7 @@ public class BasicXListUI  extends BasicListUI
      *   <td>JList.VERTICAL_WRAP
      *   <td>If the visible row count is greater than zero, the preferredHeight
      *       is the maximum cell height * visibleRowCount. If the visible row
-     *       count is <= 0, the preferred height is either the current height
+     *       count is &lt;= 0, the preferred height is either the current height
      *       of the list, or the maximum cell height, whichever is
      *       bigger. The preferred width is than the maximum cell width *
      *       number of columns needed. Where the number of columns needs is
@@ -803,7 +803,7 @@ public class BasicXListUI  extends BasicListUI
      *       longer need 8 rows to display this, you only need 5, thus
      *       the adjustedRowCount is 5.
      *       <p>If the visible row
-     *       count is <= 0, the preferred height is dictated by the 
+     *       count is &lt;= 0, the preferred height is dictated by the 
      *       number of columns, which will be as many as can fit in the width
      *       of the <code>JList</code> (width / max cell width), with at
      *       least one column.  The preferred height then becomes the
@@ -821,6 +821,7 @@ public class BasicXListUI  extends BasicListUI
      * @param c The JList component.
      * @return The total size of the list.
      */
+    @Override
     public Dimension getPreferredSize(JComponent c) {
         maybeUpdateLayoutState();
 

@@ -48,7 +48,7 @@ public interface ComponentAddon {
   /**
    * Uninitializes this addon.
    * 
-   * @param addon
+   * @param addon - the current addon
    */
   void uninitialize(LookAndFeelAddons addon);
 

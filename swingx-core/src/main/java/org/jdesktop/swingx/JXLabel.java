@@ -613,12 +613,12 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
     }
 
     /**
-     * Sets new value for text rotation. The value can be anything in range <0,2PI>. Note that although property name
+     * Sets new value for text rotation. The value can be anything in range &lt;0,2PI&gt;. Note that although property name
      * suggests only text rotation, the whole foreground painter is rotated in fact. Due to various reasons it is
      * strongly discouraged to access any size related properties of the label from other threads then EDT when this
      * property is set.
      *
-     * @param textOrientation Value for text rotation in range <0,2PI>
+     * @param textOrientation Value for text rotation in range &lt;0,2PI&gt;
      * @see #getTextRotation()
      */
     public void setTextRotation(double textOrientation) {
@@ -678,8 +678,9 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
 
     /**
      * Sets style of wrapping the text.
+     * @param alignment the new text alignment
+     * 
      * @see TextAlignment for accepted values.
-     * @param alignment
      */
     public void setTextAlignment(TextAlignment alignment) {
         TextAlignment old = getTextAlignment();

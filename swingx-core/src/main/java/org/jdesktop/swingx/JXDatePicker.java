@@ -78,7 +78,6 @@ import org.jdesktop.swingx.util.Contract;
  * The date selection is controlled by the JXMonthView's DateSelectionModel.
  * This allows the use of all its functionality in the JXDatePicker as well.
  * F.i. restrict the selection to a date in the current or next week:
- * <p>
  * 
  * <pre><code>
  * Appointment appointment = new Appointment(director,
@@ -222,7 +221,7 @@ public class JXDatePicker extends JComponent {
     /**
      * Intantiates a date picker with no selection and the default 
      * <code>DatePickerFormatter</code>.
-     * <p/>
+     * <p>
      * The date picker is configured with the default time zone and locale
      *
      * @see #setTimeZone
@@ -238,7 +237,7 @@ public class JXDatePicker extends JComponent {
      * Intantiates a date picker using the specified time as the initial
      * selection and the default 
      * <code>DatePickerFormatter</code>.
-     * <p/>
+     * <p>
      * The date picker is configured with the default time zone and locale
      *
      * @param selected the initially selected date
@@ -252,7 +251,7 @@ public class JXDatePicker extends JComponent {
     /**
      * Intantiates a date picker with no selection and the default 
      * <code>DatePickerFormatter</code>.
-     * <p/>
+     * <p>
      * The date picker is configured with the default time zone and specified 
      * locale
      *
@@ -268,7 +267,7 @@ public class JXDatePicker extends JComponent {
      * Intantiates a date picker using the specified time as the initial
      * selection and the default 
      * <code>DatePickerFormatter</code>.
-     * <p/>
+     * <p>
      * The date picker is configured with the default time zone and specified locale
      *
      * @param selection initially selected Date
@@ -403,7 +402,7 @@ public class JXDatePicker extends JComponent {
     }
 
     /**
-     * Returns the look and feel (L&F) object that renders this component.
+     * Returns the look and feel (L&amp;F) object that renders this component.
      *
      * @return the DatePickerUI object that renders this component
      */
@@ -412,7 +411,7 @@ public class JXDatePicker extends JComponent {
     }
 
     /**
-     * Sets the L&F object that renders this component.
+     * Sets the L&amp;F object that renders this component.
      *
      * @param ui UI to use for this {@code JXDatePicker}
      */
@@ -435,7 +434,7 @@ public class JXDatePicker extends JComponent {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     public String getUIClassID() {
@@ -495,7 +494,7 @@ public class JXDatePicker extends JComponent {
 
     /**
      * Returns an array of the formats used by the installed formatter
-     * if it is a subclass of <code>JXDatePickerFormatter<code>.
+     * if it is a subclass of <code>JXDatePickerFormatter</code>.
      * <code>javax.swing.JFormattedTextField.AbstractFormatter</code>
      * and <code>javax.swing.text.DefaultFormatter</code> do not have
      * support for accessing the formats used.
@@ -759,7 +758,7 @@ public class JXDatePicker extends JComponent {
      * 
      * The default value is true.
      * 
-     * @param value
+     * @param value - the new value for the editable property.
      * @see #isEditable()
      */
     public void setEditable(boolean value) {
@@ -813,16 +812,13 @@ public class JXDatePicker extends JComponent {
      * property is <code>true</code>, unless otherwise specified
      * by the look and feel.  Some look and feels always use
      * heavyweight popups, no matter what the value of this property.
-     * <p/>
+     * <p>
      * See the article <a href="http://java.sun.com/products/jfc/tsc/articles/mixing/index.html">Mixing Heavy and Light Components</a>
      * on <a href="http://java.sun.com/products/jfc/tsc">
      * <em>The Swing Connection</em></a>
      * This method fires a property changed event.
      *
      * @param aFlag if <code>true</code>, lightweight popups are desired
-     * @beaninfo bound: true
-     * expert: true
-     * description: Set to <code>false</code> to require heavyweight popups.
      */
     public void setLightWeightPopupEnabled(boolean aFlag) {
         boolean oldFlag = lightWeightPopupEnabled;
@@ -859,7 +855,7 @@ public class JXDatePicker extends JComponent {
 
     /**
      * Adds an ActionListener.
-     * <p/>
+     * <p>
      * The ActionListener will receive an ActionEvent when a selection has
      * been made.
      *
@@ -897,6 +893,8 @@ public class JXDatePicker extends JComponent {
     /**
      * Fires an ActionEvent with the given actionCommand
      * to all listeners.
+     * 
+     * @param actionCommand the action command to use for the ActionEvent.
      */
     protected void fireActionPerformed(String actionCommand) {
         ActionListener[] listeners = getListeners(ActionListener.class);

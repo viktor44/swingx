@@ -98,9 +98,10 @@ public class TableCellContext extends CellContext {
     }
 
     /** 
-     * @inherited <p>
-     * Overridden to respect UI alternating row colors.
+     * {@inheritDoc} 
      * 
+     * <p>
+     * Overridden to respect UI alternating row colors.
      */
     @Override
     protected Color getBackground() {

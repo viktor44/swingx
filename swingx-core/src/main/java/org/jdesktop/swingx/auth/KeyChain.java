@@ -38,6 +38,7 @@ import java.util.logging.Logger;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
+ * <p>
  * <b>KeyChain</b> is a class that implements the "KeyChain" concept.
  * Fundamentally, it allows you to store multiple keys/credentials 
  * in a central password store. Access to this central store is

@@ -66,7 +66,6 @@ import org.jdesktop.beans.JavaBean;
  * the JXRadioGroup normally, and then call {@link #getChildButton(int)} or
  * {@link #getChildButton(Object)} and configure the buttons.</li>
  * </ol>
- * </p>
  * <p>
  * TODO back with a model (possibly reuse of extend {@link ComboBoxModel}
  * </p>
@@ -244,8 +243,7 @@ public class JXRadioGroup<T> extends JPanel {
     /**
      * Selects the supplied value.
      * 
-     * @param value
-     *            the value to select
+     * @param value - the value to select
      */
     public void setSelectedValue(T value) {
         final int index = values.indexOf(value);
@@ -255,6 +253,9 @@ public class JXRadioGroup<T> extends JPanel {
     
     /**
      * Retrieve the child button by index.
+     * 
+     * @param index - the index of the button to retrieve
+     * @return the button at the specified index
      */
     public AbstractButton getChildButton(int index) {
         return getButtonComponents()[index];
@@ -262,6 +263,9 @@ public class JXRadioGroup<T> extends JPanel {
 
     /**
      * Retrieve the child button that represents this value.
+     * 
+     * @param value - the value to retrieve the button for
+     * @return the button that represents the value, or null if the value is not found
      */
     public AbstractButton getChildButton(T value) {
         final int index = values.indexOf(value);
@@ -270,6 +274,8 @@ public class JXRadioGroup<T> extends JPanel {
 
     /**
      * Get the number of child buttons.
+     * 
+     * @return the number of child buttons
      */
     public int getChildButtonCount() {
         return getButtonComponents().length;

@@ -402,7 +402,6 @@ public class TableColumnExt extends TableColumn implements UIDependent {
      *    sorting.
      * @see #getComparator
      * @see org.jdesktop.swingx.sort.SortController
-     * @see org.jdesktop.swingx.decorator.SortKey
      */
     public void setComparator(Comparator<?> comparator) {
         Comparator<?> old = getComparator();

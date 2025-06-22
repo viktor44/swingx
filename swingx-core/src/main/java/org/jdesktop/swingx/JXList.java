@@ -107,10 +107,7 @@ import org.jdesktop.swingx.table.TableColumnExt;
  * formally define and implement, like in AbstractTestHighlighter), that is it
  * provides consistent api to add and remove Highlighters which can visually
  * decorate the rendering component.
- * <p>
- * 
- * <pre>
- * <code>
+ * <pre><code>
  * 
  * JXList list = new JXList(new Contributors());
  * // implement a custom string representation, concated from first-, lastName
@@ -135,15 +132,15 @@ import org.jdesktop.swingx.table.TableColumnExt;
  * // highlight with foreground color 
  * list.addHighlighter(new PainterHighlighter(predicate, goldStarPainter);      
  * 
- * </code>
- * </pre>
+ * </code></pre>
  * 
+ * <p>
  * <i>Note:</i> to support the highlighting this implementation wraps the
  * ListCellRenderer set by client code with a DelegatingRenderer which applies
  * the Highlighter after delegating the default configuration to the wrappee. As
  * a side-effect, getCellRenderer does return the wrapper instead of the custom
  * renderer. To access the latter, client code must call getWrappedCellRenderer.
- * <p>
+ * </p>
  * 
  * <h2>Rollover</h2>
  * 
@@ -167,43 +164,40 @@ import org.jdesktop.swingx.table.TableColumnExt;
  * 
  * <h2>Location of Trigger for ComponentPopupMenu</h2>
  * 
+ * <p>
  * JXList allows access to the mouse location that triggered the showing of the
  * componentPopupMenu. This feature allows to implement dynamic cell-context
  * sensitive popupMenus, either in the menu actions or in a PopupMenuListener.
+ * </p>
  * <p>
- * 
  * The example below selects the cell that was clicked, event being the
  * <code>PopupMenuEvent</code> received in a 
  * <code>PopupMenuListener</code>.
- * <p>
- * 
- * <pre>
- * <code>
+ * </p>
+ * <pre><code>
  * JXList list = (JXList) ((JPopupMenu) e.getSource()).getInvoker();
  * Point trigger = list.getPopupTriggerLocation();
  * if (trigger != null) {
  *     int row = list.locationToIndex(trigger);
  *     list.setSelectedIndex(row);
  * }
- * </code>
- * </pre>
- * 
+ * </code></pre>
  * 
  * <h2>Search</h2>
- * 
+ * <p>
  * As all SwingX collection views, a JXList is searchable. A search action is
  * registered in its ActionMap under the key "find". The default behaviour is to
  * ask the SearchFactory to open a search component on this component. The
  * default keybinding is retrieved from the SearchFactory, typically ctrl-f (or
  * cmd-f for Mac). Client code can register custom actions and/or bindings as
  * appropriate.
+ * </p>
  * <p>
- * 
  * JXList provides api to vend a renderer-controlled String representation of
  * cell content. This allows the Searchable and Highlighters to use WYSIWYM
  * (What-You-See-Is-What-You-Match), that is pattern matching against the actual
  * string as seen by the user.
- * 
+ * </p>
  * 
  * @author Ramesh Gupta
  * @author Jeanette Winzenburg
@@ -615,10 +609,6 @@ public class JXList extends JList {
      *
      * @param autoCreateRowSorter whether or not a {@code RowSorter}
      *        should be automatically created
-     * @beaninfo
-     *        bound: true
-     *    preferred: true
-     *  description: Whether or not to turn on sorting by default.
      */
     public void setAutoCreateRowSorter(boolean autoCreateRowSorter) {
         if (getAutoCreateRowSorter() == autoCreateRowSorter) return;
@@ -960,7 +950,7 @@ public class JXList extends JList {
      * 
      * @param viewIndex the index in view coordinates
      * @return the element at the index
-     * @throws IndexOutOfBoundsException if viewIndex < 0 or viewIndex >=
+     * @throws IndexOutOfBoundsException if viewIndex &lt; 0 or viewIndex &gt;=
      *         getElementCount()
      */
     public Object getElementAt(int viewIndex) {
@@ -1053,7 +1043,7 @@ public class JXList extends JList {
      * 
      * @param viewIndex index in view coordinates
      * @return index in model coordinates
-     * @throws IndexOutOfBoundsException if viewIndex < 0 or viewIndex >= getElementCount() 
+     * @throws IndexOutOfBoundsException if viewIndex &lt; 0 or viewIndex &gt;= getElementCount() 
      */
     public int convertIndexToModel(int viewIndex) {
         return getRowSorter() != null ? 
@@ -1405,11 +1395,13 @@ public class JXList extends JList {
     }
 
     /**
-     * {@inheritDoc} <p>
+     * {@inheritDoc} 
      * 
+     * <p>
      * Overridden to return the delegating renderer which is wrapped around the
      * original to support highlighting. The returned renderer is of type 
-     * DelegatingRenderer and guaranteed to not-null<p>
+     * DelegatingRenderer and guaranteed to not-null
+     * </p>
      * 
      * @see #setCellRenderer(ListCellRenderer)
      * @see DelegatingRenderer

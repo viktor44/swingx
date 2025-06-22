@@ -46,9 +46,9 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * 1.0 that can be seen as the percentage of the mix (0.0 does not affect the
  * source image and 1.0 replaces all the pixels by the solid color).</p>
  * <p>The color of the pixels in the resulting image is computed as follows:</p>
- * <pre>
+ * <pre><code>
  * cR = cS * (1 - mixValue) + cM * mixValue
- * </pre>
+ * </code></pre>
  * <p>Definition of the parameters:</p>
  * <ul>
  *   <li><code>cR</code>: color of the resulting pixel</li>
@@ -57,7 +57,7 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  *   <li><code>mixValue</code>: strength of the mix, a value between 0.0 and 1.0</li>
  * </ul>
  *
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  */
 
 public class ColorTintFilter extends AbstractFilter {

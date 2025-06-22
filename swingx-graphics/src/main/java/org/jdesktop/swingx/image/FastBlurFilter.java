@@ -50,7 +50,7 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * to avoid artifacts at the edges. The performance of this filter are
  * independent from the radius.</p>
  *
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  */
 public class FastBlurFilter extends AbstractFilter {
     private final int radius;

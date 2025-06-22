@@ -64,7 +64,6 @@ import org.jdesktop.swingx.table.ColumnControlPopup.ActionGroupable;
  * It's main purpose is to allow toggling of table columns' visibility. 
  * Additionally, arbitrary configuration actions can be exposed.
  * <p>
- * 
  * This component is installed in the <code>JXTable</code>'s
  * trailing corner, if enabled:
  * 
@@ -74,25 +73,23 @@ import org.jdesktop.swingx.table.ColumnControlPopup.ActionGroupable;
  * 
  * From the perspective of a <code>JXTable</code>, the component's behaviour is
  * opaque. Typically, the button's action is to popup a component for user
- * interaction. <p>
- * 
+ * interaction. 
+ * <p>
  * This class is responsible for handling/providing/updating the lists of
  * actions and to keep each Action's state in synch with Table-/Column state. 
  * The visible behaviour of the popup is delegated to a
- * <code>ColumnControlPopup</code>. <p>
- * 
+ * <code>ColumnControlPopup</code>. 
+ * <p>
  * Default support for adding table (configuration or other) <code>Action</code>s is 
  * informal, driven by convention: 
  * <ul>
  * <li> the JXTable's actionMap is scanned for candidate actions, the default marker
- *   is a key of type String which starts with {@link ColumnControlButton.COLUMN_CONTROL_MARKER} 
+ *   is a key of type String which starts with {@link ColumnControlButton#COLUMN_CONTROL_MARKER} 
  * <li> the actions are sorted by that key and then handed over to the ColumnControlPopup
  *   for binding and addition of appropriate menu items
  * <li> the addition as such is control by additionalActionsVisible property, its 
  *   default value is true  
  * </ul> 
- * 
- * 
  * 
  * @see TableColumnExt
  * @see TableColumnModelExt
@@ -484,8 +481,7 @@ public class ColumnControlButton extends JButton {
         }
 
         /** 
-         * @inheritDoc
-         * 
+         * {@inheritDoc}
          */
         @Override
         public void updateUI() {
@@ -493,8 +489,7 @@ public class ColumnControlButton extends JButton {
         }
 
         /** 
-         * @inheritDoc
-         * 
+         * {@inheritDoc}
          */
         @Override
         public void toggleVisibility(JComponent owner) {
@@ -516,8 +511,7 @@ public class ColumnControlButton extends JButton {
         }
 
         /** 
-         * @inheritDoc
-         * 
+         * {@inheritDoc}
          */
         @Override
         public void applyComponentOrientation(ComponentOrientation o) {
@@ -528,8 +522,7 @@ public class ColumnControlButton extends JButton {
         //-------------------- public methods to manipulate popup contents.
         
         /** 
-         * @inheritDoc
-         * 
+         * {@inheritDoc}
          */
         @Override
         public void removeAll() {
@@ -538,8 +531,7 @@ public class ColumnControlButton extends JButton {
 
 
         /** 
-         * @inheritDoc
-         * 
+         * {@inheritDoc}
          */
         @Override
         public void addVisibilityActionItems(
@@ -550,8 +542,7 @@ public class ColumnControlButton extends JButton {
 
 
         /** 
-         * @inheritDoc
-         * 
+         * {@inheritDoc}
          */
         @Override
         public void addAdditionalActionItems(List<? extends Action> actions) {

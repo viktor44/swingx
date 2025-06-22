@@ -129,15 +129,14 @@ import org.jdesktop.swingx.search.Searchable;
  * JEditorPane}. However, the following example demonstrates the best way to
  * access the improved command functionality.
  * 
- * <pre>
+ * <pre><code>
  * JXEditorPane editorPane = new JXEditorPane("some URL");
  * add(editorPane);
  * JToolBar toolBar = ActionContainerFactory.createToolBar(editorPane.getCommands[]);
  * toolBar.addSeparator();
  * toolBar.add(editorPane.getParagraphSelector());
  * setToolBar(toolBar);
- * </pre>
- * </p>
+ * </code></pre>
  * 
  * @author Mark Davidson
  */
@@ -529,7 +528,7 @@ public class JXEditorPane extends JEditorPane implements /*Searchable, */Targeta
     }
 
     /**
-     * The paste method has been overloaded to strip off the <html><body> tags
+     * The paste method has been overloaded to strip off the &lt;html&gt;&lt;body&gt; tags
      * This doesn't really work.
      */
     @Override

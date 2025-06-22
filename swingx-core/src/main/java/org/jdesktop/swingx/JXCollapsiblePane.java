@@ -146,20 +146,6 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * calculating its layout (example {@link org.jdesktop.swingx.VerticalLayout},
  * {@link java.awt.BorderLayout}).
  *
- * @javabean.attribute
- *          name="isContainer"
- *          value="Boolean.TRUE"
- *          rtexpr="true"
- *
- * @javabean.attribute
- *          name="containerDelegate"
- *          value="getContentPane"
- *
- * @javabean.class
- *          name="JXCollapsiblePane"
- *          shortDescription="A pane which hides its content with an animation."
- *          stopClass="java.awt.Component"
- *
  * @author rbair (from the JDNC project)
  * @author <a href="mailto:fred@L2FProd.com">Frederic Lavigne</a>
  * @author Karl George Schaefer
@@ -485,8 +471,7 @@ public class JXCollapsiblePane extends JXPanel {
      * If not animated, the <code>JXCollapsiblePane</code> will simply hide
      * (collapsing) or show (expanding) its content area.
      *
-     * @param animated
-     * @javabean.property bound="true" preferred="true"
+     * @param animated - true to enable animation, false to disable it
      */
     public void setAnimated(boolean animated) {
         if (animated != useAnimation) {
@@ -540,9 +525,6 @@ public class JXCollapsiblePane extends JXPanel {
      * @param direction the new {@link Direction} for this collapsible pane
      * @throws IllegalStateException when this method is called while a
      *                               collapsing/restore operation is running
-     * @javabean.property
-     *    bound="true"
-     *    preferred="true"
      */
     public void setDirection(Direction direction) {
         if (animateTimer.isRunning()) {
@@ -596,11 +578,10 @@ public class JXCollapsiblePane extends JXPanel {
      * the component's state is accurate.  This means that animated collapsible 
      * pane's only fire events once the animation is complete.
      *
+     * @param val - true to collapse the pane, false to expand it
+     * 
      * @see #isAnimated()
      * @see #setAnimated(boolean)
-     * @javabean.property
-     *    bound="true"
-     *    preferred="true"
      */
     public void setCollapsed(boolean val) {
         boolean oldValue = isCollapsed();

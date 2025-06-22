@@ -181,7 +181,7 @@ public class ErrorInfo {
      *      "&lt;html&gt;You are running on &lt;b&gt;reserver&lt;/b&gt; battery
      *       power. Please plug into a power source immediately, or your work may
      *       be lost!&lt;/html&gt;"
-     * </pre></p>
+     * </pre>
      *
      * @return basic error message or null
      */

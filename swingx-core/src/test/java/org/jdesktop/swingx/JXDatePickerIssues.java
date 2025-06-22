@@ -103,7 +103,7 @@ public class JXDatePickerIssues extends InteractiveTestCase {
         TableModel model = new DefaultTableModel(10, 2) {
 
             /** 
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public Class<?> getColumnClass(int columnIndex) {

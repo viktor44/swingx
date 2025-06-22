@@ -969,7 +969,7 @@ public class RendererVisualCheck extends InteractiveTestCase {
         final JXList list = new JXList(model) {
 
             /** 
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public boolean getScrollableTracksViewportWidth() {
@@ -1185,7 +1185,7 @@ public class RendererVisualCheck extends InteractiveTestCase {
             }
 
             /** 
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             public boolean isCellEditable(int row, int column) {

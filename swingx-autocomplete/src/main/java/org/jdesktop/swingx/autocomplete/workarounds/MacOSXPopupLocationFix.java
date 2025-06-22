@@ -71,6 +71,9 @@ public final class MacOSXPopupLocationFix {
     
     /**
      * Install the fix for the specified combo box.
+     * 
+     * @param comboBox - the combo box to fix
+     * @return the MacOSXPopupLocationFix instance that can be used to uninstall the fix
      */
     public static MacOSXPopupLocationFix install(JComboBox comboBox) {
         if(comboBox == null) throw new IllegalArgumentException();

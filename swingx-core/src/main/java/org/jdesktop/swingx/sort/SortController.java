@@ -36,9 +36,9 @@ import javax.swing.SortOrder;
  * core jdk6 sorting we need a hook for sorting api on the view. So in terms of
  * jdk6 classes, this is something like:<p>
  * 
- * <code><pre>
+ * <pre><code>
  * SortController == DefaultRowSorter - RowSorter + XX
- * </pre></code>
+ * </code></pre>
  * All methods which change sort state must respect per-controller and per-column 
  * sortable property, as follows
  * <ol>

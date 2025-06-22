@@ -762,14 +762,14 @@ public class JXMonthView extends JComponent {
 
 //------------------- ui delegate    
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public MonthViewUI getUI() {
         return (MonthViewUI)ui;
     }
 
     /**
-     * Sets the L&F object that renders this component.
+     * Sets the L&amp;F object that renders this component.
      *
      * @param ui UI to use for this {@code JXMonthView}
      */
@@ -789,7 +789,7 @@ public class JXMonthView extends JComponent {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     public String getUIClassID() {
@@ -800,8 +800,7 @@ public class JXMonthView extends JComponent {
 //---------------- DateSelectionModel
 
     /**
-     * Returns the date selection model which drives this
-     * JXMonthView.
+     * Returns the date selection model which drives this JXMonthView.
      * 
      * @return the date selection model
      */
@@ -1604,7 +1603,7 @@ public class JXMonthView extends JComponent {
 
     /**
      * Returns the preferred number of columns to paint calendars in. 
-     * <p>
+     * 
      * @return int preferred number of columns of calendars.
      * 
      * @see #setPreferredColumnCount(int)
@@ -1615,8 +1614,8 @@ public class JXMonthView extends JComponent {
 
     /**
      * Sets the preferred number of columns of calendars. Does nothing if cols
-     * <= 0. The default value is 1.
-     * <p>
+     * &lt;= 0. The default value is 1.
+     * 
      * @param cols The number of columns of calendars.
      * 
      * @see #getPreferredColumnCount()
@@ -1636,7 +1635,7 @@ public class JXMonthView extends JComponent {
 
     /**
      * Returns the preferred number of rows to paint calendars in.
-     * <p>
+     * 
      * @return int Rows of calendars.
      * 
      * @see #setPreferredRowCount(int)
@@ -1647,8 +1646,7 @@ public class JXMonthView extends JComponent {
 
     /**
      * Sets the preferred number of rows to paint calendars.Does nothing if rows
-     * <= 0. The default value is 1.
-     * <p>
+     * &lt;= 0. The default value is 1.
      *
      * @param rows The number of rows of calendars.
      * 
@@ -1778,7 +1776,7 @@ public class JXMonthView extends JComponent {
 
     /**
      * Adds an ActionListener.
-     * <p/>
+     * <p>
      * The ActionListener will receive an ActionEvent with its actionCommand
      * set to COMMIT_KEY or CANCEL_KEY after the selection has been committed
      * or canceled, respectively.

@@ -66,15 +66,11 @@ import org.jdesktop.swingx.JXTable;
  * Alternatively, any instance of <code>JXTable</code> can be configured
  * individually with its own <code>ColumnFactory</code>.
  * 
- * <pre>
- *  <code>
+ * <pre><code>
  * JXTable table = new JXTable();
  * table.setColumnFactory(new MyColumnFactory());
  * table.setModel(myTableModel);
- * </code>
- *  </pre>
- * 
- * <p>
+ * </code></pre>
  * 
  * @see org.jdesktop.swingx.JXTable#setColumnFactory(ColumnFactory)
  * 
@@ -119,8 +115,10 @@ public class ColumnFactory {
      * 
      * @param model the TableModel to read configuration properties from
      * @param modelIndex column index in model coordinates
+     * 
      * @return a TableColumnExt to use for the modelIndex
-     * @throws NPE if model == null
+     * 
+     * @throws NullPointerException if model == null
      * @throws IllegalStateException if the modelIndex is invalid
      *   (in coordinate space of the tablemodel)
      *  
@@ -182,18 +180,19 @@ public class ColumnFactory {
      * Configures column initial widths properties from <code>JXTable</code>.
      * This implementation sets the column's
      * <code>preferredWidth</code> with the strategy:
-     * <ol> if the column has a prototype, measure the rendering
+     * <ol>
+     * <li> if the column has a prototype, measure the rendering
      *    component with the prototype as value and use that as
      *    pref width
-     * <ol> if the column has no prototype, use the standard magic
+     * <li> if the column has no prototype, use the standard magic
      *   pref width (= 75) 
-     * <ol> try to measure the column's header and use it's preferred
+     * <li> try to measure the column's header and use it's preferred
      *   width if it exceeds the former.    
      * </ol>
      * 
      * TODO JW - rename method to better convey what's happening, maybe
-     * initializeColumnWidths like the old method in JXTable. <p>
-     * 
+     * initializeColumnWidths like the old method in JXTable. 
+     * <p>
      * TODO JW - how to handle default settings which are different from
      *   standard 75?
      * 
@@ -423,7 +422,7 @@ public class ColumnFactory {
      * 
      * Subclasses can override to reduce the number (for performance) or support
      * restrictions due to lazy loading, f.i. Implementors must guarantee that
-     * view row access with <code>0 <= row < getRowCount(JXTable)</code>
+     * view row access with <code>0 &lt;= row &lt; getRowCount(JXTable)</code>
      * succeeds.
      * 
      * @param table the table to access

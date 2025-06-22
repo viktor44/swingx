@@ -51,7 +51,7 @@ import org.jdesktop.swingx.search.RecentSearches;
  * search should be cancelled, when the command text is empty or null.
  * 
  * @see RecentSearches
- * @author Peter Weishapl <petw@gmx.net>
+ * @author <a href="mailto:petw@gmx.net">Peter Weishapl</a>
  * 
  */
 @JavaBean
@@ -170,7 +170,7 @@ public class JXSearchField extends JXTextField {
 	 * Creates a new search field with the given prompt and
 	 * {@link SearchMode#INSTANT}.
 	 * 
-	 * @param prompt
+	 * @param prompt - the prompt text to display when the search field is empty
 	 */
 	public JXSearchField(String prompt) {
 		super(prompt);
@@ -253,19 +253,18 @@ public class JXSearchField extends JXTextField {
 	 * Sets the current search mode. See {@link SearchMode} for a description of
 	 * the different search modes.
 	 * 
-	 * @param searchMode
-	 *            {@link SearchMode#INSTANT} or {@link SearchMode#REGULAR}
+	 * @param searchMode {@link SearchMode#INSTANT} or {@link SearchMode#REGULAR}
 	 */
 	public void setSearchMode(SearchMode searchMode) {
 		firePropertyChange("searchMode", this.searchMode, this.searchMode = searchMode);
 	}
 
 	/**
-	 * Get the instant search delay in milliseconds. The default delay is 50
-	 * Milliseconds.
+	 * Get the instant search delay in milliseconds. The default delay is 50 milliseconds.
 	 * 
-	 * @see {@link #setInstantSearchDelay(int)}
 	 * @return the instant search delay in milliseconds
+	 * 
+	 * @see #setInstantSearchDelay(int)
 	 */
 	public int getInstantSearchDelay() {
 		return instantSearchDelay;
@@ -287,7 +286,7 @@ public class JXSearchField extends JXTextField {
 	 * over, which results in a correct behavior because only the last and only
 	 * relevant event will be delivered.
 	 * 
-	 * @param instantSearchDelay
+	 * @param instantSearchDelay - the instant search delay in milliseconds
 	 */
 	public void setInstantSearchDelay(int instantSearchDelay) {
 		firePropertyChange("instantSearchDelay", this.instantSearchDelay, this.instantSearchDelay = instantSearchDelay);
@@ -296,7 +295,7 @@ public class JXSearchField extends JXTextField {
 	/**
 	 * Get the current {@link LayoutStyle}.
 	 * 
-	 * @return
+	 * @return the current {@link LayoutStyle}.
 	 */
 	public LayoutStyle getLayoutStyle() {
 		return layoutStyle;
@@ -306,17 +305,16 @@ public class JXSearchField extends JXTextField {
 	 * Returns <code>true</code> if the current {@link LayoutStyle} is
 	 * {@link LayoutStyle#VISTA}.
 	 * 
-	 * @return
+	 * @return <code>true</code> if the current {@link LayoutStyle} is {@link LayoutStyle#VISTA}.
 	 */
 	public boolean isVistaLayoutStyle() {
 		return LayoutStyle.VISTA.equals(getLayoutStyle());
 	}
 
 	/**
-	 * Returns <code>true</code> if the current {@link LayoutStyle} is
-	 * {@link LayoutStyle#MAC}.
+	 * Returns <code>true</code> if the current {@link LayoutStyle} is {@link LayoutStyle#MAC}.
 	 * 
-	 * @return
+	 * @return <code>true</code> if the current {@link LayoutStyle} is {@link LayoutStyle#MAC}. 
 	 */
 	public boolean isMacLayoutStyle() {
 		return LayoutStyle.MAC.equals(getLayoutStyle());
@@ -326,8 +324,7 @@ public class JXSearchField extends JXTextField {
 	 * Set the current {@link LayoutStyle}. See {@link LayoutStyle} for a
 	 * description of how this affects layout and behavior of the search field.
 	 * 
-	 * @param layoutStyle
-	 *            {@link LayoutStyle#MAC} or {@link LayoutStyle#VISTA}
+	 * @param layoutStyle - {@link LayoutStyle#MAC} or {@link LayoutStyle#VISTA}
 	 */
 	public void setLayoutStyle(LayoutStyle layoutStyle) {
 		layoutStyleSet = true;
@@ -362,7 +359,7 @@ public class JXSearchField extends JXTextField {
 	 * Sets the action that is invoked, when the user presses the 'Esc' key or
 	 * clicks the cancel button.
 	 * 
-	 * @param cancelAction
+	 * @param cancelAction - the action that is invoked when the user
 	 */
 	public final void setCancelAction(ActionListener cancelAction) {
 		NativeSearchFieldSupport.setCancelAction(this, cancelAction);
@@ -424,7 +421,7 @@ public class JXSearchField extends JXTextField {
 	 * Sets the action that is invoked when the enter key is pressed or the find
 	 * button is clicked.
 	 * 
-	 * @return the find action
+	 * @param findAction - the action that is invoked when the user presses enter or clicks the find button
 	 */
 	public final void setFindAction(ActionListener findAction) {
 		NativeSearchFieldSupport.setFindAction(this, findAction);
@@ -454,12 +451,13 @@ public class JXSearchField extends JXTextField {
 
 	/**
 	 * Creates and returns the find button. The buttons action is set to the
-	 * action returned by {@link #getSearchAction()}.
-	 * 
+	 * action returned by {@link #getFindAction()}.
+	 * <p>
 	 * Override to use a custom find button.
 	 * 
-	 * @see #getFindButton()
 	 * @return the find button
+	 * 
+	 * @see #getFindButton()
 	 */
 	protected JButton createFindButton() {
 		BuddyButton btn = new BuddyButton();
@@ -510,7 +508,7 @@ public class JXSearchField extends JXTextField {
 	 * Set if the popup button should be used for displaying the find popup
 	 * menu.
 	 * 
-	 * @param useSeperatePopupButton
+	 * @param useSeperatePopupButton - <code>true</code> if the popup button should be used for displaying the find popup menu
 	 */
 	public void setUseSeperatePopupButton(boolean useSeperatePopupButton) {
 		useSeperatePopupButtonSet = true;
@@ -583,11 +581,11 @@ public class JXSearchField extends JXTextField {
 	 * {@link #setRecentSearchesSaveKey(String)} with a <code>null</code>
 	 * parameter.
 	 * 
+	 * @param findPopupMenu
+	 *            the popup menu, which will be displayed when the popup button is clicked
+	 *            
 	 * @see #setRecentSearchesSaveKey(String)
 	 * @see RecentSearches
-	 * @param findPopupMenu
-	 *            the popup menu, which will be displayed when the popup button
-	 *            is clicked
 	 */
 	public void setFindPopupMenu(JPopupMenu findPopupMenu) {
 		if (isManagingRecentSearches()) {
@@ -600,17 +598,16 @@ public class JXSearchField extends JXTextField {
 	/**
 	 * Returns the find popup menu.
 	 * 
-	 * @see #setFindPopupMenu(JPopupMenu)
 	 * @return the find popup menu
+	 * 
+	 * @see #setFindPopupMenu(JPopupMenu)
 	 */
 	public JPopupMenu getFindPopupMenu() {
 		return NativeSearchFieldSupport.getFindPopupMenu(this);
 	}
 
 	/**
-	 * TODO
-	 * 
-	 * @return
+	 * @return <code>true</code> if this search field is managing recent searches
 	 */
 	public final boolean isManagingRecentSearches() {
 		return recentSearches != null;
@@ -621,10 +618,9 @@ public class JXSearchField extends JXTextField {
 	}
 
 	/**
-	 * Returns the key used to persist recent searches.
+	 * @return the key used to persist recent searches.
 	 * 
 	 * @see #setRecentSearchesSaveKey(String)
-	 * @return
 	 */
 	public String getRecentSearchesSaveKey() {
 		return recentSearchesSaveKey;
@@ -635,12 +631,12 @@ public class JXSearchField extends JXTextField {
 	 * if <code>recentSearchesSaveKey</code> is not null. Otherwise, removes
 	 * the popup menu and stops managing recent searches.
 	 * 
+	 * @param recentSearchesSaveKey
+	 *            this key is used to persist the recent searches.
+	 *            
 	 * @see #setFindAction(ActionListener)
 	 * @see #isManagingRecentSearches()
 	 * @see RecentSearches
-	 * 
-	 * @param recentSearchesSaveKey
-	 *            this key is used to persist the recent searches.
 	 */
 	public void setRecentSearchesSaveKey(String recentSearchesSaveKey) {
 		String oldName = getRecentSearchesSaveKey();
@@ -663,9 +659,7 @@ public class JXSearchField extends JXTextField {
 	}
 
 	/**
-	 * TODO
-	 * 
-	 * @return
+	 * @return the {@link RecentSearches} used to manage recent searches
 	 */
 	public RecentSearches getRecentSearches() {
 		return recentSearches;

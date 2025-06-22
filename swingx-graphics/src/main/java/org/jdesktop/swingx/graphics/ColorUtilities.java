@@ -40,7 +40,7 @@ import java.awt.Color;
  * <p><code>ColorUtilities</code> contains a set of tools to perform
  * common color operations easily.</p>
  *
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  */
 public class ColorUtilities {
     private ColorUtilities() {

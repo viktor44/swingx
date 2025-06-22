@@ -61,39 +61,39 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * You can set these properties using the provided mutators or the appropriate
  * constructor. Here are two ways of creating a blurred reflection, with an
  * opacity of 50% and a length of 30% the height of the original image:
- * <pre>
+ * <pre><code>
  * ReflectionRenderer renderer = new ReflectionRenderer(0.5f, 0.3f, true);
  * // ..
  * renderer = new ReflectionRenderer();
  * renderer.setOpacity(0.5f);
  * renderer.setLength(0.3f);
  * renderer.setBlurEnabled(true);
- * </pre>
+ * </code></pre>
  * The default constructor provides the following default values:
  * <ul>
  *   <li><i>opacity</i>: 35%</li>
  *   <li><i>length</i>: 40%</li>
  *   <li><i>blur enabled</i>: false</li>
- * </ul></p>
+ * </ul>
  * <h2>Generating Reflections</h2>
  * <p>A reflection is generated as a <code>BufferedImage</code> from another
  * <code>BufferedImage</code>. Once the renderer is set up, you must call
  * {@link #createReflection(java.awt.image.BufferedImage)} to actually generate
  * the reflection:
- * <pre>
+ * <pre><code>
  * ReflectionRenderer renderer = new ReflectionRenderer();
  * // renderer setup
  * BufferedImage reflection = renderer.createReflection(bufferedImage);
- * </pre></p>
+ * </code></pre>
  * <p>The returned image contains only the reflection. You will have to append
  * it to the source image at painting time to get a realistic results. You can
  * also asks the rendered to return a picture composed of both the source image
  * and its reflection:
- * <pre>
+ * <pre><code>
  * ReflectionRenderer renderer = new ReflectionRenderer();
  * // renderer setup
  * BufferedImage reflection = renderer.appendReflection(bufferedImage);
- * </pre></p>
+ * </code></pre>
  * <h2>Properties Changes</h2>
  * <p>This renderer allows to register property change listeners with
  * {@link #addPropertyChangeListener}. Listening to properties changes is very
@@ -103,7 +103,7 @@ import org.jdesktop.swingx.util.GraphicsUtilities;
  * <h2>Threading Issues</h2>
  * <p><code>ReflectionRenderer</code> is not guaranteed to be thread-safe.</p>
  *
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  */
 public class ReflectionRenderer {
     /**
@@ -135,13 +135,15 @@ public class ReflectionRenderer {
     private StackBlurFilter stackBlurFilter;
 
     /**
-     * <p>Creates a default good looking reflections generator.
+     * <p>
+     * Creates a default good looking reflections generator.
      * The default reflection renderer provides the following default values:
+     * </p>
      * <ul>
      *   <li><i>opacity</i>: 35%</li>
      *   <li><i>length</i>: 40%</li>
      *   <li><i>blurring</i>: disabled with a radius of 1 pixel</li>
-     * </ul></p>
+     * </ul>
      * <p>These properties provide a regular, good looking reflection.</p>
      *
      * @see #getOpacity()
@@ -158,15 +160,18 @@ public class ReflectionRenderer {
     }
 
     /**
-     * <p>Creates a default good looking reflections generator with the
+     * <p>
+     * Creates a default good looking reflections generator with the
      * specified opacity. The default reflection renderer provides the following
      * default values:
+     * </p>
      * <ul>
      *   <li><i>length</i>: 40%</li>
      *   <li><i>blurring</i>: disabled with a radius of 1 pixel</li>
-     * </ul></p>
+     * </ul>
      *
      * @param opacity the opacity of the reflection, between 0.0 and 1.0
+     * 
      * @see #getOpacity()
      * @see #setOpacity(float)
      * @see #getLength()

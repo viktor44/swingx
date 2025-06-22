@@ -39,7 +39,11 @@ import javax.swing.plaf.UIResource;
 public class ShapeUIResource implements Shape, UIResource {
     private Shape s;
     
-    /** Creates a new instance of PainterUIResource */
+    /** 
+     * Creates a new instance of PainterUIResource
+     * 
+     * @param p - the Shape to wrap
+     */
     public ShapeUIResource(Shape p) {
         this.s = p;
     }

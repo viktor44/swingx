@@ -14,7 +14,7 @@ import org.jdesktop.swingx.prompt.PromptSupport.FocusBehavior;
  * 
  * @see PromptSupport
  * @see BuddySupport
- * @author Peter Weishapl <petw@gmx.net>
+ * @author <a href="mailto:petw@gmx.net">Peter Weishapl</a>
  * 
  */
 @JavaBean
@@ -38,6 +38,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @return the focus behavior of this component.
+	 * 
 	 * @see PromptSupport#getFocusBehavior(javax.swing.text.JTextComponent)
 	 */
 	public FocusBehavior getFocusBehavior() {
@@ -45,6 +47,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @return the prompt text of this component.
+	 * 
 	 * @see PromptSupport#getPrompt(javax.swing.text.JTextComponent)
 	 */
 	public String getPrompt() {
@@ -52,6 +56,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @return the foreground color of the prompt text.
+	 * 
 	 * @see PromptSupport#getForeground(javax.swing.text.JTextComponent)
 	 */
 	public Color getPromptForeground() {
@@ -59,6 +65,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @return the background color of the prompt text.
+	 * 
 	 * @see PromptSupport#getForeground(javax.swing.text.JTextComponent)
 	 */
 	public Color getPromptBackground() {
@@ -66,6 +74,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @return the font style of the prompt text.
+	 * 
 	 * @see PromptSupport#getFontStyle(javax.swing.text.JTextComponent)
 	 */
 	public Integer getPromptFontStyle() {
@@ -73,6 +83,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @param focusBehavior - the focus behavior to set
+	 * 
 	 * @see PromptSupport#getFocusBehavior(javax.swing.text.JTextComponent)
 	 */
 	public void setFocusBehavior(FocusBehavior focusBehavior) {
@@ -80,6 +92,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @param labelText - the text to set as prompt
+	 * 
 	 * @see PromptSupport#setPrompt(String, javax.swing.text.JTextComponent)
 	 */
 	public void setPrompt(String labelText) {
@@ -87,6 +101,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @param promptTextColor - the color to set for the prompt text
+	 * 
 	 * @see PromptSupport#setForeground(Color, javax.swing.text.JTextComponent)
 	 */
 	public void setPromptForeground(Color promptTextColor) {
@@ -94,6 +110,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @param promptTextColor - the color to set for the prompt background
+	 * 
 	 * @see PromptSupport#setBackground(Color, javax.swing.text.JTextComponent)
 	 */
 	public void setPromptBackround(Color promptTextColor) {
@@ -101,6 +119,8 @@ public class JXTextArea extends JTextArea {
 	}
 
 	/**
+	 * @param fontStyle - the font style to set for the prompt text
+	 * 
 	 * @see PromptSupport#setFontStyle(Integer, javax.swing.text.JTextComponent)
 	 */
 	public void setPromptFontStyle(Integer fontStyle) {

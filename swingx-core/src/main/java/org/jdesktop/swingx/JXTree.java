@@ -81,7 +81,6 @@ import org.jdesktop.swingx.tree.DefaultXTreeCellRenderer;
 /**
  * Enhanced Tree component with support for SwingX rendering, highlighting,
  * rollover and search functionality.
- * <p>
  * 
  * <h2>Rendering and Highlighting</h2>
  * 
@@ -89,11 +88,7 @@ import org.jdesktop.swingx.tree.DefaultXTreeCellRenderer;
  * formally define and implement, like in AbstractTestHighlighter), that is it
  * provides consistent api to add and remove Highlighters which can visually
  * decorate the rendering component.
- * <p>
- * 
- * <pre>
- * <code>
- * 
+ * <pre><code>
  * JXTree tree = new JXTree(new FileSystemModel());
  * // use system file icons and name to render
  * tree.setCellRenderer(new DefaultTreeRenderer(IconValues.FILE_ICON, 
@@ -103,25 +98,24 @@ import org.jdesktop.swingx.tree.DefaultXTreeCellRenderer;
  *    public boolean isHighlighted(Component renderer,
  *                     ComponentAdapter adapter) {
  *       File file = getUserObject(adapter.getValue());
- *       return file != null ? lastWeek < file.lastModified : false;
+ *       return file != null ? lastWeek &lt; file.lastModified : false;
  *    }
  * };
  * // highlight with foreground color 
  * tree.addHighlighter(new ColorHighlighter(predicate, null, Color.RED);      
- * 
- * </code>
- * </pre>
- * 
+ * </code></pre>
+ * <p>
  * <i>Note:</i> for full functionality, a DefaultTreeRenderer must be installed
  * as TreeCellRenderer. This is not done by default, because there are
  * unresolved issues when editing. PENDING JW: still? Check!
- * 
+ * </p>
+ * <p>
  * <i>Note:</i> to support the highlighting this implementation wraps the
  * TreeCellRenderer set by client code with a DelegatingRenderer which applies
  * the Highlighter after delegating the default configuration to the wrappee. As
  * a side-effect, getCellRenderer does return the wrapper instead of the custom
  * renderer. To access the latter, client code must call getWrappedCellRenderer.
- * <p>
+ * </p>
  * <h2>Rollover</h2>
  * 
  * As all SwingX collection views, a JXTree supports per-cell rollover. If
@@ -130,8 +124,7 @@ import org.jdesktop.swingx.tree.DefaultXTreeCellRenderer;
  * is simulates live behaviour. The rollover events can be used by client code
  * as well, f.i. to decorate the rollover row using a Highlighter.
  * 
- * <pre>
- * <code>
+ * <pre><code>
  * 
  * JXTree tree = new JXTree();
  * tree.setRolloverEnabled(true);
@@ -139,8 +132,7 @@ import org.jdesktop.swingx.tree.DefaultXTreeCellRenderer;
  * tree.addHighlighter(new ColorHighlighter(HighlightPredicate.ROLLOVER_ROW, 
  *      null, Color.RED);      
  * 
- * </code>
- * </pre>
+ * </code></pre>
  * 
  * <h2>Location of Trigger for ComponentPopupMenu</h2>
  * 
@@ -148,21 +140,17 @@ import org.jdesktop.swingx.tree.DefaultXTreeCellRenderer;
  * componentPopupMenu. This feature allows to implement dynamic cell-context
  * sensitive popupMenus, either in the menu actions or in a PopupMenuListener.
  * <p>
- * 
  * The example below selects the cell that was clicked, event being the
  * <code>PopupMenuEvent</code> received in a <code>PopupMenuListener</code>.
- * <p>
- * 
- * <pre>
- * <code>
+ * </p>
+ * <pre><code>
  * JXTree tree = (JXTree) ((JPopupMenu) e.getSource()).getInvoker();
  * Point trigger = tree.getPopupTriggerLocation();
  * if (trigger != null) {
  *     int row = tree.getRowForLocation(trigger.x, trigger.y);
  *     tree.setSelectionRow(row);
  * }
- * </code>
- * </pre>
+ * </code></pre>
  * 
  * 
  * <h2>Search</h2>
@@ -647,10 +635,6 @@ public class JXTree extends JTree {
      * @see #setForeground
      * @see #setBackground
      * @see #setFont
-     * @beaninfo
-     *       bound: true
-     *   attribute: visualUpdate true
-     * description: The foreground color of selected cells.
      */
     public void setSelectionForeground(Color selectionForeground) {
         Object oldValue = getSelectionForeground();
@@ -670,15 +654,12 @@ public class JXTree extends JTree {
      *
      * @param selectionBackground  the <code>Color</code> to use for the 
      *                             background of selected cells
+     * 
      * @see #getSelectionBackground
      * @see #setSelectionForeground
      * @see #setForeground
      * @see #setBackground
      * @see #setFont
-     * @beaninfo
-     *       bound: true
-     *   attribute: visualUpdate true
-     * description: The background color of selected cells.
      */
     public void setSelectionBackground(Color selectionBackground) {
         Object oldValue = getSelectionBackground();
@@ -1158,11 +1139,12 @@ public class JXTree extends JTree {
     }
 
     /**
-     * {@inheritDoc} <p>
+     * {@inheritDoc} 
      * 
+     * <p>
      * Overridden to return the delegating renderer which is wrapped around the
      * original to support highlighting. The returned renderer is of type 
-     * DelegatingRenderer and guaranteed to not-null<p>
+     * DelegatingRenderer and guaranteed to not-null
      * 
      * @see #setCellRenderer(TreeCellRenderer)
      * @see DelegatingRenderer
@@ -1219,7 +1201,7 @@ public class JXTree extends JTree {
      * after messaging the delegate.<p>
      * 
      * PENDING JW: formally implement UIDependent? 
-     * PENDING JW: missing updateUI anyway (got lost when c&p from JXList ;-)
+     * PENDING JW: missing updateUI anyway (got lost when c&amp;p from JXList ;-)
      * PENDING JW: missing override of updateUI in xtree ...
      */
     public class DelegatingRenderer implements TreeCellRenderer, RolloverRenderer {

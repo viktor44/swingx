@@ -55,8 +55,8 @@ import javax.swing.SwingUtilities;
  * <p>
  * Images to be displayed can be set based on URL, Image, etc. This is
  * accomplished by passing in an image loader.
- * 
- * <pre>
+ * </p>
+ * <pre><code>
  * public class URLImageLoader extends Callable&lt;Image&gt; {
  *     private URL url;
  * 
@@ -71,9 +71,7 @@ import javax.swing.SwingUtilities;
  * }
  * 
  * imagePanel.setImageLoader(new URLImageLoader(url));
- * </pre>
- * 
- * </p>
+ * </code></pre>
  * <p>
  * This component also supports allowing the user to set the image. If the
  * <code>JXImagePanel</code> is editable, then when the user clicks on the

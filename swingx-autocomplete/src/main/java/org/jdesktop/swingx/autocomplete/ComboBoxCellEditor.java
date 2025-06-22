@@ -38,7 +38,7 @@ import javax.swing.text.JTextComponent;
  * <p>
  * Usage example:
  * </p>
- * <p>
+ * 
  * <pre><code>
  * JTable table = ...;
  * JComboBox comboBox = ...;
@@ -46,7 +46,6 @@ import javax.swing.text.JTextComponent;
  * TableColumn column = table.getColumnModel().getColumn(0);
  * column.setCellEditor(new ComboBoxCellEditor(comboBox));
  * </code></pre>
- * </p>
  */
 public class ComboBoxCellEditor extends DefaultCellEditor {
     

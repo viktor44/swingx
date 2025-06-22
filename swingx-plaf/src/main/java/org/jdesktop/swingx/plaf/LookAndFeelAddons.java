@@ -159,7 +159,7 @@ public abstract class LookAndFeelAddons {
      * key/value with the highest position in the array gets precedence over the other key in the
      * array
      * 
-     * @param keysAndValues
+     * @param keysAndValues - an array of key/value pairs to add to the
      */
     public void loadDefaults(Object[] keysAndValues) {
         // Go in reverse order so the most recent keys get added first...
@@ -384,7 +384,7 @@ public abstract class LookAndFeelAddons {
      * Each new component added by the library will contribute its default UI classes, colors and
      * fonts to the LookAndFeelAddons. See {@link ComponentAddon}.
      * 
-     * @param component
+     * @param component - the component addon to contribute
      */
     public static void contribute(ComponentAddon component) {
         contributedComponents.add(component);
@@ -399,7 +399,7 @@ public abstract class LookAndFeelAddons {
     /**
      * Removes the contribution of the given addon
      * 
-     * @param component
+     * @param component - the component addon to remove
      */
     public static void uncontribute(ComponentAddon component) {
         contributedComponents.remove(component);
@@ -413,8 +413,8 @@ public abstract class LookAndFeelAddons {
      * Workaround for IDE mixing up with classloaders and Applets environments. Consider this method
      * as API private. It must not be called directly.
      * 
-     * @param component
-     * @param expectedUIClass
+     * @param component - the component for which the UI is requested
+     * @param expectedUIClass - the class of the expected UI, e.g.
      * @return an instance of expectedUIClass
      */
     public static ComponentUI getUI(JComponent component, Class<?> expectedUIClass) {

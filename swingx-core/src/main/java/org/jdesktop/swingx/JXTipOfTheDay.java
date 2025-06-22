@@ -43,7 +43,7 @@ import org.jdesktop.swingx.tips.TipOfTheDayModel.Tip;
  * {@link org.jdesktop.swingx.tips.TipOfTheDayModel.Tip#getTip()}) is just a
  * <code>String</code>. However, the return type of this method is actually
  * <code>Object</code>. Its interpretation depends on its type:
- * <dl compact>
+ * <dl>
  * <dt>Component
  * <dd>The <code>Component</code> is displayed in the dialog.
  * <dt>Icon
@@ -152,7 +152,7 @@ public class JXTipOfTheDay extends JXPanel {
    * Constructs a new <code>JXTipOfTheDay</code> showing tips from the given
    * TipOfTheDayModel.
    * 
-   * @param model
+   * @param model - the model containing the tips to show
    */
   public JXTipOfTheDay(TipOfTheDayModel model) {
     this.model = model;
@@ -160,7 +160,7 @@ public class JXTipOfTheDay extends JXPanel {
   }
 
   /**
-   * Notification from the <code>UIManager</code> that the L&F has changed.
+   * Notification from the <code>UIManager</code> that the L&amp;F has changed.
    * Replaces the current UI object with the latest version from the
    * <code>UIManager</code>.
    * 
@@ -172,23 +172,20 @@ public void updateUI() {
   }
 
   /**
-   * Sets the L&F object that renders this component.
+   * Sets the L&amp;F object that renders this component.
    * 
-   * @param ui
-   *          the <code>TipOfTheDayUI</code> L&F object
+   * @param ui the <code>TipOfTheDayUI</code> L&amp;F object
+   * 
    * @see javax.swing.UIDefaults#getUI
-   * 
-   * @beaninfo bound: true hidden: true description: The UI object that
-   *           implements the taskpane group's LookAndFeel.
    */
   public void setUI(TipOfTheDayUI ui) {
     super.setUI(ui);
   }
 
   /**
-   * Gets the UI object which implements the L&F for this component.
+   * Gets the UI object which implements the L&amp;F for this component.
    * 
-   * @return the TipOfTheDayUI object that implements the TipOfTheDayUI L&F
+   * @return the TipOfTheDayUI object that implements the TipOfTheDayUI L&amp;F
    */
   @Override
   public TipOfTheDayUI getUI() {
@@ -196,7 +193,7 @@ public void updateUI() {
   }
 
   /**
-   * Returns the name of the L&F class that renders this component.
+   * Returns the name of the L&amp;F class that renders this component.
    * 
    * @return the string {@link #uiClassID}
    * @see javax.swing.JComponent#getUIClassID
@@ -227,7 +224,7 @@ public void updateUI() {
   /**
    * Sets the index of the tip to show
    * 
-   * @param currentTip
+   * @param currentTip - the index of the tip to show, must be within the bounds
    * @throws IllegalArgumentException if currentTip is not within the bounds [0,
    *        getModel().getTipCount()[.
    */
@@ -274,9 +271,8 @@ public void updateUI() {
   /**
    * Pops up a "Tip of the day" dialog.
    * 
-   * @param parentComponent
-   * @exception HeadlessException
-   *              if GraphicsEnvironment.isHeadless() returns true.
+   * @param parentComponent - the parent component for the dialog
+   * @exception HeadlessException if GraphicsEnvironment.isHeadless() returns true.
    * @see java.awt.GraphicsEnvironment#isHeadless
    */
   public void showDialog(Component parentComponent) throws HeadlessException {
@@ -288,8 +284,8 @@ public void updateUI() {
    * "Show tips on startup" checkbox in a key named "ShowTipOnStartup" in the
    * given Preferences.
    * 
-   * @param parentComponent
-   * @param showOnStartupPref
+   * @param parentComponent - the parent component for the dialog
+   * @param showOnStartupPref - the Preferences to store the "Show tips on startup" choice
    * @exception HeadlessException
    *              if GraphicsEnvironment.isHeadless() returns true.
    * @throws IllegalArgumentException
@@ -307,18 +303,14 @@ public void updateUI() {
    * "Show tips on startup" checkbox in a key named "ShowTipOnStartup" in the
    * given Preferences.
    * 
-   * @param parentComponent
-   * @param showOnStartupPref
-   * @param force
-   *          if true, the dialog is displayed even if the Preferences is set to
+   * @param parentComponent - the parent component for the dialog
+   * @param showOnStartupPref - the Preferences to store the "Show tips on startup" choice
+   * @param force - if true, the dialog is displayed even if the Preferences is set to
    *          hide the dialog
-   * @exception HeadlessException
-   *              if GraphicsEnvironment.isHeadless() returns true.
-   * @throws IllegalArgumentException
-   *           if showOnStartupPref is null
+   * @exception HeadlessException if GraphicsEnvironment.isHeadless() returns true.
+   * @throws IllegalArgumentException if showOnStartupPref is null
    * @see java.awt.GraphicsEnvironment#isHeadless
-   * @return true if the user chooses to see the tips again, false
-   *         otherwise.
+   * @return true if the user chooses to see the tips again, false otherwise.
    */
   public boolean showDialog(Component parentComponent,
     final Preferences showOnStartupPref, boolean force) throws HeadlessException {
@@ -355,15 +347,14 @@ public void updateUI() {
    * Additionally, it saves the state of the "Show tips on startup" checkbox
    * using the given {@link ShowOnStartupChoice} object.
    * 
-   * @param parentComponent
-   * @param choice
+   * @param parentComponent - the parent component for the dialog
+   * @param choice - the ShowOnStartupChoice object to save the "Show tips on startup" choice
    * @exception HeadlessException
    *              if GraphicsEnvironment.isHeadless() returns true.
    * @see java.awt.GraphicsEnvironment#isHeadless
    * @return true if the user chooses to see the tips again, false otherwise.
    */
-  public boolean showDialog(Component parentComponent,
-    ShowOnStartupChoice choice) {
+  public boolean showDialog(Component parentComponent, ShowOnStartupChoice choice) {
     return showDialog(parentComponent, choice, false);
   }
 
@@ -378,8 +369,8 @@ public void updateUI() {
    * Additionally, it saves the state of the "Show tips on startup" checkbox
    * using the given {@link ShowOnStartupChoice} object.
    * 
-   * @param parentComponent
-   * @param choice
+   * @param parentComponent - the parent component for the dialog
+   * @param choice - the ShowOnStartupChoice object to save the "Show tips on startup" choice
    * @param force
    *          if true, the dialog is displayed even if
    *          {@link ShowOnStartupChoice#isShowingOnStartup()} is false
@@ -406,7 +397,7 @@ public void updateUI() {
   }
   
   /**
-   * @param showOnStartupPref
+   * @param showOnStartupPref the Preferences to check for the "ShowTipOnStartup" key
    * @return true if the key named "ShowTipOnStartup" is not set to false
    */
   public static boolean isShowingOnStartup(Preferences showOnStartupPref) {
@@ -418,7 +409,7 @@ public void updateUI() {
    * ensure the dialog shown by a later call to
    * {@link #showDialog(Component, Preferences)} will be visible to the user.
    * 
-   * @param showOnStartupPref
+   * @param showOnStartupPref the Preferences to remove the "ShowTipOnStartup" key from
    */
   public static void forceShowOnStartup(Preferences showOnStartupPref) {
     showOnStartupPref.remove(PREFERENCE_KEY);
@@ -431,8 +422,8 @@ public void updateUI() {
    * This method can be overriden in order to control things such as the
    * placement of the dialog or its title.
    * 
-   * @param parentComponent
-   * @param choice
+   * @param parentComponent - the parent component for the dialog
+   * @param choice - the ShowOnStartupChoice object to save the "Show tips on startup" choice
    * @return a JDialog to show this TipOfTheDay pane
    */
   protected JDialog createDialog(Component parentComponent,

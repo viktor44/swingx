@@ -54,7 +54,7 @@ interface BackgroundPaintable {
     
     /**
      * 
-     * @param paintBorderInsets
+     * @param paintBorderInsets - {@code true} to paint the background under the border insets;
      */
     void setPaintBorderInsets(boolean paintBorderInsets);
 }

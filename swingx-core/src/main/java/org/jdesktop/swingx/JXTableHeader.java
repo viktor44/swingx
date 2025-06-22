@@ -46,7 +46,7 @@ import org.jdesktop.swingx.table.TableColumnExt;
 
 /**
  * TableHeader with extended functionality if associated Table is of
- * type JXTable.<p>
+ * type JXTable.
  * 
  * <h2> Extended user interaction </h2>
  * 
@@ -70,7 +70,7 @@ import org.jdesktop.swingx.table.TableColumnExt;
  * <ul>
  * <li> Listens to TableColumn propertyChanges to update itself accordingly.
  * <li> Supports per-column header ToolTips. 
- * <li> Guarantees reasonable minimal height > 0 for header preferred height.
+ * <li> Guarantees reasonable minimal height &gt; 0 for header preferred height.
 * </ul>
  * 
  * 
@@ -78,7 +78,6 @@ import org.jdesktop.swingx.table.TableColumnExt;
  * 
  * @see JXTable#toggleSortOrder(int)
  * @see JXTable#resetSortOrder()
- * @see SortGestureRecognizer
  */
 public class JXTableHeader extends JTableHeader 
     implements TableColumnModelExtListener {
@@ -371,14 +370,15 @@ public class JXTableHeader extends JTableHeader
     }
     
     /**
-     * {@inheritDoc} <p>
+     * {@inheritDoc} 
      * 
+     * <p>
      * Overridden to adjust for a reasonable minimum height. Done to fix Issue 334-swingx,
      * which actually is a core issue misbehaving in returning a zero height
      * if the first column has no text. 
      * 
      * @see #getPreferredSize(Dimension)
-     * @see #getMinimumHeight(int).
+     * @see #getMinimumHeight(int)
      * 
      */
     @Override
@@ -442,8 +442,9 @@ public class JXTableHeader extends JTableHeader
     
 
     /**
-     * @inherited <p>
-     * 
+     * {@inheritDoc}
+     *  
+     * <p>
      * Overridden to fire a propertyChange for draggedColumn. 
      */
     @Override
@@ -456,8 +457,9 @@ public class JXTableHeader extends JTableHeader
 
     
     /**
-     * @inherited <p>
-     * 
+     * {@inheritDoc}
+     *  
+     * <p>
      * Overridden to fire a propertyChange for resizingColumn. 
      */
     @Override
@@ -471,8 +473,9 @@ public class JXTableHeader extends JTableHeader
     
     
     /**
-     * {@inheritDoc} <p>
+     * {@inheritDoc}
      * 
+     * <p>
      * Overridden to scroll the table to keep the dragged column visible.
      * This side-effect is enabled only if the header's autoscroll property is
      * <code>true</code> and the associated table is of type JXTable.<p> 

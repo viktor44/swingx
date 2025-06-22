@@ -49,7 +49,7 @@ import org.jdesktop.swingx.plaf.LookAndFeelAddons;
  *     frame.add(label);
  *     //...
  *     label.setBusy(true);
- * </code></pre></p>
+ * </code></pre>
  * Another more complicated example:
  * <pre><code>
  * JXBusyLabel label = new JXBusyLabel(new Dimension(100,84));
@@ -182,7 +182,9 @@ public class JXBusyLabel extends JLabel {
      * Create and return a BusyPpainter to use for the Label. This may 
      * be overridden to return any painter you like.  By default, this 
      * method uses the UI (BusyLabelUI)to create a BusyPainter.
+     * 
      * @param dim Painter size.
+     * @return a BusyPainter to use for the Label, or null if no painter is
      *
      * @see #getUI()
      */
@@ -344,7 +346,7 @@ public class JXBusyLabel extends JLabel {
     //------------------------------------------------------------- UI Logic
     
     /**
-     * Notification from the <code>UIManager</code> that the L&F has changed.
+     * Notification from the <code>UIManager</code> that the L&amp;F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
      *
@@ -356,7 +358,7 @@ public class JXBusyLabel extends JLabel {
     }
 
     /**
-     * Returns the name of the L&F class that renders this component.
+     * Returns the name of the L&amp;F class that renders this component.
      *
      * @return the string {@link #uiClassID}
      * @see javax.swing.JComponent#getUIClassID

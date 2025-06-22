@@ -43,10 +43,8 @@ public class ListAdaptor extends AbstractAutoCompleteAdaptor implements ListSele
      * Creates a new JListAdaptor for the given list and text component using
      * the default converter.
      * 
-     * @param list the list that contains the items that are used for automatic
-     * completion
-     * @param textComponent the text component that will be used automatic
-     * completion
+     * @param list - the list that contains the items that are used for automatic completion
+     * @param textComponent - the text component that will be used automatic completion
      */
     public ListAdaptor(JList list, JTextComponent textComponent) {
         this(list, textComponent, null);
@@ -54,14 +52,13 @@ public class ListAdaptor extends AbstractAutoCompleteAdaptor implements ListSele
     
     /**
      * Creates a new JListAdaptor for the given list and text component using the
-     * givne converter. The converter may be null to denote usage of the default.
-     * @param list the list that contains the items that are used for automatic
-     * completion
-     * @param textComponent the text component that will be used automatic
-     * completion
+     * given converter. The converter may be null to denote usage of the default.
+     * 
+     * @param list the list that contains the items that are used for automatic completion
+     * @param textComponent the text component that will be used automatic completion
      * @param stringConverter the converter used to transform items to strings
      * 
-     * @see ObjectToStringConverter.DEFAULT_IMPLEMENTATION
+     * @see ObjectToStringConverter#DEFAULT_IMPLEMENTATION
      */
     public ListAdaptor(JList list, JTextComponent textComponent, ObjectToStringConverter stringConverter) {
         this.list = list;
@@ -74,6 +71,7 @@ public class ListAdaptor extends AbstractAutoCompleteAdaptor implements ListSele
     
     /**
      * Implementation side effect - do not invoke.
+     * 
      * @param listSelectionEvent -
      */
     // ListSelectionListener (listening to list)

@@ -18,7 +18,7 @@ import org.jdesktop.swingx.prompt.PromptSupport.FocusBehavior;
  * 
  * @see PromptSupport
  * @see BuddySupport
- * @author Peter Weishapl <petw@gmx.net>
+ * @author <a href="mailto:petw@gmx.net">Peter Weishapl</a>
  * 
  */
 @JavaBean
@@ -42,6 +42,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the current focus behavior of this text field.
+	 * 
 	 * @see PromptSupport#getFocusBehavior(javax.swing.text.JTextComponent)
 	 */
 	public FocusBehavior getFocusBehavior() {
@@ -49,6 +51,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the current prompt text of this text field.
+	 * 
 	 * @see PromptSupport#getPrompt(javax.swing.text.JTextComponent)
 	 */
 	public String getPrompt() {
@@ -56,6 +60,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the current prompt foreground color of this text field.
+	 * 
 	 * @see PromptSupport#getForeground(javax.swing.text.JTextComponent)
 	 */
 	public Color getPromptForeground() {
@@ -63,6 +69,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the current prompt background color of this text field.
+	 * 
 	 * @see PromptSupport#getForeground(javax.swing.text.JTextComponent)
 	 */
 	public Color getPromptBackground() {
@@ -70,6 +78,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the current prompt font style of this text field.
+	 * 
 	 * @see PromptSupport#getFontStyle(javax.swing.text.JTextComponent)
 	 */
 	public Integer getPromptFontStyle() {
@@ -77,6 +87,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param focusBehavior - the new focus behavior to set for this text field.
+	 * 
 	 * @see PromptSupport#getFocusBehavior(javax.swing.text.JTextComponent)
 	 */
 	public void setFocusBehavior(FocusBehavior focusBehavior) {
@@ -84,6 +96,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param labelText - the new prompt text to set for this text field.
+	 * 
 	 * @see PromptSupport#setPrompt(String, javax.swing.text.JTextComponent)
 	 */
 	public void setPrompt(String labelText) {
@@ -91,6 +105,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param promptTextColor - the new prompt foreground color to set for this text field.
+	 * 
 	 * @see PromptSupport#setForeground(Color, javax.swing.text.JTextComponent)
 	 */
 	public void setPromptForeground(Color promptTextColor) {
@@ -98,6 +114,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param promptTextColor - the new prompt background color to set for this text field.
+	 * 
 	 * @see PromptSupport#setBackground(Color, javax.swing.text.JTextComponent)
 	 */
 	public void setPromptBackround(Color promptTextColor) {
@@ -105,6 +123,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param fontStyle - the new prompt font style to set for this text field.
+	 * 
 	 * @see PromptSupport#setFontStyle(Integer, javax.swing.text.JTextComponent)
 	 */
 	public void setPromptFontStyle(Integer fontStyle) {
@@ -112,6 +132,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param margin - the new outer margin to set for this text field.
+	 * 
 	 * @see BuddySupport#setOuterMargin(JTextField, Insets)
 	 */
 	public void setOuterMargin(Insets margin) {
@@ -119,6 +141,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the current outer margin of this text field.
+	 * 
 	 * @see BuddySupport#getOuterMargin(JTextField)
 	 */
 	public Insets getOuterMargin() {
@@ -126,6 +150,9 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param buddy - the buddy component to add to this text field.
+	 * @param pos - the position where to add the buddy component.
+	 * 
 	 * @see BuddySupport#add(Component, Position, JTextField)
 	 */
 	public void addBuddy(Component buddy, Position pos) {
@@ -133,6 +160,9 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @param width - the width of the gap to add.
+	 * @param pos - the position where to add the gap.
+	 * 
 	 * @see BuddySupport#addGap(int, Position, JTextField)
 	 */
 	public void addGap(int width, Position pos) {
@@ -140,6 +170,8 @@ public class JXTextField extends JTextField {
 	}
 
 	/**
+	 * @return the list of buddy components at the specified position.
+	 * 
 	 * @see BuddySupport#getBuddies(Position, JTextField)
 	 */
 	public List<Component> getBuddies(Position pos) {

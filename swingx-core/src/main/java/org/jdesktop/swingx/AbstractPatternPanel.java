@@ -225,6 +225,8 @@ public abstract class AbstractPatternPanel extends JXPanel {
      * PENDING: Try better to find all column actions including custom
      * additions? Or move to columnControl?
      * 
+     * @param locale - the new locale to set
+     * 
      * @see #setLocale(Locale)
      */
     protected void updateLocaleState(Locale locale) {
@@ -403,6 +405,8 @@ public abstract class AbstractPatternPanel extends JXPanel {
      * Configures the searchLabel.
      * Here: sets text and mnenomic properties form ui values, 
      * configures as label for searchField.
+     * 
+     * @param locale - the locale to use for localization
      */
     protected void bindSearchLabel(Locale locale) {
         searchLabel.setText(getUIString(SEARCH_FIELD_LABEL, locale));

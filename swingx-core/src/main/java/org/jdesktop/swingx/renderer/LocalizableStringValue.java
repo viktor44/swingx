@@ -74,8 +74,9 @@ public class LocalizableStringValue implements StringValue {
 
     /**
      * 
-     * @inherited <p>
+     * {@inheritDoc} 
      * 
+     * <p>
      * Implemented to lookup the value's localized string
      * representation, if contained in the lookup map. Returns
      * the fallback if not contained.

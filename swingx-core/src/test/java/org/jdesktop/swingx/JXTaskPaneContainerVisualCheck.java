@@ -76,7 +76,7 @@ public class JXTaskPaneContainerVisualCheck extends InteractiveTestCase {
             private PropertyChangeListener expansionListener;
 
             /**
-             * @inherited <p>
+             * {@inheritDoc}
              */
             @Override
             protected void addImpl(Component comp, Object constraints, int index) {

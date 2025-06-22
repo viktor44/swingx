@@ -49,7 +49,7 @@ import org.jdesktop.beans.AbstractBean;
  * interface. This class can be used to created new image filters based
  * on <code>BufferedImageOp</code>.</p>
  *
- * @author Romain Guy <romain.guy@mac.com>
+ * @author <a href="mailto:romain.guy@mac.com">Romain Guy</a>
  */
 
 public abstract class AbstractFilter extends AbstractBean implements BufferedImageOp {

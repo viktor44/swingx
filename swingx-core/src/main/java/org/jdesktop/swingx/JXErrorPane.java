@@ -78,7 +78,7 @@ import org.jdesktop.swingx.plaf.LookAndFeelAddons;
  *      a dialog for presenting the given <code>JXErrorPane</code>, but does not
  *      show it. This allows the developer to modify properties of the dialog
  *      prior to display</li>
- * </ul></p>
+ * </ul>
  * 
  * <p>Following are some examples and further discussion regarding some of these
  * static methods. Example of the most basic usage:
@@ -88,11 +88,14 @@ import org.jdesktop.swingx.plaf.LookAndFeelAddons;
  *      } catch (Exception e) {
  *          JXErrorPane.showDialog(e);
  *      }
- * </code></pre>. Alternatively there are <code>showFrame</code> and
+ * </code></pre>
+ * <p>
+ * Alternatively there are <code>showFrame</code> and
  * <code>showInternalFrame</code> variants of each of the <code>showDialog</code>
- * methods described in this API.</p>
- *
- * <p>While this is the simplest usage, it is not the recommended approach for
+ * methods described in this API.
+ * </p>
+ * <p>
+ * While this is the simplest usage, it is not the recommended approach for
  * most errors since it yields the most difficult messages for users to understand.
  * Instead it is recommended to provide a more useful message for users. For example:
  * <pre><code>
@@ -110,7 +113,7 @@ import org.jdesktop.swingx.plaf.LookAndFeelAddons;
  *          JXErrorPane.showDialog(myWindow, "Unknown Resource", msg, details, e);
  *          return false;
  *      }
- * </code></pre></p>
+ * </code></pre>
  * 
  * <p>Before showing the <code>JXErrorPane</code> in a frame or dialog, you may modify
  * the appearance and behavior of the <code>JXErrorPane</code> by setting one or more of its bean
@@ -121,7 +124,7 @@ import org.jdesktop.swingx.plaf.LookAndFeelAddons;
  *      pane.setErrorIcon(myErrorIcon);
  *      pane.setErrorInfo(new ErrorInfo("Fatal Error", exception));
  *      JXErrorPane.showDialog(null, pane);
- * </code></pre></p>
+ * </code></pre>
  *
  * <p><code>JXErrorPane</code> may also be configured with a "Report" button which allows
  * the user to send a bug report, typically through email. This is done through
@@ -222,7 +225,7 @@ public class JXErrorPane extends JComponent {
     //------------------------------------------------------------- UI Logic
     
     /**
-     * Returns the look and feel (L&F) object that renders this component.
+     * Returns the look and feel (L&amp;F) object that renders this component.
      *
      * @return the {@link ErrorPaneUI} object that renders this component
      */
@@ -231,23 +234,21 @@ public class JXErrorPane extends JComponent {
     }
 
     /**
-     * Sets the look and feel (L&F) object that renders this component.
+     * Sets the look and feel (L&amp;F) object that renders this component.
      * 
-     * @param ui
-     *            the ErrorPaneUI L&F object
+     * @param ui the ErrorPaneUI L&amp;F object
+     * 
      * @see javax.swing.UIDefaults#getUI
-     * @beaninfo bound: true hidden: true attribute: visualUpdate true
-     *           description: The UI object that implements the Component's
-     *           LookAndFeel.
      */
     public void setUI(ErrorPaneUI ui) {
         super.setUI(ui);
     }
 
     /**
-     * Returns the name of the L&F class that renders this component.
+     * Returns the name of the L&amp;F class that renders this component.
      *
      * @return the string {@link #uiClassID}
+     * 
      * @see javax.swing.JComponent#getUIClassID
      * @see javax.swing.UIDefaults#getUI
      */
@@ -257,7 +258,7 @@ public class JXErrorPane extends JComponent {
     }
 
     /**
-     * Notification from the <code>UIManager</code> that the L&F has changed.
+     * Notification from the <code>UIManager</code> that the L&amp;F has changed.
      * Replaces the current UI object with the latest version from the
      * <code>UIManager</code>.
      * 

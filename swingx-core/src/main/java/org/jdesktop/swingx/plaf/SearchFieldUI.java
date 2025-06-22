@@ -29,7 +29,7 @@ import org.jdesktop.swingx.search.NativeSearchFieldSupport;
 /**
  * The default {@link JXSearchField} UI delegate.
  * 
- * @author Peter Weishapl <petw@gmx.net>
+ * @author <a href="mailto:petw@gmx.net">Peter Weishapl</a>
  * 
  */
 public class SearchFieldUI extends BuddyTextFieldUI {
@@ -193,12 +193,11 @@ public class SearchFieldUI extends BuddyTextFieldUI {
      * Initialize the search fields various properties based on the
      * corresponding "SearchField.*" properties from defaults table. The
      * {@link JXSearchField}s layout is set to the value returned by
-     * <code>createLayout</code>. Also calls {@link #replaceBorderIfNecessary()}
+     * <code>createLayout</code>. Also calls <code>replaceBorderIfNecessary()</code>
      * and {@link #updateButtons()}. This method is called by
      * {@link #installUI(JComponent)}.
      * 
-     * @see #installUI
-     * @see #createLayout
+     * @see #installUI(JComponent)
      * @see JXSearchField#customSetUIProperty(String, Object)
      */
     protected void installDefaults() {

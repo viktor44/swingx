@@ -64,8 +64,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     /**
      * Adds default key/value pairs to the given list.
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addBasicDefaults(LookAndFeelAddons addon,
             DefaultsList defaults) {
@@ -75,8 +75,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
      * Default implementation calls
      * {@link #addBasicDefaults(LookAndFeelAddons, DefaultsList)}
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addMacDefaults(LookAndFeelAddons addon, DefaultsList defaults) {
         addBasicDefaults(addon, defaults);
@@ -86,8 +86,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
      * Default implementation calls
      * {@link #addBasicDefaults(LookAndFeelAddons, DefaultsList)}
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addMetalDefaults(LookAndFeelAddons addon,
             DefaultsList defaults) {
@@ -98,8 +98,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
      * Default implementation calls
      * {@link #addBasicDefaults(LookAndFeelAddons, DefaultsList)}
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addMotifDefaults(LookAndFeelAddons addon,
             DefaultsList defaults) {
@@ -110,8 +110,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
      * Default implementation calls
      * {@link #addBasicDefaults(LookAndFeelAddons, DefaultsList)}
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addWindowsDefaults(LookAndFeelAddons addon,
             DefaultsList defaults) {
@@ -122,8 +122,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
      * Default implementation calls
      * {@link #addBasicDefaults(LookAndFeelAddons, DefaultsList)}
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addLinuxDefaults(LookAndFeelAddons addon,
             DefaultsList defaults) {
@@ -134,8 +134,8 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
      * Default implementation calls
      * {@link #addBasicDefaults(LookAndFeelAddons, DefaultsList)}
      * 
-     * @param addon
-     * @param defaults
+     * @param addon - the addon for which the defaults are added
+     * @param defaults - the list to which the defaults are added
      */
     protected void addNimbusDefaults(LookAndFeelAddons addon,
             DefaultsList defaults) {
@@ -190,6 +190,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     //
 
     /**
+     * @param addon - the addon to check
      * @return true if the addon is the Windows addon or its subclasses
      */
     protected boolean isWindows(LookAndFeelAddons addon) {
@@ -197,6 +198,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
+     * @param addon - the addon to check
      * @return true if the addon is the Metal addon or its subclasses
      */
     protected boolean isMetal(LookAndFeelAddons addon) {
@@ -204,6 +206,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
+     * @param addon - the addon to check
      * @return true if the addon is the Mac OS X addon or its subclasses
      */
     protected boolean isMac(LookAndFeelAddons addon) {
@@ -211,6 +214,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
+     * @param addon - the addon to check
      * @return true if the addon is the Motif addon or its subclasses
      */
     protected boolean isMotif(LookAndFeelAddons addon) {
@@ -218,6 +222,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
+     * @param addon - the addon to check
      * @return true if the current look and feel is Linux
      */
     protected boolean isLinux(LookAndFeelAddons addon) {
@@ -225,6 +230,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
+     * @param addon - the addon to check
      * @return true if the current look and feel is Nimbus
      */
     protected boolean isNimbus(LookAndFeelAddons addon) {
@@ -232,7 +238,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
-     * @return true if the current look and feel is one of JGoodies Plastic l&fs
+     * @return true if the current look and feel is one of JGoodies Plastic l&amp;fs
      */
     protected boolean isPlastic() {
         return UIManager.getLookAndFeel().getClass().getName()
@@ -240,7 +246,7 @@ public abstract class AbstractComponentAddon implements ComponentAddon {
     }
 
     /**
-     * @return true if the current look and feel is Synth l&f
+     * @return true if the current look and feel is Synth l&amp;f
      */
     protected boolean isSynth() {
         return UIManager.getLookAndFeel().getClass().getName().contains("ynth");

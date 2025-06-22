@@ -72,7 +72,7 @@ import org.jdesktop.swingx.util.Contract;
 public class JXComboBox<E> extends JComboBox<E> {
     /**
      * A decorator for the original ListCellRenderer. Needed to hook highlighters
-     * after messaging the delegate.<p>
+     * after messaging the delegate.
      */
     public class DelegatingRenderer implements ListCellRenderer, RolloverRenderer, UIDependent {
         /** the delegate. */
@@ -636,11 +636,13 @@ public class JXComboBox<E> extends JComboBox<E> {
     }
 
     /**
-     * {@inheritDoc} <p>
+     * {@inheritDoc} 
      * 
+     * <p>
      * Overridden to return the delegating renderer which is wrapped around the
      * original to support highlighting. The returned renderer is of type 
-     * DelegatingRenderer and guaranteed to not-null<p>
+     * DelegatingRenderer and guaranteed to not-null
+     * </p>
      * 
      * @see #setRenderer(ListCellRenderer)
      * @see DelegatingRenderer

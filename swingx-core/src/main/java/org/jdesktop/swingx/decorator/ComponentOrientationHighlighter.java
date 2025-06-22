@@ -80,7 +80,9 @@ public class ComponentOrientationHighlighter extends AbstractHighlighter {
     }
 
     /**
-     * @inherited <p>
+     * {@inheritDoc} 
+     * 
+     * <p>
      * Implementated to decorate the given component with the ComponentOrientation. 
      */
     @Override

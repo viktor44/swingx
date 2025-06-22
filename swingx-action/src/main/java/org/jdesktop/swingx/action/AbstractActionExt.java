@@ -68,6 +68,8 @@ public abstract class AbstractActionExt extends AbstractAction
     
     /**
      * Copy constructor copies the state.
+     * 
+     * @param action - the action to copy
      */
     public AbstractActionExt(AbstractActionExt action) {
         Object[] keys = action.getKeys();
@@ -324,6 +326,8 @@ public abstract class AbstractActionExt extends AbstractAction
     /**
      * Sets the group identity of the state action. This is used to
      * identify the action as part of a button group.
+     * 
+     * @param group - the group identity of the action
      */
     public void setGroup(Object group) {
         putValue(GROUP, group);

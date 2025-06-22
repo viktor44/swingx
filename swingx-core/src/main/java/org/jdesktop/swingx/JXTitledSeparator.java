@@ -40,14 +40,17 @@ import javax.swing.plaf.FontUIResource;
 import org.jdesktop.beans.JavaBean;
 
 /**
- * <p>A simple horizontal separator that contains a title.<br/>
- *
- * <p>JXTitledSeparator allows you to specify the title via the {@link #setTitle} method.
+ * <p>
+ * A simple horizontal separator that contains a title.
+ * </p>
+ * <p>
+ * JXTitledSeparator allows you to specify the title via the {@link #setTitle} method.
  * The title alignment may be specified by using the {@link #setHorizontalAlignment}
  * method, and accepts all the same arguments as the {@link javax.swing.JLabel#setHorizontalAlignment}
- * method.</p>
- *
- * <p>In addition, you may specify an Icon to use with this separator. The icon
+ * method.
+ * </p>
+ * <p>
+ * In addition, you may specify an Icon to use with this separator. The icon
  * will appear "leading" the title (on the left in left-to-right languages,
  * on the right in right-to-left languages). To change the position of the
  * title with respect to the icon, call {@link #setHorizontalTextPosition}.</p>
@@ -117,6 +120,10 @@ public class JXTitledSeparator extends JXPanel {
      * Creates a new instance of <code>JXTitledSeparator</code> with the specified
      * title and horizontal alignment. The default
      * horizontal text position is <code>TRAILING</code> (title follows icon)
+     * 
+     * @param title the title to use for this <code>JXTitledSeparator</code>
+     * @param horizontalAlignment the horizontal alignment of the title. This should be one of the
+     * following constants defined in <code>SwingConstants</code>:
      */
     public JXTitledSeparator(String title, int horizontalAlignment) {
         this(title, horizontalAlignment, null);
@@ -126,6 +133,11 @@ public class JXTitledSeparator extends JXPanel {
      * Creates a new instance of <code>JXTitledSeparator</code> with the specified
      * title, icon, and horizontal alignment. The default
      * horizontal text position is <code>TRAILING</code> (title follows icon)
+     * 
+     * @param title the title to use for this <code>JXTitledSeparator</code>
+     * @param horizontalAlignment the horizontal alignment of the title. This should be one of the
+     * following constants defined in <code>SwingConstants</code>:
+     * @param icon the icon to use for this <code>JXTitledSeparator</code>. If null, no icon is displayed.
      */
     public JXTitledSeparator(String title, int horizontalAlignment, Icon icon) {
         setLayout(new GridBagLayout());

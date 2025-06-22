@@ -47,7 +47,7 @@ import javax.swing.JToolBar;
 /**
  * Creates user interface elements based on action ids and lists of action ids.
  * All action ids must represent actions managed by the ActionManager.
- * <p>
+ * 
  * <h3>Action Lists</h3>
  * Use the createXXX(List) methods to construct containers of actions like menu 
  * bars, menus, popups and toolbars from actions represented as action ids in a 
@@ -57,7 +57,7 @@ import javax.swing.JToolBar;
  * <li>null: indicates a separator should be inserted.
  * <li>java.util.List: represents a submenu. See the note below which describes 
  * the configuration of menus. 
- * </li>
+ * </ul>
  * The order of elements in an action-list determines the arrangement of the ui 
  * components which are constructed from the action-list.
  * <p>
@@ -113,8 +113,9 @@ public class ActionContainerFactory {
     }
 
     /**
-     * Sets the ActionManager instance that will be used by this
-     * ActionContainerFactory
+     * Sets the ActionManager instance that will be used by this ActionContainerFactory
+     * 
+     * @param manager - the ActionManager to use
      */
     public void setActionManager(ActionMap manager) {
         this.manager = manager;
@@ -480,9 +481,9 @@ public class ActionContainerFactory {
 
     /**
      * 
-     * @param button
-     * @param a
-     * @param group
+     * @param button - the button to be configured
+     * @param a - the action used to construct the button.
+     * @param group - the button should be added to.
      */
     public void configureButton(JToggleButton button, AbstractActionExt a, ButtonGroup group) {
        configureSelectableButton(button, a, group);
@@ -501,9 +502,9 @@ public class ActionContainerFactory {
      * PENDING: the group properties are yet untested.
      * PENDING: think about automated unconfig.
      * 
-     * @param button where selected makes sense
-     * @param a
-     * @param group the button should be added to.
+     * @param button - where selected makes sense
+     * @param a - the action used to construct the button.
+     * @param group - the button should be added to.
      * @throws IllegalArgumentException if the given action doesn't have the state flag set. 
      * 
      */

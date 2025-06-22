@@ -24,13 +24,15 @@ package org.jdesktop.swingx.autocomplete;
  * <p>
  * This class is used to provide string representations for objects when
  * doing automatic completion.
- * </p><p>
+ * </p>
+ * <p>
  * A class inherited from this class could be used, when the object's
  * <tt>toString</tt> method is not appropriate for automatic completion.
- * </p><p>
+ * </p>
+ * <p>
  * An example for i18n:
- * </p><p>
- * <code><pre>
+ * </p>
+ * <pre><code>
  * public class I18NStringConverter extends ObjectToStringConverter {
  *   ResourceBundle bundle;
  *
@@ -43,12 +45,14 @@ package org.jdesktop.swingx.autocomplete;
  *   }
  * }
  * </code></pre>
- * </p><p>
+ * 
+ * <p>
  * It's also possible to return more than one string representation. The
  * following example shows a converter that will allow a user to choose an
  * airport using either the airport's full description (<tt>toString()</tt>) or
  * its ICAO/IATA code:
- * </p><p>
+ * </p>
+ * 
  * <pre><code>
  * public class AirportConverter extends ObjectToStringConverter {
  *
@@ -64,7 +68,7 @@ package org.jdesktop.swingx.autocomplete;
  *   }
  * }
  * </code></pre>
- * </p>
+ * 
  * @author Thomas Bierhance
  */
 public abstract class ObjectToStringConverter {

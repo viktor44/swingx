@@ -17,7 +17,7 @@ import org.jdesktop.swingx.util.OS;
  * {@link PromptTextUI} implementation for rendering prompts on
  * {@link JTextField}s and uses a {@link JTextField} as a prompt component.
  * 
- * @author Peter Weishapl <petw@gmx.net>
+ * @author <a href="mailto:petw@gmx.net">Peter Weishapl</a>
  * 
  */
 public class PromptTextFieldUI extends PromptTextUI {

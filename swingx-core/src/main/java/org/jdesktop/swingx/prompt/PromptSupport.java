@@ -33,7 +33,7 @@ import org.jdesktop.swingx.plaf.TextUIWrapper;
  * @see JXTextArea
  * @see PromptTextUI
  * 
- * @author Peter Weishapl <petw@gmx.net>
+ * @author <a href="mailto:petw@gmx.net">Peter Weishapl</a>
  * @author Karl Schaefer
  */
 public final class PromptSupport {
@@ -100,13 +100,13 @@ public final class PromptSupport {
 	 * <p>
 	 * If <code>stayOnUIChange</code> is true, The prompt support will stay
 	 * installed, even when the text components UI changes. See
-	 * {@link #install(JTextComponent, boolean)}.
+	 * <code>install(JTextComponent, boolean)</code>.
 	 * </p>
 	 * 
-	 * @param promptText
-	 * @param promptForeground
-	 * @param promptBackground
-	 * @param textComponent
+	 * @param promptText - the prompt text to set
+	 * @param promptForeground - the color of the prompt text, or
+	 * @param promptBackground - the background color of the prompt text, or
+	 * @param textComponent - the text component to set the prompt on
 	 */
 	public static void init(String promptText, Color promptForeground, Color promptBackground,
 			final JTextComponent textComponent) {
@@ -168,7 +168,7 @@ public final class PromptSupport {
 	 * prompt text.
 	 * </p>
 	 * <p>
-	 * Calls {@link #install(JTextComponent)} to ensure that the
+	 * Calls <code>install(JTextComponent)</code> to ensure that the
 	 * <code>textComponent</code>s UI is wrapped by the appropriate
 	 * {@link PromptTextUI}.
 	 * </p>
@@ -239,7 +239,7 @@ public final class PromptSupport {
 	 * only be used when no text is present.
 	 * </p>
 	 * <p>
-	 * Calls {@link #install(JTextComponent)} to ensure that the
+	 * Calls <code>install(JTextComponent)</code> to ensure that the
 	 * <code>textComponent</code>s UI is wrapped by the appropriate
 	 * {@link PromptTextUI}.
 	 * </p>
@@ -279,7 +279,7 @@ public final class PromptSupport {
 	 * only be used when no text is present.
 	 * </p>
 	 * <p>
-	 * Calls {@link #install(JTextComponent)} to ensure that the
+	 * Calls <code>install(JTextComponent)</code> to ensure that the
 	 * <code>textComponent</code>s UI is wrapped by the appropriate
 	 * {@link PromptTextUI}.
 	 * </p>

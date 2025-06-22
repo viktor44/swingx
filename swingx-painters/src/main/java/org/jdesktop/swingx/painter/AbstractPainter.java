@@ -33,26 +33,30 @@ import org.jdesktop.beans.AbstractBean;
 import org.jdesktop.swingx.util.GraphicsUtilities;
 
 /**
- * <p>A convenient base class from which concrete {@link Painter} implementations may
+ * <p>
+ * A convenient base class from which concrete {@link Painter} implementations may
  * extend. It extends {@link org.jdesktop.beans.AbstractBean} as a convenience for
  * adding property change notification support. In addition, <code>AbstractPainter</code>
  * provides subclasses with the ability to cacheable painting operations, configure the
  * drawing surface with common settings (such as antialiasing and interpolation), and
- * toggle whether a subclass paints or not via the <code>visibility</code> property.</p>
- *
- * <p>Subclasses of <code>AbstractPainter</code> generally need only override the
+ * toggle whether a subclass paints or not via the <code>visibility</code> property.
+ * </p>
+ * <p>
+ * Subclasses of <code>AbstractPainter</code> generally need only override the
  * {@link #doPaint(Graphics2D, Object, int, int)} method. If a subclass requires more control
  * over whether caching is enabled, or for configuring the graphics state, then it
- * may override the appropriate protected methods to interpose its own behavior.</p>
- * 
- * <p>For example, here is the doPaint method of a simple <code>Painter</code> that
+ * may override the appropriate protected methods to interpose its own behavior.
+ * </p>
+ * <p>
+ * For example, here is the doPaint method of a simple <code>Painter</code> that
  * paints an opaque rectangle:
+ * </p>
  * <pre><code>
  *  public void doPaint(Graphics2D g, T obj, int width, int height) {
  *      g.setPaint(Color.BLUE);
  *      g.fillRect(0, 0, width, height);
  *  }
- * </code></pre></p>
+ * </code></pre>
  *
  * @author rbair
  */
@@ -236,7 +240,7 @@ public abstract class AbstractPainter<T> extends AbstractBean implements Painter
      *
      * <p>If set to false, then #clearCache is called to free system resources.</p>
      *
-     * @param cacheable
+     * @param cacheable - whether this <code>AbstractPainter</code> can be cached as an image.
      */
     public void setCacheable(boolean cacheable) {
         boolean old = isCacheable();
@@ -281,7 +285,7 @@ public abstract class AbstractPainter<T> extends AbstractBean implements Painter
      * the <code>Painter</code> has a chance to mark itself as dirty, thus causing a
      * repaint, even if cached.</p>
      *
-     * @param object
+     * @param object - the object to validate.
      */
     protected void validate(T object) { }
 
@@ -357,18 +361,15 @@ public abstract class AbstractPainter<T> extends AbstractBean implements Painter
     }
     
     /**
-     * Subclasses must implement this method and perform custom painting operations
-     * here.
-     * @param width 
-     * @param height 
-     * @param g The Graphics2D object in which to paint
-     * @param object
+     * Subclasses must implement this method and perform custom painting operations here.
+     * 
+     * @param g - The Graphics2D object in which to paint
+     * @param object - The object to paint. This may be null, depending on the
+     * @param width - the width of the area to paint 
+     * @param height - the height of the area to paint
      */
     protected abstract void doPaint(Graphics2D g, T object, int width, int height);
 
-    /**
-     * @inheritDoc
-     */
     @Override
     public final void paint(Graphics2D g, T obj, int width, int height) {
         if (g == null) {
