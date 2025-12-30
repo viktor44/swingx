@@ -46,7 +46,7 @@ import org.jdesktop.swingx.icon.EmptyIcon;
  * 
  * @author Jeanette Winzenburg
  */
-public interface IconValue extends Serializable {
+public interface IconValue<T> extends Serializable {
     
     /**
      * The cell type the icon is used for.
@@ -76,6 +76,6 @@ public interface IconValue extends Serializable {
      *  may be null if none available.
      *  
      */
-    Icon getIcon(Object value);
+    Icon getIcon(T value);
 
 }

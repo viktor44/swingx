@@ -33,18 +33,18 @@ import javax.swing.Icon;
  * 
  * @see CheckBoxProvider
  */
-public class MappedValue implements StringValue, IconValue, BooleanValue {
+public class MappedValue<T> implements StringValue<T>, IconValue<T>, BooleanValue<T> {
 
-    private StringValue stringDelegate;
-    private IconValue iconDelegate;
-    private BooleanValue booleanDelegate;
+    private StringValue<T> stringDelegate;
+    private IconValue<T> iconDelegate;
+    private BooleanValue<T> booleanDelegate;
 
-    public MappedValue(StringValue stringDelegate, IconValue iconDelegate) {
+    public MappedValue(StringValue<T> stringDelegate, IconValue<T> iconDelegate) {
         this(stringDelegate, iconDelegate, null);
     }
     
-    public MappedValue(StringValue stringDelegate, IconValue iconDelegate, 
-            BooleanValue booleanDelegate) {
+    public MappedValue(StringValue<T> stringDelegate, IconValue<T> iconDelegate, 
+            BooleanValue<T> booleanDelegate) {
         this.stringDelegate = stringDelegate;
         this.iconDelegate = iconDelegate;
         this.booleanDelegate = booleanDelegate;
@@ -58,7 +58,7 @@ public class MappedValue implements StringValue, IconValue, BooleanValue {
      *  
      */
     @Override
-    public String getString(Object value) {
+    public String getString(T value) {
         if (stringDelegate != null) {
             return stringDelegate.getString(value);
         }
@@ -73,7 +73,7 @@ public class MappedValue implements StringValue, IconValue, BooleanValue {
      *  
      */
     @Override
-    public Icon getIcon(Object value) {
+    public Icon getIcon(T value) {
         if (iconDelegate != null) {
             return iconDelegate.getIcon(value);
         }
@@ -88,7 +88,7 @@ public class MappedValue implements StringValue, IconValue, BooleanValue {
      *  
      */
     @Override
-    public boolean getBoolean(Object value) {
+    public boolean getBoolean(T value) {
         if (booleanDelegate != null) {
             return booleanDelegate.getBoolean(value);
         }

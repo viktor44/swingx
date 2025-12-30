@@ -20,6 +20,8 @@
  */
 package org.jdesktop.swingx;
 
+import static org.junit.Assert.assertNotEquals;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -1236,6 +1238,9 @@ public class JXDatePickerTest extends InteractiveTestCase {
         String text = picker.getEditor().getText();
         // manipulate the text, not entirely safe ...
         String changed = text.replace('0', '1');
+        if (changed.equals(text)) {
+        	changed = text.replace('2', '1');
+        }
         picker.getEditor().setText(changed);
         final ActionReport actionReport = new ActionReport();
         picker.addActionListener(actionReport);
@@ -1574,6 +1579,9 @@ public class JXDatePickerTest extends InteractiveTestCase {
         assertEquals(picker.getDate(), formats[0].parseObject(text));
         // manipulate the text, not entirely safe ...
         String changed = text.replace('0', '1');
+        if (changed.equals(text)) {
+        	changed = text.replace('2', '1');
+        }
         picker.getEditor().setText(changed);
         Date date;
         try {
@@ -1603,6 +1611,9 @@ public class JXDatePickerTest extends InteractiveTestCase {
         assertEquals(picker.getDate(), formats[0].parseObject(text));
         // manipulate the text, not entirely safe ...
         String changed = text.replace('0', '1');
+        if (changed.equals(text)) {
+        	changed = text.replace('2', '1');
+        }
         picker.getEditor().setText(changed);
         Date date;
         try {

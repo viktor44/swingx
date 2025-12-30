@@ -69,8 +69,8 @@ import javax.swing.ListCellRenderer;
  * 
  * 
  */
-public class DefaultListRenderer extends AbstractRenderer
-    implements ListCellRenderer {
+public class DefaultListRenderer<E> extends AbstractRenderer
+    implements ListCellRenderer<E> {
 
     protected ListCellContext cellContext;
 
@@ -112,7 +112,7 @@ public class DefaultListRenderer extends AbstractRenderer
      *        String representation.
      * 
      */
-    public DefaultListRenderer(StringValue converter) {
+    public DefaultListRenderer(StringValue<E> converter) {
         this(new LabelProvider(converter));
     }
 
@@ -129,7 +129,7 @@ public class DefaultListRenderer extends AbstractRenderer
      *   content value to a String representation.
      * @param alignment the horizontal alignment.
      */
-    public DefaultListRenderer(StringValue converter, int alignment) {
+    public DefaultListRenderer(StringValue<E> converter, int alignment) {
         this(new LabelProvider(converter, alignment));
     }
 
@@ -141,7 +141,7 @@ public class DefaultListRenderer extends AbstractRenderer
      * @param stringValue the converter to use for the string representation
      * @param iconValue the converter to use for the icon representation
      */
-    public DefaultListRenderer(StringValue stringValue, IconValue iconValue) {
+    public DefaultListRenderer(StringValue<E> stringValue, IconValue iconValue) {
         this(new MappedValue(stringValue, iconValue));
     }
 
@@ -153,7 +153,7 @@ public class DefaultListRenderer extends AbstractRenderer
      * @param iconValue the converter to use for the icon representation
      * @param alignment the rendering component's horizontal alignment
      */
-    public DefaultListRenderer(StringValue stringValue, IconValue iconValue,
+    public DefaultListRenderer(StringValue<E> stringValue, IconValue iconValue,
             int alignment) {
         this(new MappedValue(stringValue, iconValue), alignment);
     }

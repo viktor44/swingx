@@ -64,7 +64,7 @@ import java.io.Serializable;
  * @see DefaultListRenderer
  * @see DefaultTreeRenderer
  */
-public interface StringValue extends Serializable {
+public interface StringValue<T> extends Serializable {
 
     /**
      * Returns a string representation of the given value. <p>
@@ -75,5 +75,5 @@ public interface StringValue extends Serializable {
      * @return a string representation of the given value, 
      *  guaranteed to be not null
      */
-    String getString(Object value);
+    String getString(T value);
 }

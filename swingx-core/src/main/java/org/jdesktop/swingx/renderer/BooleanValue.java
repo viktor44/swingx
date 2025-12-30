@@ -25,8 +25,8 @@ package org.jdesktop.swingx.renderer;
  * 
  * @author Jeanette Winzenburg
  */
-public interface BooleanValue {
+public interface BooleanValue<T> {
 
-    boolean getBoolean(Object value);
+    boolean getBoolean(T value);
     
 }
