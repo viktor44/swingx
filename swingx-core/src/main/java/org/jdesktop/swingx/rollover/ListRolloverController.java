@@ -34,7 +34,7 @@ import javax.swing.ListCellRenderer;
  * 
  * @author Jeanette Winzenburg
  */
-public class ListRolloverController<T extends JList> extends RolloverController<T> {
+public class ListRolloverController<T extends JList<?>> extends RolloverController<T> {
 
         private Cursor oldCursor;
 
@@ -91,18 +91,24 @@ public class ListRolloverController<T extends JList> extends RolloverController<
         @Override
         protected RolloverRenderer getRolloverRenderer(Point location,
                 boolean prepare) {
-            ListCellRenderer renderer = component.getCellRenderer();
+            ListCellRenderer<?> renderer = component.getCellRenderer();
             RolloverRenderer rollover = renderer instanceof RolloverRenderer 
                 ? (RolloverRenderer) renderer : null;
             if ((rollover != null) && !rollover.isEnabled()) {
                 rollover = null;
             }
             if ((rollover != null) && prepare) {
-                Object element = component.getModel().getElementAt(location.y);
-                renderer.getListCellRendererComponent(component, element,
-                        location.y, false, true);
+                JList<?> list = component;
+                prepareRenderer(list, location.y);
             }
             return rollover;
+        }
+
+        // captures the list's element type so the renderer can be invoked in a type-safe way
+        private static <E> void prepareRenderer(JList<E> list, int index) {
+            ListCellRenderer<? super E> renderer = list.getCellRenderer();
+            E element = list.getModel().getElementAt(index);
+            renderer.getListCellRendererComponent(list, element, index, false, true);
         }
 
         @Override

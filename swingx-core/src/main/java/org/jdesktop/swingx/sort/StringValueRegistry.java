@@ -44,16 +44,16 @@ public final class StringValueRegistry implements StringValueProvider {
     private static final Logger LOG = Logger
             .getLogger(StringValueRegistry.class.getName());
     
-    private Map<Class<?>, StringValue> perClass;
-    private HashMap<Integer, StringValue> perColumn;
+    private Map<Class<?>, StringValue<Object>> perClass;
+    private HashMap<Integer, StringValue<Object>> perColumn;
     private HashMap<Integer, Class<?>> classPerColumn;
     
     /**
      * {@inheritDoc} <p>
      */
     @Override
-    public StringValue getStringValue(int row, int column) {
-        StringValue sv = getPerColumnMap().get(column);
+    public StringValue<Object> getStringValue(int row, int column) {
+        StringValue<Object> sv = getPerColumnMap().get(column);
         if (sv == null) {
             sv = getStringValueByClass(getClass(row, column));
         }
@@ -72,7 +72,7 @@ public final class StringValueRegistry implements StringValueProvider {
      * @param column the column index in model coordinates.
      * 
      */
-    public void setStringValue(StringValue sv, int column) {
+    public void setStringValue(StringValue<Object> sv, int column) {
         // PENDING really remove mapping if sv null
         getPerColumnMap().put(column, sv);
     }
@@ -92,7 +92,7 @@ public final class StringValueRegistry implements StringValueProvider {
      * @param sv the StringValue to use for the given column.
      * @param clazz the class 
      */
-    public void setStringValue(StringValue sv, Class<?> clazz) {
+    public void setStringValue(StringValue<Object> sv, Class<?> clazz) {
         // PENDING really remove mapping if sv null
         getPerClassMap().put(clazz, sv);
     }
@@ -107,7 +107,7 @@ public final class StringValueRegistry implements StringValueProvider {
      * @return the StringValue registered for the class, or null if not directly
      *   registered.
      */
-    public StringValue getStringValue(Class<?> clazz) {
+    public StringValue<Object> getStringValue(Class<?> clazz) {
         return getPerClassMap().get(clazz);
     }
     /**
@@ -133,9 +133,9 @@ public final class StringValueRegistry implements StringValueProvider {
      * @param clazz
      * @return
      */
-    private StringValue getStringValueByClass(Class<?> clazz) {
+    private StringValue<Object> getStringValueByClass(Class<?> clazz) {
         if (clazz == null) return null;
-        StringValue sv = getPerClassMap().get(clazz);
+        StringValue<Object> sv = getPerClassMap().get(clazz);
         if (sv != null) return sv;
         return getStringValueByClass(clazz.getSuperclass());
     }
@@ -171,9 +171,9 @@ public final class StringValueRegistry implements StringValueProvider {
      * 
      * @return the per-class storage map of StringValues
      */
-    private Map<Class<?>, StringValue> getPerClassMap() {
+    private Map<Class<?>, StringValue<Object>> getPerClassMap() {
         if (perClass == null) {
-            perClass = new HashMap<Class<?>, StringValue>();
+            perClass = new HashMap<Class<?>, StringValue<Object>>();
         }
         return perClass;
     }
@@ -184,9 +184,9 @@ public final class StringValueRegistry implements StringValueProvider {
      * 
      * @return the per-column storage map of StringValues
      */
-    private Map<Integer, StringValue> getPerColumnMap() {
+    private Map<Integer, StringValue<Object>> getPerColumnMap() {
         if (perColumn == null) {
-            perColumn = new HashMap<Integer, StringValue>();
+            perColumn = new HashMap<Integer, StringValue<Object>>();
         }
         return perColumn;
     }

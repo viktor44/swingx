@@ -97,7 +97,7 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
     
     private Handler handler;
     
-    private Painter[] painters = new Painter[0];
+    private Painter<?>[] painters = new Painter<?>[0];
     private AffineTransform transform;
     private boolean clipPreserved = false;
 
@@ -105,7 +105,7 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
 
     /** Creates a new instance of CompoundPainter */
     public CompoundPainter() {
-        this((Painter[]) null);
+        this((Painter<?>[]) null);
     }
     
     /**
@@ -115,7 +115,7 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
      *
      * @param painters array of painters, which will be painted in order
      */
-    public CompoundPainter(Painter... painters) {
+    public CompoundPainter(Painter<?>... painters) {
         handler = new Handler(this);
         
         setPainters(painters);
@@ -129,16 +129,16 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
      *
      * @param painters array of painters, which will be painted in order
      */
-    public void setPainters(Painter... painters) {
-        Painter[] old = getPainters();
-        
-        for (Painter p : old) {
+    public void setPainters(Painter<?>... painters) {
+        Painter<?>[] old = getPainters();
+
+        for (Painter<?> p : old) {
             if (p instanceof AbstractPainter) {
                 ((AbstractPainter<?>) p).removePropertyChangeListener(handler);
             }
         }
         
-        this.painters = new Painter[painters == null ? 0 : painters.length];
+        this.painters = new Painter<?>[painters == null ? 0 : painters.length];
         if (painters != null) {
             System.arraycopy(painters, 0, this.painters, 0, this.painters.length);
         }
@@ -158,8 +158,8 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
      * @return a defensive copy of the painters used by this CompoundPainter.
      *         This will never be null.
      */
-    public final Painter[] getPainters() {
-        Painter[] results = new Painter[painters.length];
+    public final Painter<?>[] getPainters() {
+        Painter<?>[] results = new Painter<?>[painters.length];
         System.arraycopy(painters, 0, results, 0, results.length);
         return results;
     }
@@ -222,7 +222,8 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
         boolean dirty = false;
         for (Painter<?> p : painters) {
             if (p instanceof AbstractPainter) {
-                AbstractPainter ap = (AbstractPainter) p;
+                @SuppressWarnings("unchecked")
+                AbstractPainter<T> ap = (AbstractPainter<T>) p;
                 ap.validate(object);
                 if (ap.isDirty()) {
                     dirty = true;
@@ -357,11 +358,13 @@ public class CompoundPainter<T> extends AbstractPainter<T> {
      */
     @Override
     protected void doPaint(Graphics2D g, T component, int width, int height) {
-        for (Painter<T> p : getPainters()) {
+        for (Painter<?> p : getPainters()) {
             Graphics2D temp = (Graphics2D) g.create();
-            
+
             try {
-                p.paint(temp, component, width, height);
+                @SuppressWarnings("unchecked")
+                Painter<T> painter = (Painter<T>) p;
+                painter.paint(temp, component, width, height);
             if(isClipPreserved()) {
                 g.setClip(temp.getClip());
             }

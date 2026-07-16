@@ -118,7 +118,7 @@ public class JXComboBox<E> extends JComboBox<E> {
          * @return the delegate renderer used by this renderer, guaranteed to
          *   not-null.
          */
-        public ListCellRenderer getDelegateRenderer() {
+        public ListCellRenderer<? super E> getDelegateRenderer() {
             return delegateRenderer;
         }
 
@@ -279,8 +279,8 @@ public class JXComboBox<E> extends JComboBox<E> {
          */
         @Override
         public String getStringAt(int row, int column) {
-            StringValue sv = comboBox.getStringValueRegistry().getStringValue(row, column);
-            
+            StringValue<Object> sv = comboBox.getStringValueRegistry().getStringValue(row, column);
+
             return sv.getString(getValueAt(row, column));
         }
         
@@ -341,6 +341,7 @@ public class JXComboBox<E> extends JComboBox<E> {
         }
 
         @Override
+        @SuppressWarnings("rawtypes") // overrides JComboBox.KeySelectionManager, whose method uses the raw ComboBoxModel type
         public int selectionForKey(char aKey, ComboBoxModel aModel) {
             if (lastTime == 0L) {
                 prefix = "";
@@ -612,7 +613,7 @@ public class JXComboBox<E> extends JComboBox<E> {
      */
     public String getStringAt(int row) {
         // changed implementation to use StringValueRegistry
-        StringValue stringValue = getStringValueRegistry().getStringValue(row, 0);
+        StringValue<Object> stringValue = getStringValueRegistry().getStringValue(row, 0);
         
         return stringValue.getString(getItemAt(row));
     }

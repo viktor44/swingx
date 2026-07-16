@@ -104,11 +104,11 @@ public class PainterUtil {
         
     }*/
     
-    public static Painter loadPainter(File file) throws FileNotFoundException, MalformedURLException, IOException {
+    public static Painter<Object> loadPainter(File file) throws FileNotFoundException, MalformedURLException, IOException {
         return loadPainter(file.toURI().toURL(), file.toURI().toURL());
     }
     
-    private static Painter loadPainter(final URL in, URL baseURL) throws FileNotFoundException, IOException {
+    private static Painter<Object> loadPainter(final URL in, URL baseURL) throws FileNotFoundException, IOException {
         Thread.currentThread().setContextClassLoader(PainterUtil.class.getClassLoader());
         XMLDecoder dec = new XMLDecoder(in.openStream());
 //        p("creating a persistence owner with the base url: " + baseURL);
@@ -120,18 +120,20 @@ public class PainterUtil {
             }
         });
         Object obj = dec.readObject();
-        return (Painter)obj;
+        @SuppressWarnings("unchecked")
+        Painter<Object> painter = (Painter<Object>)obj;
+        return painter;
     }
     
-    public static Painter loadPainter(URL url) throws IOException {
+    public static Painter<Object> loadPainter(URL url) throws IOException {
         return loadPainter(url,url);
     }
     
-    static public void savePainterToFile(Painter compoundPainter, File file) throws IOException {
+    static public void savePainterToFile(Painter<Object> compoundPainter, File file) throws IOException {
         savePainterToFile(compoundPainter,file,file.getParentFile().toURI().toURL());
     }
     
-    static public void savePainterToFile(Painter compoundPainter, File file, URL baseURL) throws IOException {
+    static public void savePainterToFile(Painter<Object> compoundPainter, File file, URL baseURL) throws IOException {
         //System.setErr(null);
         //        u.p("writing out to: " + file.getCanonicalPath());
         setTransient(ImagePainter.class, "image");
@@ -187,7 +189,7 @@ public class PainterUtil {
     }
     
     //private static void setPropertyDelegate(Class clazz, String property, )
-    private static void setTransient(Class clazz, String property) {
+    private static void setTransient(Class<?> clazz, String property) {
         try {
             BeanInfo info = Introspector.getBeanInfo(clazz);
             PropertyDescriptor[] propertyDescriptors =
@@ -212,7 +214,7 @@ public class PainterUtil {
         
         @Override
         protected Expression instantiate( Object oldInstance, Encoder out ) {
-            Class type = oldInstance.getClass();
+            Class<?> type = oldInstance.getClass();
             if ( !Modifier.isPublic( type.getModifiers() ) )
                 throw new IllegalArgumentException( "Could not instantiate instance of non-public class: " + oldInstance );
             
@@ -251,7 +253,7 @@ public class PainterUtil {
     
     public static final class AbstractPainterDelegate extends DefaultPersistenceDelegate {
         @Override
-        protected void initialize(Class type, Object oldInstance,
+        protected void initialize(Class<?> type, Object oldInstance,
                 Object newInstance, Encoder out) {
 //            p("ap delegate called");
             super.initialize(type, oldInstance,  newInstance, out);
@@ -260,7 +262,7 @@ public class PainterUtil {
     
     public static final class ImagePainterDelegate extends DefaultPersistenceDelegate {
         @Override
-        protected void initialize(Class type, Object oldInstance,
+        protected void initialize(Class<?> type, Object oldInstance,
                 Object newInstance, Encoder out) {
 //            p("image painter delegate called");
             super.initialize(type, oldInstance,  newInstance, out);
@@ -282,7 +284,7 @@ public class PainterUtil {
         }
     }
     
-    public static void savePainterToImage(JComponent testPanel, CompoundPainter compoundPainter, File file) throws IOException {
+    public static void savePainterToImage(JComponent testPanel, CompoundPainter<Object> compoundPainter, File file) throws IOException {
         BufferedImage img = new BufferedImage(testPanel.getWidth(),testPanel.getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = img.createGraphics();
@@ -291,7 +293,7 @@ public class PainterUtil {
         ImageIO.write(img,"png",file);
     }
     
-    public static void setBGP(JComponent comp, Painter painter) {
+    public static void setBGP(JComponent comp, Painter<Object> painter) {
         if(comp instanceof JXPanel) {
             ((JXPanel)comp).setBackgroundPainter(painter);
         }
@@ -299,7 +301,7 @@ public class PainterUtil {
             ((JXButton)comp).setBackgroundPainter(painter);
         }
     }
-    public static void setFGP(JComponent comp, Painter painter) {
+    public static void setFGP(JComponent comp, Painter<Object> painter) {
         if(comp instanceof JXLabel) {
             ((JXLabel)comp).setForegroundPainter(painter);
         }
@@ -308,7 +310,7 @@ public class PainterUtil {
         }
     }
     
-    public static Painter getFGP(JComponent comp) {
+    public static Painter<?> getFGP(JComponent comp) {
         if(comp instanceof JXLabel) {
             return ((JXLabel)comp).getForegroundPainter();
         }
@@ -318,7 +320,7 @@ public class PainterUtil {
         return null;
     }
     
-    public static Painter getBGP(JComponent comp) {
+    public static Painter<?> getBGP(JComponent comp) {
         if(comp instanceof JXPanel) {
             return ((JXPanel)comp).getBackgroundPainter();
         }

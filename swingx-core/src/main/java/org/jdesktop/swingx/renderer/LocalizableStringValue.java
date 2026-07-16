@@ -9,7 +9,7 @@ import org.jdesktop.swingx.util.Contract;
 /**
  * A StringValue which looks up localized String representations for objects.
  */
-public class LocalizableStringValue implements StringValue {
+public class LocalizableStringValue implements StringValue<Object> {
 
     private Map<Object, String> lookup;
 

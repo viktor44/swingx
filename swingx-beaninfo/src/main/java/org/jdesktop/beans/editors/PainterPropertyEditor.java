@@ -9,32 +9,19 @@
 
 package org.jdesktop.beans.editors;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
 import java.awt.Insets;
 import java.awt.LinearGradientPaint;
-import java.awt.RadialGradientPaint;
 import java.awt.MultipleGradientPaint.ColorSpaceType;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Arc2D;
 import java.awt.geom.Area;
-import java.awt.geom.CubicCurve2D;
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
-import java.awt.geom.Line2D;
 import java.awt.geom.PathIterator;
-import java.awt.geom.Point2D;
-import java.awt.geom.QuadCurve2D;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
 import java.beans.DefaultPersistenceDelegate;
 import java.beans.Encoder;
 import java.beans.Expression;
 import java.beans.PersistenceDelegate;
 import java.beans.PropertyEditorSupport;
 import java.beans.Statement;
-import java.beans.XMLEncoder;
-import java.io.ByteArrayOutputStream;
 
 import org.jdesktop.swingx.painter.Painter;
 
@@ -51,13 +38,13 @@ public class PainterPropertyEditor extends PropertyEditorSupport {
     }
     
     @Override
-    public Painter getValue() {
-        return (Painter)super.getValue();
+    public Painter<?> getValue() {
+        return (Painter<?>)super.getValue();
     }
     
     @Override
     public String getJavaInitializationString() {
-        Painter painter = getValue();
+        Painter<?> painter = getValue();
         //TODO!!!
         return painter == null ? "null" :
             "new org.jdesktop.swingx.painter.CheckerboardPainter()";

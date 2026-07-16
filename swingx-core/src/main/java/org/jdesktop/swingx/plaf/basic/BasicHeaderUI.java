@@ -454,6 +454,9 @@ public class BasicHeaderUI extends HeaderUI {
     
     
 
+    // PainterUIResource is bound to <T extends JComponent> and cannot be expressed as the
+    // Painter<Object> expected by JXPanel#setBackgroundPainter, so raw types are required here
+    @SuppressWarnings("rawtypes")
     protected Painter createBackgroundPainter() {
         MattePainter p = new MattePainter(new GradientPaint(0, 0, gradientLightColor, 1, 0, gradientDarkColor));
         p.setPaintStretched(true);

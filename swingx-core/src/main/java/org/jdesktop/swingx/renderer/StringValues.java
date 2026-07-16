@@ -42,7 +42,7 @@ public final class StringValues {
      * A {@code StringValue} that always presents an empty string.
      */
     @SuppressWarnings("serial")
-    public final static StringValue EMPTY = new StringValue() {
+    public final static StringValue<Object> EMPTY = new StringValue<Object>() {
         @Override
         public String getString(Object value) {
             return "";
@@ -55,7 +55,7 @@ public final class StringValues {
      * the same effect as {@link StringValues#EMPTY}.
      */
     @SuppressWarnings("serial")
-    public final static StringValue TO_STRING = new StringValue() {
+    public final static StringValue<Object> TO_STRING = new StringValue<Object>() {
         @Override
         public String getString(Object value) {
             return (value != null) ? value.toString() : StringValues.EMPTY.getString(value);
@@ -68,7 +68,7 @@ public final class StringValues {
      * {@link File}, this has the same effect as {@link StringValues#TO_STRING}.
      */
     @SuppressWarnings("serial")
-    public static final StringValue FILE_NAME = new StringValue() {
+    public static final StringValue<Object> FILE_NAME = new StringValue<Object>() {
         @Override
         public String getString(Object value) {
             if (value instanceof File) {
@@ -87,7 +87,7 @@ public final class StringValues {
      * {@link File}, this has the same effect as {@link StringValues#TO_STRING}.
      */
     @SuppressWarnings("serial")
-    public static final StringValue FILE_TYPE = new StringValue() {
+    public static final StringValue<Object> FILE_TYPE = new StringValue<Object>() {
         @Override
         public String getString(Object value) {
             if (value instanceof File) {
@@ -160,19 +160,19 @@ public final class StringValues {
     
     
 
-    public static final StringValue TO_STRING_UI = new StringValueUIResource(StringValues.TO_STRING);
-    public static final StringValue EMPTY_UI = new StringValueUIResource(StringValues.EMPTY);
+    public static final StringValue<Object> TO_STRING_UI = new StringValueUIResource(StringValues.TO_STRING);
+    public static final StringValue<Object> EMPTY_UI = new StringValueUIResource(StringValues.EMPTY);
     
     /**
      * StringValue wrapper of type UIResource to tag LAF installed converters.
      * 
      * @author Jeanette Winzenburg, Berlin
      */
-    public static class StringValueUIResource implements StringValue, UIResource {
+    public static class StringValueUIResource implements StringValue<Object>, UIResource {
 
-        private StringValue delegate;
+        private StringValue<Object> delegate;
 
-        public StringValueUIResource(StringValue toString) {
+        public StringValueUIResource(StringValue<Object> toString) {
             Contract.asNotNull(toString, "delegate StringValue must not be null");
             this.delegate = toString;
         }

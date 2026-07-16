@@ -3146,8 +3146,8 @@ public class JXTreeTable extends JXTable {
             return this;
         }
 
-        private class ClippedTreeCellRenderer extends DefaultXTreeCellRenderer 
-            implements StringValue 
+        private class ClippedTreeCellRenderer extends DefaultXTreeCellRenderer
+            implements StringValue<Object>
             {
             @SuppressWarnings("unused")
             private boolean inpainting;

@@ -79,7 +79,7 @@ public class HyperlinkProvider
      * 
      * @param linkAction the action that acts on values.
      */
-    public HyperlinkProvider(AbstractHyperlinkAction linkAction) {
+    public HyperlinkProvider(AbstractHyperlinkAction<?> linkAction) {
         this(linkAction, null);
     }
     
@@ -92,7 +92,7 @@ public class HyperlinkProvider
      * @param linkAction the action that acts on values.
      * @param targetClass the type of values the action can handle.
      */
-    public HyperlinkProvider(AbstractHyperlinkAction linkAction, Class<?> targetClass) {
+    public HyperlinkProvider(AbstractHyperlinkAction<?> linkAction, Class<?> targetClass) {
         super();
 //        rendererComponent.addActionListener(createEditorActionListener());
         setLinkAction(linkAction, targetClass);
@@ -117,7 +117,7 @@ public class HyperlinkProvider
      * 
      * @param linkAction
      */
-    public void setLinkAction(AbstractHyperlinkAction linkAction) {
+    public void setLinkAction(AbstractHyperlinkAction<?> linkAction) {
         setLinkAction(linkAction, null);
     }
     
@@ -130,14 +130,17 @@ public class HyperlinkProvider
      * 
      * @param linkAction
      */
-    public void setLinkAction(AbstractHyperlinkAction linkAction, Class<?> targetClass) {
+    public void setLinkAction(AbstractHyperlinkAction<?> linkAction, Class<?> targetClass) {
         if (linkAction == null) {
             linkAction = createDefaultLinkAction();
         }
-        setTargetClass(targetClass); 
-        this.linkAction = linkAction;
-        rendererComponent.setAction(linkAction);
-        
+        setTargetClass(targetClass);
+        // the provider feeds arbitrary cell values to the action's setTarget(Object)
+        @SuppressWarnings("unchecked")
+        AbstractHyperlinkAction<Object> action = (AbstractHyperlinkAction<Object>) linkAction;
+        this.linkAction = action;
+        rendererComponent.setAction(action);
+
     }
     /**
      * decides if the given target is acceptable for setTarget.
@@ -165,7 +168,7 @@ public class HyperlinkProvider
      * 
      * @return a default LinkAction for showing the target.
      */
-    protected AbstractHyperlinkAction createDefaultLinkAction() {
+    protected AbstractHyperlinkAction<Object> createDefaultLinkAction() {
         return new AbstractHyperlinkAction<Object>(null) {
 
             @Override

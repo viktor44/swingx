@@ -25,5 +25,5 @@ import javax.swing.JComponent;
 import org.jdesktop.swingx.JXMultiThumbSlider;
 
 public interface ThumbRenderer {
-    public JComponent getThumbRendererComponent(JXMultiThumbSlider slider, int index, boolean selected);
+    public JComponent getThumbRendererComponent(JXMultiThumbSlider<?> slider, int index, boolean selected);
 }

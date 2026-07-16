@@ -26,11 +26,11 @@ public class ShapeChooser extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        shapeCombo = new javax.swing.JComboBox();
+        shapeCombo = new javax.swing.JComboBox<Object>();
 
         setLayout(new java.awt.GridBagLayout());
 
-        shapeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Square", "Circle" }));
+        shapeCombo.setModel(new javax.swing.DefaultComboBoxModel<Object>(new String[] { "Square", "Circle" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.weightx = 10.0;
         gridBagConstraints.weighty = 10.0;
@@ -40,7 +40,7 @@ public class ShapeChooser extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox shapeCombo;
+    public javax.swing.JComboBox<Object> shapeCombo;
     // End of variables declaration//GEN-END:variables
     
 }

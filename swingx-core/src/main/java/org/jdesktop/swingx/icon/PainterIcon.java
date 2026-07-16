@@ -32,7 +32,7 @@ import org.jdesktop.swingx.painter.Painter;
 
 public class PainterIcon implements Icon {
     Dimension size;
-    private Painter painter;
+    private Painter<Object> painter;
     public PainterIcon(Dimension size) {
         this.size = size;
     }
@@ -63,11 +63,11 @@ public class PainterIcon implements Icon {
         }
     }
 
-    public Painter getPainter() {
+    public Painter<Object> getPainter() {
         return painter;
     }
 
-    public void setPainter(Painter painter) {
+    public void setPainter(Painter<Object> painter) {
         this.painter = painter;
     }
 }

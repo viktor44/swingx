@@ -63,7 +63,7 @@ import org.jdesktop.swingx.painter.Painter;
  */
 public class JRendererLabel extends JLabel implements PainterAware, IconAware {
 
-    protected Painter painter;
+    protected Painter<?> painter;
 
     /**
      * 
@@ -100,8 +100,8 @@ public class JRendererLabel extends JLabel implements PainterAware, IconAware {
     /**
      * {@inheritDoc}
      */
-    public void setPainter(Painter painter) {
-        Painter old = getPainter();
+    public void setPainter(Painter<?> painter) {
+        Painter<?> old = getPainter();
         this.painter = painter;
         firePropertyChange("painter", old, getPainter());
     }
@@ -109,7 +109,7 @@ public class JRendererLabel extends JLabel implements PainterAware, IconAware {
     /**
      * {@inheritDoc}
      */
-    public Painter getPainter() {
+    public Painter<?> getPainter() {
         return painter;
     }
     /**
@@ -168,7 +168,9 @@ public class JRendererLabel extends JLabel implements PainterAware, IconAware {
         // this differs from corresponding core implementation!
         Graphics2D scratch = (Graphics2D) g.create();
         try {
-            painter.paint(scratch, this, getWidth(), getHeight());
+            @SuppressWarnings("unchecked")
+            Painter<Component> p = (Painter<Component>) painter;
+            p.paint(scratch, this, getWidth(), getHeight());
         }
         finally {
             scratch.dispose();

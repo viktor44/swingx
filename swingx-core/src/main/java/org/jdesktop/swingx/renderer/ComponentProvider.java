@@ -137,7 +137,7 @@ public abstract class ComponentProvider<T extends JComponent>
     protected int alignment;
     /** the converter to use for string representation. 
      * PENDING: IconValue? */
-    protected StringValue formatter;
+    protected StringValue<Object> formatter;
     
     /**
      * Instantiates a component provider with LEADING
@@ -155,7 +155,7 @@ public abstract class ComponentProvider<T extends JComponent>
      * @param converter the converter to use for mapping the cell value to a
      *        String representation.
      */
-    public ComponentProvider(StringValue converter) {
+    public ComponentProvider(StringValue<Object> converter) {
         this(converter, JLabel.LEADING);
     }
 
@@ -168,7 +168,7 @@ public abstract class ComponentProvider<T extends JComponent>
      *        String representation.
      * @param alignment the horizontal alignment.
      */
-    public ComponentProvider(StringValue converter, int alignment) {
+    public ComponentProvider(StringValue<Object> converter, int alignment) {
         setHorizontalAlignment(alignment);
         setStringValue(converter);
         rendererComponent = createRendererComponent();
@@ -224,7 +224,7 @@ public abstract class ComponentProvider<T extends JComponent>
      * 
      * @param formatter the format to use.
      */
-    public void setStringValue(StringValue formatter) {
+    public void setStringValue(StringValue<Object> formatter) {
         if (formatter == null) {
             formatter = StringValues.TO_STRING;
         }
@@ -238,7 +238,7 @@ public abstract class ComponentProvider<T extends JComponent>
      * @return the StringValue used by this provider, guaranteed to
      *   be not null.
      */
-    public StringValue getStringValue() {
+    public StringValue<Object> getStringValue() {
         return formatter;
     }
 

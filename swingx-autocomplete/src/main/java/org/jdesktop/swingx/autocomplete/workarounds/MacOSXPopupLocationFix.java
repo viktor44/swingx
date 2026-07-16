@@ -52,7 +52,7 @@ import javax.swing.event.PopupMenuListener;
 public final class MacOSXPopupLocationFix {
     
     /** the components being fixed */
-    private final JComboBox comboBox;
+    private final JComboBox<?> comboBox;
     private final JPopupMenu popupMenu;
     
     /** the listener provides callbacks as necessary */
@@ -62,7 +62,7 @@ public final class MacOSXPopupLocationFix {
      * Private constructor so users use the more action-oriented
      * {@link #install} method.
      */
-    private MacOSXPopupLocationFix(JComboBox comboBox) {
+    private MacOSXPopupLocationFix(JComboBox<?> comboBox) {
         this.comboBox = comboBox;
         this.popupMenu = (JPopupMenu)comboBox.getUI().getAccessibleChild(comboBox, 0);
         
@@ -75,7 +75,7 @@ public final class MacOSXPopupLocationFix {
      * @param comboBox - the combo box to fix
      * @return the MacOSXPopupLocationFix instance that can be used to uninstall the fix
      */
-    public static MacOSXPopupLocationFix install(JComboBox comboBox) {
+    public static MacOSXPopupLocationFix install(JComboBox<?> comboBox) {
         if(comboBox == null) throw new IllegalArgumentException();
         return new MacOSXPopupLocationFix(comboBox);
     }

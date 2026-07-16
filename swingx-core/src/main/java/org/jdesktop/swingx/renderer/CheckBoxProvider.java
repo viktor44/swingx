@@ -82,7 +82,7 @@ public class CheckBoxProvider extends ComponentProvider<AbstractButton> {
      * 
      * @param stringValue the StringValue to use for formatting.
      */
-    public CheckBoxProvider(StringValue stringValue) {
+    public CheckBoxProvider(StringValue<Object> stringValue) {
         this(stringValue, JLabel.CENTER);
     }
 
@@ -93,7 +93,7 @@ public class CheckBoxProvider extends ComponentProvider<AbstractButton> {
      * @param stringValue the StringValue to use for formatting.
      * @param alignment the horizontalAlignment.
      */
-    public CheckBoxProvider(StringValue stringValue, int alignment) {
+    public CheckBoxProvider(StringValue<Object> stringValue, int alignment) {
         super(stringValue == null ? StringValues.EMPTY : stringValue, alignment);
         setBorderPainted(true);
     }

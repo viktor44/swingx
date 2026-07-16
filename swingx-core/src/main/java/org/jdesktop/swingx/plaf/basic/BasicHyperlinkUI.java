@@ -561,7 +561,7 @@ public class BasicHyperlinkUI extends BasicButtonUI {
                 }
             }
             try {
-                displayPropertiesToCSS = clz.getMethod("displayPropertiesToCSS", new Class[] { Font.class, Color.class});
+                displayPropertiesToCSS = clz.getMethod("displayPropertiesToCSS", new Class<?>[] { Font.class, Color.class});
             } catch (Exception e) {
                 throw new RuntimeException("Failed to use SwingUtilities2. Check the permissions and class version.");
             }

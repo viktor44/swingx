@@ -49,11 +49,11 @@ import org.jdesktop.swingx.prompt.PromptSupport.FocusBehavior;
  */
 public abstract class PromptTextUI extends TextUI {
     protected class PainterHighlighter implements Highlighter {
-        private final Painter painter;
+        private final Painter<? super JTextComponent> painter;
 
         private JTextComponent c;
 
-        public PainterHighlighter(Painter painter) {
+        public PainterHighlighter(Painter<? super JTextComponent> painter) {
             this.painter = painter;
         }
 

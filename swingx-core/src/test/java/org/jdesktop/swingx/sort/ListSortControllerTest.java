@@ -37,7 +37,7 @@ import org.junit.runners.JUnit4;
  * @author Jeanette Winzenburg
  */
 @RunWith(JUnit4.class)
-public class ListSortControllerTest extends AbstractTestSortController<ListSortController<ListModel>, ListModel> {
+public class ListSortControllerTest extends AbstractTestSortController<ListSortController<ListModel<?>>, ListModel<?>> {
 
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger
@@ -59,9 +59,9 @@ public class ListSortControllerTest extends AbstractTestSortController<ListSortC
     }
     
     @Override
-    protected ListSortController<ListModel> createDefaultSortController(
-            ListModel model) {
-        return new ListSortController<ListModel>(model);
+    protected ListSortController<ListModel<?>> createDefaultSortController(
+            ListModel<?> model) {
+        return new ListSortController<ListModel<?>>(model);
     }
 
     @Override

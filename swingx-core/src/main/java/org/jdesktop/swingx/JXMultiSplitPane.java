@@ -57,7 +57,7 @@ public class JXMultiSplitPane extends JPanel implements BackgroundPaintable {
     private AccessibleContext accessibleContext = null;
     private boolean continuousLayout = true;
     private DividerPainter dividerPainter = new DefaultDividerPainter();
-    private Painter backgroundPainter;
+    private Painter<Object> backgroundPainter;
     private boolean paintBorderInsets;
 
     /**
@@ -276,11 +276,13 @@ public class JXMultiSplitPane extends JPanel implements BackgroundPaintable {
      * paint certain pixels, such as around the border insets.
      */
     @Override
-    public void setBackgroundPainter(Painter p)
+    public void setBackgroundPainter(Painter<?> p)
     {
-        Painter old = getBackgroundPainter();
-        this.backgroundPainter = p;
-        
+        Painter<Object> old = getBackgroundPainter();
+        @SuppressWarnings("unchecked")
+        Painter<Object> painter = (Painter<Object>) p;
+        this.backgroundPainter = painter;
+
         if (p != null) {
             setOpaque(false);
         }
@@ -290,7 +292,7 @@ public class JXMultiSplitPane extends JPanel implements BackgroundPaintable {
     }
     
     @Override
-    public Painter getBackgroundPainter() {
+    public Painter<Object> getBackgroundPainter() {
         return backgroundPainter;
     }
     

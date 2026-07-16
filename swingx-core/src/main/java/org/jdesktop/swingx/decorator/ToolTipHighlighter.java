@@ -33,7 +33,7 @@ import org.jdesktop.swingx.renderer.StringValue;
  * @author kschaefer
  */
 public class ToolTipHighlighter extends AbstractHighlighter {
-    private StringValue toolTipValue;
+    private StringValue<Object> toolTipValue;
     
     /**
      * Instantiates a ToolTipHighlighter with null StringValue. The Highlighter is 
@@ -50,7 +50,7 @@ public class ToolTipHighlighter extends AbstractHighlighter {
      * @param toolTipValue
      *            the StringValue used to create the tool tip
      */
-    public ToolTipHighlighter(StringValue toolTipValue) {
+    public ToolTipHighlighter(StringValue<Object> toolTipValue) {
         this(null, toolTipValue);
     }
 
@@ -73,7 +73,7 @@ public class ToolTipHighlighter extends AbstractHighlighter {
      * @param toolTipValue
      *            the StringValue used to create the tool tip
      */
-    public ToolTipHighlighter(HighlightPredicate predicate, StringValue toolTipValue) {
+    public ToolTipHighlighter(HighlightPredicate predicate, StringValue<Object> toolTipValue) {
         super(predicate);
         
         this.toolTipValue = toolTipValue;
@@ -86,7 +86,7 @@ public class ToolTipHighlighter extends AbstractHighlighter {
      * 
      * @see #setToolTipValue(StringValue)
      */
-    public StringValue getToolTipValue() {
+    public StringValue<Object> getToolTipValue() {
         return toolTipValue;
     }
     
@@ -97,7 +97,7 @@ public class ToolTipHighlighter extends AbstractHighlighter {
      * 
      * @see #getToolTipValue()
      */
-    public void setToolTipValue(StringValue toolTipValue) {
+    public void setToolTipValue(StringValue<Object> toolTipValue) {
         if (areEqual(toolTipValue, getToolTipValue())) return;
         this.toolTipValue = toolTipValue;
         fireStateChanged();

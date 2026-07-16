@@ -70,14 +70,14 @@ class BasicCalendarRenderingHandler implements CalendarRenderingHandler {
     private void installProviders() {
         providers = new HashMap<CalendarState, ComponentProvider<?>>();
 
-        StringValue sv = createDayStringValue(null);
+        StringValue<Object> sv = createDayStringValue(null);
         ComponentProvider<?> provider = new LabelProvider(sv, JLabel.RIGHT);
         providers.put(CalendarState.IN_MONTH, provider);
         providers.put(CalendarState.TODAY, provider);
         providers.put(CalendarState.TRAILING, provider);
         providers.put(CalendarState.LEADING, provider);
 
-        StringValue wsv = createWeekOfYearStringValue(null);
+        StringValue<Object> wsv = createWeekOfYearStringValue(null);
         ComponentProvider<?> weekOfYearProvider = new LabelProvider(wsv,
                 JLabel.RIGHT);
         providers.put(CalendarState.WEEK_OF_YEAR, weekOfYearProvider);
@@ -99,7 +99,7 @@ class BasicCalendarRenderingHandler implements CalendarRenderingHandler {
         };
         providers.put(CalendarState.DAY_OF_WEEK, dayOfWeekProvider);
 
-        StringValue tsv = createMonthHeaderStringValue(null);
+        StringValue<Object> tsv = createMonthHeaderStringValue(null);
         ComponentProvider<?> titleProvider = new LabelProvider(tsv,
                 JLabel.CENTER);
         providers.put(CalendarState.TITLE, titleProvider);
@@ -114,12 +114,12 @@ class BasicCalendarRenderingHandler implements CalendarRenderingHandler {
      *   Locale
      * @return a StringValue appropriate for rendering month title.
      */
-    protected StringValue createMonthHeaderStringValue(Locale locale) {
+    protected StringValue<Object> createMonthHeaderStringValue(Locale locale) {
         if (locale == null) {
             locale = Locale.getDefault();
         }
         final String[] monthNames = DateFormatSymbols.getInstance(locale).getMonths();
-        StringValue tsv = new StringValue() {
+        StringValue<Object> tsv = new StringValue<Object>() {
 
             @Override
             public String getString(Object value) {
@@ -145,8 +145,8 @@ class BasicCalendarRenderingHandler implements CalendarRenderingHandler {
      *   Locale
      * @return a StringValue appropriate for rendering week of year.
      */
-    protected StringValue createWeekOfYearStringValue(Locale locale) {
-        StringValue wsv = new StringValue() {
+    protected StringValue<Object> createWeekOfYearStringValue(Locale locale) {
+        StringValue<Object> wsv = new StringValue<Object>() {
 
             @Override
             public String getString(Object value) {
@@ -168,7 +168,7 @@ class BasicCalendarRenderingHandler implements CalendarRenderingHandler {
      *   Locale
      * @return a StringValue appropriate for rendering days in a month
      */
-    protected StringValue createDayStringValue(Locale locale) {
+    protected StringValue<Object> createDayStringValue(Locale locale) {
         if (locale == null) {
             locale = Locale.getDefault();
         }
@@ -195,7 +195,7 @@ class BasicCalendarRenderingHandler implements CalendarRenderingHandler {
      */
     @Override
     public void setLocale(Locale locale) {
-        StringValue dayValue = createDayStringValue(locale);
+        StringValue<Object> dayValue = createDayStringValue(locale);
         providers.get(CalendarState.IN_MONTH).setStringValue(dayValue);
         providers.get(CalendarState.TODAY).setStringValue(dayValue);
         providers.get(CalendarState.TRAILING).setStringValue(dayValue);

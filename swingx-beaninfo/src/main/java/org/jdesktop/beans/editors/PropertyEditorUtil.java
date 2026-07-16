@@ -34,7 +34,7 @@ public class PropertyEditorUtil {
     //[]
     //[ ]
     //any other value throws an IllegalArgumentException
-    public static Object createValueFromString(String text, int count, Class objectClass, Class paramClass) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public static Object createValueFromString(String text, int count, Class<?> objectClass, Class<?> paramClass) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         // strip all extra whitespace
         text = text.replaceAll("[\\[|,| |\\]]"," ");
         text = text.replaceAll("\\s+"," ");
@@ -52,7 +52,7 @@ public class PropertyEditorUtil {
             return null;
         }
         Object[] params = new Object[count];
-        Class[] paramClasses = new Class[count];
+        Class<?>[] paramClasses = new Class<?>[count];
         for(int i=0; i<strs.length; i++) {
             if(paramClass == int.class) {
                 params[i] = Integer.valueOf(strs[i]);
@@ -65,7 +65,7 @@ public class PropertyEditorUtil {
         }
 //        u.p("parms = ");
 //        u.p(params);
-        Constructor con = objectClass.getConstructor(paramClasses);
+        Constructor<?> con = objectClass.getConstructor(paramClasses);
         return con.newInstance(params);
     }
     

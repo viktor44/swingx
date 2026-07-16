@@ -27,23 +27,22 @@ import org.jdesktop.swingx.painter.Painter;
  * 
  * @author kschaefer
  */
-@SuppressWarnings("rawtypes")
 interface BackgroundPaintable {
     /**
      * Returns the current background painter.
-     * 
+     *
      * @return the current painter
      * @see #setBackgroundPainter(Painter)
      * @see #isPaintBorderInsets()
      */
-    Painter getBackgroundPainter();
-    
+    Painter<Object> getBackgroundPainter();
+
     /**
      * Sets the new background painter.
-     * 
+     *
      * @param painter the new background painter; may be {@code null}
      */
-    void setBackgroundPainter(Painter painter);
+    void setBackgroundPainter(Painter<?> painter);
     
     /**
      * Determines whether this component paints its background paint underneath the border.

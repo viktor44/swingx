@@ -1568,7 +1568,7 @@ public class JXGraph extends JXPanel {
      */
     protected void paintBackground(Graphics2D g2) {
         if (isBackgroundPainted()) {
-            Painter p = getBackgroundPainter();
+            Painter<Object> p = getBackgroundPainter();
             if (p != null) {
                 p.paint(g2, this, getWidth(), getHeight());
             } else {

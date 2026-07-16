@@ -603,7 +603,7 @@ public class JXTable extends JTable implements TableColumnModelExtListener {
      * @param rowData Row data, as a Vector of Objects.
      * @param columnNames Column names, as a Vector of Strings.
      */
-    public JXTable(Vector<? extends Vector> rowData, Vector<?> columnNames) {
+    public JXTable(Vector<? extends Vector<?>> rowData, Vector<?> columnNames) {
         super(rowData, columnNames);
         init();
     }
@@ -3272,7 +3272,7 @@ public class JXTable extends JTable implements TableColumnModelExtListener {
          */
         @Override
         public String getStringAt(int row, int column) {
-            StringValue sv = table.getStringValueRegistry().getStringValue(row, column);
+            StringValue<Object> sv = table.getStringValueRegistry().getStringValue(row, column);
             return sv.getString(getValueAt(row, column));
         }
 
@@ -3564,7 +3564,7 @@ public class JXTable extends JTable implements TableColumnModelExtListener {
      */
     public String getStringAt(int row, int column) {
         // changed implementation to use StringValueRegistry
-        StringValue stringValue = getStringValueRegistry().getStringValue(
+        StringValue<Object> stringValue = getStringValueRegistry().getStringValue(
                 convertRowIndexToModel(row), convertColumnIndexToModel(column));
         return stringValue.getString(getValueAt(row, column));
     }
@@ -3774,7 +3774,7 @@ public class JXTable extends JTable implements TableColumnModelExtListener {
         setDefaultRenderer(Date.class, new DefaultTableRenderer(
                 StringValues.DATE_TO_STRING));
         // use the same center aligned default for Image/Icon
-        TableCellRenderer renderer = new DefaultTableRenderer(new MappedValue(
+        TableCellRenderer renderer = new DefaultTableRenderer(new MappedValue<Object>(
                 StringValues.EMPTY, IconValues.ICON), JLabel.CENTER);
         setDefaultRenderer(Icon.class, renderer);
         setDefaultRenderer(ImageIcon.class, renderer);

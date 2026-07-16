@@ -112,7 +112,7 @@ public class GradientPreviewPanel extends JXPanel {
         return getGradient();
     }
 
-    private MultiThumbModel model;
+    private MultiThumbModel<Color> model;
     private Logger log = Logger.getLogger(GradientPreviewPanel.class.getName());
     
     private List<Thumb<Color>> getStops() {
@@ -120,13 +120,13 @@ public class GradientPreviewPanel extends JXPanel {
         return model == null ? null : model.getSortedThumbs();
     }
     
-    public void setMultiThumbModel(MultiThumbModel model) {
-        MultiThumbModel old = getMultiThumbModel();
+    public void setMultiThumbModel(MultiThumbModel<Color> model) {
+        MultiThumbModel<Color> old = getMultiThumbModel();
         this.model = model;
         firePropertyChange("multiThumbModel", old, getMultiThumbModel());
     }
     
-    public MultiThumbModel getMultiThumbModel() {
+    public MultiThumbModel<Color> getMultiThumbModel() {
         return this.model;
     }
 

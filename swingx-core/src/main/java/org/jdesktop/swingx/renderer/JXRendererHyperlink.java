@@ -37,13 +37,13 @@ import org.jdesktop.swingx.painter.Painter;
  * @author Jeanette Winzenburg
  */
 public class JXRendererHyperlink extends JXHyperlink implements PainterAware {
-    protected Painter painter;
+    protected Painter<?> painter;
 
     /**
      * {@inheritDoc}
      */
-    public void setPainter(Painter painter) {
-        Painter old = getPainter();
+    public void setPainter(Painter<?> painter) {
+        Painter<?> old = getPainter();
         this.painter = painter;
         if (painter != null) {
             // ui maps to !opaque
@@ -57,7 +57,7 @@ public class JXRendererHyperlink extends JXHyperlink implements PainterAware {
     /**
      * {@inheritDoc}
      */
-    public Painter getPainter() {
+    public Painter<?> getPainter() {
         return painter;
     }
     
@@ -89,7 +89,9 @@ public class JXRendererHyperlink extends JXHyperlink implements PainterAware {
         // this differs from corresponding core implementation!
         Graphics2D scratch = (Graphics2D) g.create();
         try {
-            painter.paint(scratch, this, getWidth(), getHeight());
+            @SuppressWarnings("unchecked")
+            Painter<JXRendererHyperlink> p = (Painter<JXRendererHyperlink>) painter;
+            p.paint(scratch, this, getWidth(), getHeight());
         }
         finally {
             scratch.dispose();

@@ -1167,7 +1167,7 @@ public class JXList<E> extends JList<E> {
          */
         @Override
         public String getStringAt(int row, int column) {
-            StringValue sv = list.getStringValueRegistry().getStringValue(row, column);
+            StringValue<Object> sv = list.getStringValueRegistry().getStringValue(row, column);
             return sv.getString(getValueAt(row, column));
         }
 
@@ -1371,7 +1371,7 @@ public class JXList<E> extends JList<E> {
      */
     public String getStringAt(int row) {
         // changed implementation to use StringValueRegistry
-        StringValue stringValue = getStringValueRegistry().getStringValue(
+        StringValue<Object> stringValue = getStringValueRegistry().getStringValue(
                 convertIndexToModel(row), 0);
         return stringValue.getString(getElementAt(row));
     }

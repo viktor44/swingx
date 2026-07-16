@@ -554,7 +554,7 @@ public final class SwingXUtilities {
     }
 
     
-    public static int loc2IndexFileList(JList list, Point point) {
+    public static <T> int loc2IndexFileList(JList<T> list, Point point) {
         int i = list.locationToIndex(point);
         if (i != -1) {
             Object localObject = list
@@ -570,11 +570,11 @@ public final class SwingXUtilities {
     }
 
     // PENDING JW: this isn't aware of sorting/filtering - fix!
-    private static boolean pointIsInActualBounds(JList list, int index,
+    private static <T> boolean pointIsInActualBounds(JList<T> list, int index,
             Point point) {
-        ListCellRenderer renderer = list.getCellRenderer();
-        ListModel model = list.getModel();
-        Object element = model.getElementAt(index);
+        ListCellRenderer<? super T> renderer = list.getCellRenderer();
+        ListModel<T> model = list.getModel();
+        T element = model.getElementAt(index);
         Component comp = renderer.getListCellRendererComponent(list, element,
                 index, false, false);
 

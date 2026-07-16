@@ -33,7 +33,7 @@ public final class MappedValues {
      * A {@code MappedValue} that returns either a {@code String} or {@code Icon}, but not both.
      */
     @SuppressWarnings("serial")
-    public static final MappedValue STRING_OR_ICON_ONLY = new MappedValue(new StringValue() {
+    public static final MappedValue<Object> STRING_OR_ICON_ONLY = new MappedValue<Object>(new StringValue<Object>() {
         @Override
         public String getString(Object value) {
             if (value instanceof Icon) {
@@ -49,9 +49,9 @@ public final class MappedValues {
      * 
      * @author (Jeanette Winzenburg, Berlin
      */
-    public static class MappedValueUIResource extends MappedValue implements UIResource {
-        
-        public MappedValueUIResource(MappedValue delegate) {
+    public static class MappedValueUIResource extends MappedValue<Object> implements UIResource {
+
+        public MappedValueUIResource(MappedValue<Object> delegate) {
             this(delegate, delegate, delegate);
         }
 
@@ -60,8 +60,8 @@ public final class MappedValues {
          * @param iconDelegate
          * @param booleanDelegate
          */
-        public MappedValueUIResource(StringValue stringDelegate,
-                IconValue iconDelegate, BooleanValue booleanDelegate) {
+        public MappedValueUIResource(StringValue<Object> stringDelegate,
+                IconValue<Object> iconDelegate, BooleanValue<Object> booleanDelegate) {
             super(stringDelegate, iconDelegate, booleanDelegate);
         }
 
@@ -69,8 +69,8 @@ public final class MappedValues {
          * @param stringDelegate
          * @param iconDelegate
          */
-        public MappedValueUIResource(StringValue stringDelegate,
-                IconValue iconDelegate) {
+        public MappedValueUIResource(StringValue<Object> stringDelegate,
+                IconValue<Object> iconDelegate) {
             super(stringDelegate, iconDelegate);
         }
         

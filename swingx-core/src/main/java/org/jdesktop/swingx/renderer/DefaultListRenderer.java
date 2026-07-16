@@ -112,7 +112,7 @@ public class DefaultListRenderer<E> extends AbstractRenderer
      *        String representation.
      * 
      */
-    public DefaultListRenderer(StringValue<E> converter) {
+    public DefaultListRenderer(StringValue<Object> converter) {
         this(new LabelProvider(converter));
     }
 
@@ -129,7 +129,7 @@ public class DefaultListRenderer<E> extends AbstractRenderer
      *   content value to a String representation.
      * @param alignment the horizontal alignment.
      */
-    public DefaultListRenderer(StringValue<E> converter, int alignment) {
+    public DefaultListRenderer(StringValue<Object> converter, int alignment) {
         this(new LabelProvider(converter, alignment));
     }
 
@@ -141,8 +141,8 @@ public class DefaultListRenderer<E> extends AbstractRenderer
      * @param stringValue the converter to use for the string representation
      * @param iconValue the converter to use for the icon representation
      */
-    public DefaultListRenderer(StringValue<E> stringValue, IconValue iconValue) {
-        this(new MappedValue(stringValue, iconValue));
+    public DefaultListRenderer(StringValue<Object> stringValue, IconValue<Object> iconValue) {
+        this(new MappedValue<Object>(stringValue, iconValue));
     }
 
     /**
@@ -153,9 +153,9 @@ public class DefaultListRenderer<E> extends AbstractRenderer
      * @param iconValue the converter to use for the icon representation
      * @param alignment the rendering component's horizontal alignment
      */
-    public DefaultListRenderer(StringValue<E> stringValue, IconValue iconValue,
+    public DefaultListRenderer(StringValue<Object> stringValue, IconValue<Object> iconValue,
             int alignment) {
-        this(new MappedValue(stringValue, iconValue), alignment);
+        this(new MappedValue<Object>(stringValue, iconValue), alignment);
     }
 
     // -------------- implements javax.swing.table.ListCellRenderer
@@ -175,7 +175,7 @@ public class DefaultListRenderer<E> extends AbstractRenderer
      * @return a component to render the given list cell.
      */
     @Override
-    public Component getListCellRendererComponent(JList list, Object value,
+    public Component getListCellRendererComponent(JList<? extends E> list, E value,
             int index, boolean isSelected, boolean cellHasFocus) {
         cellContext.installContext(list, value, index, 0, isSelected,
                 cellHasFocus, true, true);
@@ -201,7 +201,7 @@ public class DefaultListRenderer<E> extends AbstractRenderer
      * 
      * @return the StringValue to use by default.
      */
-    private StringValue createDefaultStringValue() {
+    private StringValue<Object> createDefaultStringValue() {
         return MappedValues.STRING_OR_ICON_ONLY;
     }
 }

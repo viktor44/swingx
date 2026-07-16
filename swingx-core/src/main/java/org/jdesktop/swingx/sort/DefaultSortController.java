@@ -281,7 +281,7 @@ public abstract class DefaultSortController<M> extends DefaultRowSorter<M, Integ
     private static final StringValueProvider DEFAULT_PROVIDER = new StringValueProvider() {
 
         @Override
-        public StringValue getStringValue(int row, int column) {
+        public StringValue<Object> getStringValue(int row, int column) {
             return StringValues.TO_STRING;
         }
         

@@ -26,5 +26,5 @@ import org.jdesktop.swingx.JXMultiThumbSlider;
 
 
 public interface TrackRenderer {
-    public JComponent getRendererComponent(JXMultiThumbSlider slider);
+    public JComponent getRendererComponent(JXMultiThumbSlider<?> slider);
 }

@@ -76,7 +76,7 @@ import org.jdesktop.swingx.renderer.PainterAware;
 public class PainterHighlighter extends AbstractHighlighter {
 
     /** The painter to use for decoration. */
-    private Painter painter;
+    private Painter<?> painter;
     /** The listener registered with the Painter. */
     private PropertyChangeListener painterListener;
     /** 
@@ -109,7 +109,7 @@ public class PainterHighlighter extends AbstractHighlighter {
      * 
      * @param painter the painter to use
      */
-    public PainterHighlighter(Painter painter) {
+    public PainterHighlighter(Painter<?> painter) {
         this(null, painter);
     }
 
@@ -119,7 +119,7 @@ public class PainterHighlighter extends AbstractHighlighter {
      * @param predicate
      * @param painter
      */
-    public PainterHighlighter(HighlightPredicate predicate, Painter painter) {
+    public PainterHighlighter(HighlightPredicate predicate, Painter<?> painter) {
         super(predicate);
         setPainter(painter);
     }
@@ -131,7 +131,7 @@ public class PainterHighlighter extends AbstractHighlighter {
      * 
      * @return the Painter used in this Highlighter, may be null.
      */
-    public Painter getPainter() {
+    public Painter<?> getPainter() {
         return painter;
     }
 
@@ -141,7 +141,7 @@ public class PainterHighlighter extends AbstractHighlighter {
      * 
      * @param painter the Painter to uses for decoration.
      */
-    public void setPainter(Painter painter) {
+    public void setPainter(Painter<?> painter) {
         if (areEqual(painter, getPainter())) return;
         uninstallPainterListener();
         this.painter = painter;

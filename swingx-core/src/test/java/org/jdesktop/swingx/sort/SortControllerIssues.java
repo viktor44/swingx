@@ -47,7 +47,7 @@ public class SortControllerIssues extends InteractiveTestCase {
     @Test
     public void testComparableComparatorList() {
         ListModel model = new DefaultComboBoxModel(new Integer[] {10, 2});
-        ListSortController<ListModel> sorter = new ListSortController<ListModel>(model);
+        ListSortController<ListModel<?>> sorter = new ListSortController<ListModel<?>>(model);
         List<SortKey> keys = new ArrayList<SortKey>();
         keys.add(new SortKey(0, SortOrder.ASCENDING));
         sorter.setSortKeys(keys);

@@ -83,7 +83,7 @@ public class JXSearchPanel extends AbstractPatternPanel {
      */
     public static final String MATCH_RULE_ACTION_COMMAND = "selectMatchRule";
 
-    private JXComboBox searchCriteria;
+    private JXComboBox<Object> searchCriteria;
 
     private List<PatternMatcher> patternMatchers;
     
@@ -221,16 +221,16 @@ public class JXSearchPanel extends AbstractPatternPanel {
         super.bind();
         List<?> matchRules = getPatternModel().getMatchRules();
         // PENDING: map rules to localized strings
-        ComboBoxModel model = new DefaultComboBoxModel(matchRules.toArray());
+        ComboBoxModel<Object> model = new DefaultComboBoxModel<Object>(matchRules.toArray());
         model.setSelectedItem(getPatternModel().getMatchRule());
         searchCriteria.setModel(model);
         searchCriteria.setAction(getAction(MATCH_RULE_ACTION_COMMAND));
-        searchCriteria.setRenderer(new DefaultListRenderer(createStringValue(getLocale())));
+        searchCriteria.setRenderer(new DefaultListRenderer<Object>(createStringValue(getLocale())));
         
     }
 
     
-    private StringValue createStringValue(Locale locale) {
+    private StringValue<Object> createStringValue(Locale locale) {
         // TODO Auto-generated method stub
         Map<Object, String> keys = new HashMap<Object, String>();
         keys.put(PatternModel.MATCH_RULE_CONTAINS, 
@@ -251,7 +251,7 @@ public class JXSearchPanel extends AbstractPatternPanel {
     protected void updateLocaleState(Locale locale) {
         // TODO Auto-generated method stub
         super.updateLocaleState(locale);
-        searchCriteria.setRenderer(new DefaultListRenderer(createStringValue(locale)));
+        searchCriteria.setRenderer(new DefaultListRenderer<Object>(createStringValue(locale)));
     }
 
     //------------------------ init ui
@@ -274,7 +274,7 @@ public class JXSearchPanel extends AbstractPatternPanel {
     @Override
     protected void initComponents() {
         super.initComponents();
-        searchCriteria = new JXComboBox();
+        searchCriteria = new JXComboBox<Object>();
     }
 
 

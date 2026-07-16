@@ -102,7 +102,7 @@ public class DefaultTableRenderer extends AbstractRenderer
      *   
      * @see #DefaultTableRenderer(ComponentProvider)  
      */
-    public DefaultTableRenderer(StringValue converter) {
+    public DefaultTableRenderer(StringValue<Object> converter) {
         this(new LabelProvider(converter));
     }
 
@@ -116,7 +116,7 @@ public class DefaultTableRenderer extends AbstractRenderer
      *   
      * @see #DefaultTableRenderer(ComponentProvider)  
      */
-    public DefaultTableRenderer(StringValue converter, int alignment) {
+    public DefaultTableRenderer(StringValue<Object> converter, int alignment) {
         this(new LabelProvider(converter, alignment));
     }
 
@@ -127,8 +127,8 @@ public class DefaultTableRenderer extends AbstractRenderer
      * @param stringValue the converter to use for the string representation
      * @param iconValue the converter to use for the icon representation
      */
-    public DefaultTableRenderer(StringValue stringValue, IconValue iconValue) {
-        this(new MappedValue(stringValue, iconValue));
+    public DefaultTableRenderer(StringValue<Object> stringValue, IconValue<Object> iconValue) {
+        this(new MappedValue<Object>(stringValue, iconValue));
     }
 
     /**
@@ -139,9 +139,9 @@ public class DefaultTableRenderer extends AbstractRenderer
      * @param iconValue the converter to use for the icon representation
      * @param alignment the rendering component's horizontal alignment
      */
-    public DefaultTableRenderer(StringValue stringValue, IconValue iconValue,
+    public DefaultTableRenderer(StringValue<Object> stringValue, IconValue<Object> iconValue,
             int alignment) {
-        this(new MappedValue(stringValue, iconValue), alignment);
+        this(new MappedValue<Object>(stringValue, iconValue), alignment);
     }
 
     // -------------- implements javax.swing.table.TableCellRenderer

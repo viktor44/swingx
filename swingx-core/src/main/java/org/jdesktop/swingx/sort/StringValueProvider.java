@@ -45,6 +45,6 @@ public interface StringValueProvider {
      * 
      * @return a StringValue to use for conversion, guaranteed to not null.
      */
-    StringValue getStringValue(int row, int column);
+    StringValue<Object> getStringValue(int row, int column);
 
 }

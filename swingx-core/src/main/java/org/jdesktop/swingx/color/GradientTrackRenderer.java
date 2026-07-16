@@ -49,7 +49,7 @@ public class GradientTrackRenderer extends JComponent implements TrackRenderer {
         checker_paint = PaintUtils.getCheckerPaint();
     }
     
-    private JXMultiThumbSlider slider;
+    private JXMultiThumbSlider<?> slider;
     
     @Override
     public void paint(Graphics g) {
@@ -62,14 +62,14 @@ public class GradientTrackRenderer extends JComponent implements TrackRenderer {
         Graphics2D g = (Graphics2D)gfx;
         
         // get the list of colors
-        List<Thumb<Color>> stops = slider.getModel().getSortedThumbs();
+        List<? extends Thumb<?>> stops = slider.getModel().getSortedThumbs();
         int len = stops.size();
 
         // set up the data for the gradient
         float[] fractions = new float[len];
         Color[] colors = new Color[len];
         int i = 0;
-        for(Thumb<Color> thumb : stops) {
+        for(Thumb<?> thumb : stops) {
             colors[i] = (Color)thumb.getObject();
             fractions[i] = thumb.getPosition();
             i++;
@@ -103,7 +103,7 @@ public class GradientTrackRenderer extends JComponent implements TrackRenderer {
         g.translate(-thumb_width / 2, -12);
     }
 
-    public JComponent getRendererComponent(JXMultiThumbSlider slider) {
+    public JComponent getRendererComponent(JXMultiThumbSlider<?> slider) {
         this.slider = slider;
         return this;
     }

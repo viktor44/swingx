@@ -227,7 +227,7 @@ public class JXLoginPane extends JXPanel {
      * the List of servers supplied to the JXLoginPane has a length greater
      * than 1.
      */
-    private JComboBox serverCombo;
+    private JComboBox<Object> serverCombo;
     /**
      * Check box presented if a PasswordStore is used, allowing the user to decide whether to
      * save their password
@@ -578,7 +578,7 @@ public class JXLoginPane extends JXPanel {
         //create the server combo box if necessary
         JLabel serverLabel = new JLabel(UIManagerExt.getString(CLASS_NAME + ".serverString", getLocale()));
         if (servers.size() > 1) {
-            serverCombo = new JComboBox(servers.toArray());
+            serverCombo = new JComboBox<Object>(servers.toArray());
             serverLabel.setLabelFor(serverCombo);
         } else {
             serverCombo = null;
@@ -1460,7 +1460,7 @@ public class JXLoginPane extends JXPanel {
      * If a UserNameStore is used, then this combo box is presented allowing the user
      * to select a previous login name, or type in a new login name
      */
-    private final class ComboNamePanel extends JComboBox implements NameComponent {
+    private final class ComboNamePanel extends JComboBox<Object> implements NameComponent {
         private static final long serialVersionUID = 2511649075486103959L;
 
         public ComboNamePanel() {
@@ -1501,14 +1501,14 @@ public class JXLoginPane extends JXPanel {
             getModel().setSelectedItem(userName);
         }
         public void setUserNames(String[] names) {
-            setModel(new DefaultComboBoxModel(names));
+            setModel(new DefaultComboBoxModel<Object>(names));
         }
         @Override
         public JComponent getComponent() {
             return this;
         }
         
-        private final class NameComboBoxModel extends AbstractListModel implements ComboBoxModel {
+        private final class NameComboBoxModel extends AbstractListModel<Object> implements ComboBoxModel<Object> {
             private static final long serialVersionUID = 7097674687536018633L;
             private Object selectedItem;
             @Override

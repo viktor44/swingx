@@ -121,8 +121,8 @@ public final class TestUtils extends Assert {
             assertEquals("exactly one event", 1, report.getEventCount());
             assertEquals("property", property, report.getLastProperty());
             if (verifyArrayItems && oldValue != null && oldValue.getClass().isArray()) {
-                List l1 = Arrays.asList((Object[]) oldValue);
-                List l2 = Arrays.asList((Object[]) report.getLastOldValue());
+                List<?> l1 = Arrays.asList((Object[]) oldValue);
+                List<?> l2 = Arrays.asList((Object[]) report.getLastOldValue());
                 assertEquals("last old value", l1.size(), l2.size());
                 for (int i = 0; i < l1.size();i++) {
                     assertEquals("last old value", l1.get(i), l2.get(i));
@@ -131,8 +131,8 @@ public final class TestUtils extends Assert {
                 assertEquals("last old value", oldValue, report.getLastOldValue());
             }
             if (verifyArrayItems && newValue != null && newValue.getClass().isArray()) {
-                List l1 = Arrays.asList(newValue);
-                List l2 = Arrays.asList(report.getLastNewValue());
+                List<?> l1 = Arrays.asList(newValue);
+                List<?> l2 = Arrays.asList(report.getLastNewValue());
                 assertEquals("last new value", l1.size(), l2.size());
                 for (int i = 0; i < l1.size();i++) {
                     assertEquals("last new value", l1.get(i), l2.get(i));
@@ -143,8 +143,8 @@ public final class TestUtils extends Assert {
         } else {
             assertEquals("one event of property " + property, 1, report.getEventCount(property));
             if (verifyArrayItems && oldValue != null && oldValue.getClass().isArray()) {
-                List l1 = Arrays.asList((Object[]) oldValue);
-                List l2 = Arrays.asList((Object[]) report.getLastOldValue(property));
+                List<?> l1 = Arrays.asList((Object[]) oldValue);
+                List<?> l2 = Arrays.asList((Object[]) report.getLastOldValue(property));
                 assertEquals("old value", l1.size(), l2.size());
                 for (int i = 0; i < l1.size();i++) {
                     assertEquals("old value", l1.get(i), l2.get(i));
@@ -153,11 +153,11 @@ public final class TestUtils extends Assert {
                 assertEquals("old property " + property, oldValue, report.getLastOldValue(property));
             }
             if (verifyArrayItems && newValue != null && newValue.getClass().isArray()) {
-                Collection l1 = newValue instanceof Collection ? (Collection) newValue : Arrays.asList((Object[])newValue);
-                Collection l2 = report.getLastNewValue(property) instanceof Collection ? (Collection) report.getLastNewValue(property) : Arrays.asList((Object[]) report.getLastNewValue(property));
+                Collection<?> l1 = newValue instanceof Collection ? (Collection<?>) newValue : Arrays.asList((Object[])newValue);
+                Collection<?> l2 = report.getLastNewValue(property) instanceof Collection ? (Collection<?>) report.getLastNewValue(property) : Arrays.asList((Object[]) report.getLastNewValue(property));
                 assertEquals("new value of property " + property, l1.size(), l2.size());
                 int index = 0;
-                for (Iterator i1 = l1.iterator(), i2 = l2.iterator(); i1.hasNext() && i2.hasNext(); ) {
+                for (Iterator<?> i1 = l1.iterator(), i2 = l2.iterator(); i1.hasNext() && i2.hasNext(); ) {
                     Object o1 = i1.next(); 
                     Object o2 = i2.next(); 
 //                    if (o1 instanceof Date) {

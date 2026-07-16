@@ -68,8 +68,8 @@ class StrictNumberFormatter extends NumberFormatter {
      * 
      */
     private void updateMinMax() {
-        Comparable min = null;
-        Comparable max = null;
+        Comparable<?> min = null;
+        Comparable<?> max = null;
         if (getValueClass() == Integer.class) {
             max = Integer.MAX_VALUE;
             min = Integer.MIN_VALUE;
@@ -96,12 +96,14 @@ class StrictNumberFormatter extends NumberFormatter {
 
 
     @Override
+    @SuppressWarnings("rawtypes") // overrides InternationalFormatter, whose setMaximum uses the raw Comparable type
     public void setMaximum(Comparable max) {
         super.setMaximum(max);
         this.maxAsBig = max != null ? new BigDecimal(max.toString()) : null;
     }
     
     @Override
+    @SuppressWarnings("rawtypes") // overrides InternationalFormatter, whose setMinimum uses the raw Comparable type
     public void setMinimum(Comparable minimum) {
         super.setMinimum(minimum);
         this.minAsBig = minimum != null ? new BigDecimal(minimum.toString()) : null;

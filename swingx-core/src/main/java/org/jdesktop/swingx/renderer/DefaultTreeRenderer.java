@@ -73,7 +73,7 @@ public class DefaultTreeRenderer extends AbstractRenderer
      *    for a given value
      *   
      */
-    public DefaultTreeRenderer(IconValue iv) {
+    public DefaultTreeRenderer(IconValue<Object> iv) {
         this(new WrappingProvider(iv));
     }
 
@@ -85,7 +85,7 @@ public class DefaultTreeRenderer extends AbstractRenderer
      *   content value to a String representation.
      *   
      */
-    public DefaultTreeRenderer(StringValue sv) {
+    public DefaultTreeRenderer(StringValue<Object> sv) {
         this(new WrappingProvider(sv));
     }
 
@@ -102,7 +102,7 @@ public class DefaultTreeRenderer extends AbstractRenderer
      *   content value to a String representation.
      *   
      */
-    public DefaultTreeRenderer(IconValue iv, StringValue sv) {
+    public DefaultTreeRenderer(IconValue<Object> iv, StringValue<Object> sv) {
         this(new WrappingProvider(iv, sv));
     }
 
@@ -120,7 +120,7 @@ public class DefaultTreeRenderer extends AbstractRenderer
      *     should auto-unwrap the userObject from the context value. 
      *   
      */
-    public DefaultTreeRenderer(IconValue iv, StringValue sv, boolean unwrapUserObject) {
+    public DefaultTreeRenderer(IconValue<Object> iv, StringValue<Object> sv, boolean unwrapUserObject) {
         this(new WrappingProvider(iv, sv, unwrapUserObject));
     }
     

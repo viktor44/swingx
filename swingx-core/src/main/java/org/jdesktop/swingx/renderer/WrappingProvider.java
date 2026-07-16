@@ -70,7 +70,7 @@ public class WrappingProvider extends
      * @param iconValue the IconValue to use for configuring the icon.
      * @param wrappeeStringValue the StringValue to use in the wrappee.
      */
-    public WrappingProvider(IconValue iconValue, StringValue wrappeeStringValue) {
+    public WrappingProvider(IconValue<Object> iconValue, StringValue<Object> wrappeeStringValue) {
         this(iconValue, wrappeeStringValue, true);
     }
 
@@ -80,7 +80,7 @@ public class WrappingProvider extends
      * 
      * @param iconValue the IconValue to use for configuring the icon.
      */
-    public WrappingProvider(IconValue iconValue) {
+    public WrappingProvider(IconValue<Object> iconValue) {
         this(iconValue, null);
     }
    
@@ -94,7 +94,7 @@ public class WrappingProvider extends
      * 
      * @param wrappeeStringValue the StringValue to use in the wrappee.
      */
-    public WrappingProvider(StringValue wrappeeStringValue) {
+    public WrappingProvider(StringValue<Object> wrappeeStringValue) {
         this(null, wrappeeStringValue);
     }
 
@@ -132,8 +132,8 @@ public class WrappingProvider extends
      * @param unwrapUserObject a flag indicating whether this provider
      *          should auto-unwrap the userObject from the context value. 
      */
-    public WrappingProvider(IconValue iv, ComponentProvider<?> delegate, boolean unwrapUserObject) {
-        super(iv != null ? (new MappedValue(null, iv)) : StringValues.EMPTY);
+    public WrappingProvider(IconValue<Object> iv, ComponentProvider<?> delegate, boolean unwrapUserObject) {
+        super(iv != null ? (new MappedValue<Object>(null, iv)) : StringValues.EMPTY);
         setWrappee(delegate);
         setUnwrapUserObject(unwrapUserObject);
     }
@@ -148,7 +148,7 @@ public class WrappingProvider extends
      * @param unwrapUserObject a flag indicating whether this provider
      *          should auto-unwrap the userObject from the context value. 
      */
-    public WrappingProvider(IconValue iv, StringValue delegateStringValue, boolean unwrapUserObject) {
+    public WrappingProvider(IconValue<Object> iv, StringValue<Object> delegateStringValue, boolean unwrapUserObject) {
         this(iv, (ComponentProvider<?>) null, unwrapUserObject);
         getWrappee().setStringValue(delegateStringValue);
     }

@@ -98,7 +98,7 @@ public class JXTitledPanel extends JXPanel {
     /**
      * The Painter to use for painting the title section of the JXTitledPanel
      */
-    private Painter titlePainter;
+    private Painter<Object> titlePainter;
 
     /**
      * Create a new JTitledPanel with an empty string for the title.
@@ -267,8 +267,8 @@ public class JXTitledPanel extends JXPanel {
      *
      * @param p The Painter to use. May be null
      */
-    public void setTitlePainter(Painter p) {
-        Painter old = getTitlePainter();
+    public void setTitlePainter(Painter<Object> p) {
+        Painter<Object> old = getTitlePainter();
         this.titlePainter = p;
         firePropertyChange("titlePainter", old, getTitlePainter());
     }
@@ -276,7 +276,7 @@ public class JXTitledPanel extends JXPanel {
     /**
      * @return the Painter to use for painting the background of the title section
      */
-    public Painter getTitlePainter() {
+    public Painter<Object> getTitlePainter() {
         return titlePainter;
     }
 

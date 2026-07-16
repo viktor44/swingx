@@ -33,7 +33,7 @@ import javax.swing.text.JTextComponent;
 public class ListAdaptor extends AbstractAutoCompleteAdaptor implements ListSelectionListener {
     
     /** the list containing the items */
-    JList list;
+    JList<?> list;
     /** the text component that is used for automatic completion*/
     JTextComponent textComponent;
     /** the converter used to transform items to strings */
@@ -46,7 +46,7 @@ public class ListAdaptor extends AbstractAutoCompleteAdaptor implements ListSele
      * @param list - the list that contains the items that are used for automatic completion
      * @param textComponent - the text component that will be used automatic completion
      */
-    public ListAdaptor(JList list, JTextComponent textComponent) {
+    public ListAdaptor(JList<?> list, JTextComponent textComponent) {
         this(list, textComponent, null);
     }
     
@@ -60,7 +60,7 @@ public class ListAdaptor extends AbstractAutoCompleteAdaptor implements ListSele
      * 
      * @see ObjectToStringConverter#DEFAULT_IMPLEMENTATION
      */
-    public ListAdaptor(JList list, JTextComponent textComponent, ObjectToStringConverter stringConverter) {
+    public ListAdaptor(JList<?> list, JTextComponent textComponent, ObjectToStringConverter stringConverter) {
         this.list = list;
         this.textComponent = textComponent;
         this.stringConverter = stringConverter == null 

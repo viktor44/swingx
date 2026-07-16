@@ -504,7 +504,7 @@ public class JXListTest extends InteractiveTestCase {
         list.setSortable(false);
         Collator comparator = Collator.getInstance();
         list.setComparator(comparator);
-        ListSortController<?> controller = new ListSortController<ListModel>(list.getModel());
+        ListSortController<?> controller = new ListSortController<ListModel<?>>(list.getModel());
         list.setRowSorter(controller);
         assertEquals("sortable propagated", false, controller.isSortable(0));
         assertSame("comparator propagated", comparator, controller.getComparator(0));
@@ -595,7 +595,7 @@ public class JXListTest extends InteractiveTestCase {
     @Test
     public void testRowSorterSet() {
         assertNull(list.getRowSorter());
-        ListSortController<ListModel> controller = new ListSortController<ListModel>(list.getModel());
+        ListSortController<ListModel<?>> controller = new ListSortController<ListModel<?>>(list.getModel());
         PropertyChangeReport report = new PropertyChangeReport(list);
         list.setRowSorter(controller);
         TestUtils.assertPropertyChangeEvent(report, list, "rowSorter", null, controller);

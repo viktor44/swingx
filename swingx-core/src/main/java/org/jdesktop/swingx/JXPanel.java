@@ -38,7 +38,6 @@ import java.beans.PropertyChangeListener;
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
-import javax.swing.RepaintManager;
 import javax.swing.Scrollable;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -128,8 +127,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
      * is called. Old behavior is also honored for the time being if no
      * backgroundPainter is specified
      */
-    @SuppressWarnings("rawtypes")
-    private Painter backgroundPainter;
+    private Painter<Object> backgroundPainter;
     
     private boolean paintBorderInsets = true;
 
@@ -469,12 +467,14 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
      * @see #getBackgroundPainter()
      */
     @Override
-    public void setBackgroundPainter(Painter p) {
-        Painter old = getBackgroundPainter();
+    public void setBackgroundPainter(Painter<?> p) {
+        Painter<Object> old = getBackgroundPainter();
         if (old instanceof AbstractPainter) {
             ((AbstractPainter<?>) old).removePropertyChangeListener(painterChangeListener);
         }
-        backgroundPainter = p;
+        @SuppressWarnings("unchecked")
+        Painter<Object> painter = (Painter<Object>) p;
+        backgroundPainter = painter;
         if (backgroundPainter instanceof AbstractPainter) {
             ((AbstractPainter<?>) backgroundPainter).addPropertyChangeListener(getPainterChangeListener());
         }
@@ -506,7 +506,7 @@ public class JXPanel extends JPanel implements AlphaPaintable, BackgroundPaintab
      * @see #isPaintBorderInsets()
      */
     @Override
-    public Painter getBackgroundPainter() {
+    public Painter<Object> getBackgroundPainter() {
         return backgroundPainter;
     }
     

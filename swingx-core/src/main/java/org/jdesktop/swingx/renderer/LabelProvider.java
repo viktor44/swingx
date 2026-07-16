@@ -56,7 +56,7 @@ public class LabelProvider extends ComponentProvider<JLabel> {
      * @param converter the converter to use for mapping the cell value to a
      *        String representation.
      */
-    public LabelProvider(StringValue converter) {
+    public LabelProvider(StringValue<Object> converter) {
         this(converter, JLabel.LEADING);
     }
 
@@ -79,7 +79,7 @@ public class LabelProvider extends ComponentProvider<JLabel> {
      *        String representation.
      * @param alignment the horizontal alignment.
      */
-    public LabelProvider(StringValue converter, int alignment) {
+    public LabelProvider(StringValue<Object> converter, int alignment) {
         super(converter, alignment);
     }
 

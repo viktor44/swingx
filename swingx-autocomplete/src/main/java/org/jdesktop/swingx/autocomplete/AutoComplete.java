@@ -57,9 +57,9 @@ final class AutoComplete {
     }
     
     static class KeyAdapter extends java.awt.event.KeyAdapter {
-        private JComboBox comboBox;
-        
-        public KeyAdapter(JComboBox comboBox) {
+        private JComboBox<?> comboBox;
+
+        public KeyAdapter(JComboBox<?> comboBox) {
             this.comboBox = comboBox;
         }
         
@@ -83,9 +83,9 @@ final class AutoComplete {
     }
 
     static class PropertyChangeListener implements java.beans.PropertyChangeListener {
-        private JComboBox comboBox;
-        
-        public PropertyChangeListener(JComboBox comboBox) {
+        private JComboBox<?> comboBox;
+
+        public PropertyChangeListener(JComboBox<?> comboBox) {
             this.comboBox = comboBox;
         }
         
@@ -160,7 +160,7 @@ final class AutoComplete {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            JComboBox comboBox = (JComboBox) e.getSource();
+            JComboBox<?> comboBox = (JComboBox<?>) e.getSource();
             JTextComponent textComponent = (JTextComponent) comboBox.getEditor().getEditorComponent();
             AutoCompleteDocument doc = (AutoCompleteDocument) textComponent.getDocument();
             

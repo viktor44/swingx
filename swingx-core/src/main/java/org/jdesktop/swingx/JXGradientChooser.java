@@ -93,7 +93,7 @@ public class JXGradientChooser extends JXPanel {
     private JSpinner alphaSpinner;
     private JSlider alphaSlider;
     
-    private JComboBox<String> styleCombo;
+    private JComboBox<Object> styleCombo;
     private GradientPreviewPanel gradientPreview;
     
     private JRadioButton noCycleRadio;
@@ -527,7 +527,7 @@ public class JXGradientChooser extends JXPanel {
         alphaSlider.addChangeListener(changeAlphaListener);
         RepaintOnEventListener repaintListener = new RepaintOnEventListener();
         styleCombo.addItemListener(repaintListener);
-        styleCombo.setModel(new DefaultComboBoxModel(GradientStyle.values()));
+        styleCombo.setModel(new DefaultComboBoxModel<Object>(GradientStyle.values()));
         noCycleRadio.addActionListener(repaintListener);
         reflectedRadio.addActionListener(repaintListener);
         repeatedRadio.addActionListener(repaintListener);

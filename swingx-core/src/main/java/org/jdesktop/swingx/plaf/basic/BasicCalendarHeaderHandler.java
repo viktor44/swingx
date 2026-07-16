@@ -103,11 +103,11 @@ public class BasicCalendarHeaderHandler extends CalendarHeaderHandler {
         // Formatters/state used by Providers. 
         /** Localized month strings used in title. */
         private String[] monthNames;
-        private StringValue tsv ;
+        private StringValue<Object> tsv ;
 
         public ZoomOutAction() {
             super();
-            tsv = new StringValue() {
+            tsv = new StringValue<Object>() {
                 
                 @Override
                 public String getString(Object value) {

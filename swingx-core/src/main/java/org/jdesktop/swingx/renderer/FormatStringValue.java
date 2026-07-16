@@ -44,7 +44,7 @@ import java.text.Format;
  * 
  * @author Jeanette Winzenburg
  */
-public class FormatStringValue implements StringValue {
+public class FormatStringValue implements StringValue<Object> {
 
     /** the format used in creating the String representation. */
     protected Format format;

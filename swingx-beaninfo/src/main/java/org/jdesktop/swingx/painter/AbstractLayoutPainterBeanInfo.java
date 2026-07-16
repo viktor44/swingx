@@ -14,7 +14,7 @@ public class AbstractLayoutPainterBeanInfo extends BeanInfoSupport {
         super(AbstractLayoutPainter.class);
     }
     
-    public AbstractLayoutPainterBeanInfo(Class clazz) {
+    public AbstractLayoutPainterBeanInfo(Class<?> clazz) {
         super(clazz);
     }
 

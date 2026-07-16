@@ -170,7 +170,7 @@ public class BasicDatePickerUI extends DatePickerUI {
         if (popupButton != null) {
             // this is a trick to get hold of the client prop which
             // prevents closing of the popup
-            JComboBox box = new JComboBox();
+            JComboBox<Object> box = new JComboBox<Object>();
             Object preventHide = box.getClientProperty("doNotCancelPopup");
             popupButton.putClientProperty("doNotCancelPopup", preventHide);
             datePicker.add(popupButton);
@@ -743,7 +743,7 @@ public class BasicDatePickerUI extends DatePickerUI {
         datePicker.add(datePicker.getEditor());
         // this is a trick to get hold of the client prop which
         // prevents closing of the popup
-        JComboBox box = new JComboBox();
+        JComboBox<Object> box = new JComboBox<Object>();
         Object preventHide = box.getClientProperty("doNotCancelPopup");
         datePicker.getEditor().putClientProperty("doNotCancelPopup", preventHide);
         datePicker.getEditor().setInheritsPopupMenu(true);

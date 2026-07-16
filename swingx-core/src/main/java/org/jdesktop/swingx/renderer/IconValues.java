@@ -37,7 +37,7 @@ public final class IconValues {
      * no icon instead of f.i. a default provided by the CellContext. 
      */
     @SuppressWarnings("serial")
-    public static final IconValue NONE = new IconValue() {
+    public static final IconValue<Object> NONE = new IconValue<Object>() {
     
         @Override
         public Icon getIcon(Object value) {
@@ -50,7 +50,7 @@ public final class IconValues {
      * Returns the value as Icon if possible or null.
      */
     @SuppressWarnings("serial")
-    public static final IconValue ICON = new IconValue() {
+    public static final IconValue<Object> ICON = new IconValue<Object>() {
     
         @Override
         public Icon getIcon(Object value) {
@@ -67,7 +67,7 @@ public final class IconValues {
      * the same effect as {@link IconValues#NONE}.
      */
     @SuppressWarnings("serial")
-    public static final IconValue FILE_ICON = new IconValue() {
+    public static final IconValue<Object> FILE_ICON = new IconValue<Object>() {
         @Override
         public Icon getIcon(Object value) {
             if (value instanceof File) {

@@ -149,9 +149,9 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
 
     private boolean painting = false;
 
-    private Painter foregroundPainter;
+    private Painter<? super JXLabel> foregroundPainter;
 
-    private Painter backgroundPainter;
+    private Painter<Object> backgroundPainter;
 
     private boolean multiLine;
 
@@ -301,7 +301,7 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
      *
      * @return the current foreground painter.
      */
-    public final Painter getForegroundPainter() {
+    public final Painter<? super JXLabel> getForegroundPainter() {
         return foregroundPainter;
     }
 
@@ -331,13 +331,15 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
      *
      * @param painter
      */
-    public void setForegroundPainter(Painter painter) {
-        Painter old = this.getForegroundPainter();
+    public void setForegroundPainter(Painter<?> painter) {
+        Painter<? super JXLabel> old = this.getForegroundPainter();
         if (painter == null) {
             //restore default painter
             initPainterSupport();
         } else {
-            this.foregroundPainter = painter;
+            @SuppressWarnings("unchecked")
+            Painter<? super JXLabel> fg = (Painter<? super JXLabel>) painter;
+            this.foregroundPainter = fg;
         }
         firePropertyChange("foregroundPainter", old, getForegroundPainter());
         repaint();
@@ -352,9 +354,11 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
      * @see #getBackgroundPainter()
      */
     @Override
-    public void setBackgroundPainter(Painter p) {
-        Painter old = getBackgroundPainter();
-        backgroundPainter = p;
+    public void setBackgroundPainter(Painter<?> p) {
+        Painter<Object> old = getBackgroundPainter();
+        @SuppressWarnings("unchecked")
+        Painter<Object> painter = (Painter<Object>) p;
+        backgroundPainter = painter;
         firePropertyChange("backgroundPainter", old, getBackgroundPainter());
         repaint();
     }
@@ -367,7 +371,7 @@ public class JXLabel extends JLabel implements BackgroundPaintable {
      * @see #setBackgroundPainter(Painter)
      */
     @Override
-    public final Painter getBackgroundPainter() {
+    public final Painter<Object> getBackgroundPainter() {
         return backgroundPainter;
     }
     

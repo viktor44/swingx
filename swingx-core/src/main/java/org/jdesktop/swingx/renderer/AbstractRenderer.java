@@ -40,7 +40,7 @@ import org.jdesktop.swingx.rollover.RolloverRenderer;
  * @author Jeanette Winzenburg
  */
 public abstract class AbstractRenderer 
-    implements  RolloverRenderer, StringValue, Serializable, UIDependent {
+    implements  RolloverRenderer, StringValue<Object>, Serializable, UIDependent {
 
     protected ComponentProvider<?> componentController;
 

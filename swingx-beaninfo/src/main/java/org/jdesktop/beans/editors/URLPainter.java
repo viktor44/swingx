@@ -34,7 +34,7 @@ import org.jdesktop.swingx.painter.Painter;
  *
  * @author joshy
  */
-public class URLPainter extends CompoundPainter {
+public class URLPainter extends CompoundPainter<Object> {
     URL url;
     /**
      * Creates a new instance of URLPainter
@@ -83,7 +83,7 @@ public class URLPainter extends CompoundPainter {
     
     private void load() {
         try {
-            Painter painter = PainterUtil.loadPainter(url);
+            Painter<Object> painter = PainterUtil.loadPainter(url);
             this.setPainters(painter);
             loaded = true;
         } catch (Exception ex) {

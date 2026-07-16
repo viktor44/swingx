@@ -15,7 +15,7 @@ public class AbstractAreaPainterBeanInfo extends BeanInfoSupport {
         super(AbstractAreaPainter.class);
     }
     
-    public AbstractAreaPainterBeanInfo(Class clazz) {
+    public AbstractAreaPainterBeanInfo(Class<?> clazz) {
         super(clazz);
     }
 

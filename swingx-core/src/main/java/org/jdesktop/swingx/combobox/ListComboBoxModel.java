@@ -35,7 +35,7 @@ import javax.swing.ComboBoxModel;
  * @author jm158417
  * @author Karl George Schaefer
  */
-public class ListComboBoxModel<E> extends AbstractListModel implements ComboBoxModel, ActionListener {
+public class ListComboBoxModel<E> extends AbstractListModel<E> implements ComboBoxModel<E>, ActionListener {
     /**
      * A key used to notify the model that the backing {@code List} has changed.
      */
